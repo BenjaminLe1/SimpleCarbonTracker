@@ -1,3 +1,3 @@
 # SimpleCarbonTracker
-WELCOME ! ! ! !
-this boutta duck soup
+https://footprint.wwf.org.uk/questionnaire
+seanhalpin.xyz
