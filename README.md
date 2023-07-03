@@ -1,4 +1,93 @@
-# Getting Started with Create React App
+
+Quiz
+
+Requirement
+
+    0) Creating question bank
+    1) capturing answers for questions
+    2) Person is responding  - Account
+    3) Caluclating the footprint
+    4) Reporting the result
+    5) Storing result to the Person
+
+
+
+Entities
+    Question 
+        Category
+        Answer to questions
+        Question to the Category
+    Answer
+        Question, Answer by person
+    Person
+        Acoount
+    Result
+        Result to person
+
+
+    Front End-> React
+    Back-end -> Node -> API/service 
+             -> DB
+
+    DB -> Tables -> DAO -> Serice -> API -> Front-end 
+
+
+Create Question -> DAO -> create.Table - Data Access Object
+                    Service ->
+                        Transaction
+                        Business Rule
+
+                    API -> exposes API endpoint to the fron-end and call the service
+                        Can this call valid, this person calling can create - Autherization
+                        Validate the required data is passed - Validation
+
+
+DB - Tables
+
+Question
+    -> Question id 
+    -> Question Text
+    
+Category
+    -> Caretory id
+    -> Category Name
+    -> Sequence
+
+QuestionCategory
+    Category id
+    Question id
+    Sequence
+
+Answer
+    AnswerId
+    AnswerText
+    score
+
+QuestionAnswer
+
+
+Person
+    Perosn id   
+    Name
+    username
+    password - Encrypted
+
+PersonAnswers
+
+
+
+API 
+    GET - /Categories -> 
+    POST /
+    PUT
+    PATCH
+
+    GET  /Questions/catoryId/1
+
+    GET /Answers/QuestionId/1
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +157,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
