@@ -10,14 +10,8 @@ const Navbar = () => {
                     <NavLink to="/about" activeStyle>
                         About
                     </NavLink>
-                    <NavLink to="/contact" activeStyle>
-                        Contact Us
-                    </NavLink>
-                    <NavLink to="/blogs" activeStyle>
-                        Blogs
-                    </NavLink>
-                    <NavLink to="/sign-up" activeStyle>
-                        Sign Up
+                    <NavLink to="/quiz" activeStyle>
+                        Footprint Quiz
                     </NavLink>
                 </NavMenu>
             </Nav>
