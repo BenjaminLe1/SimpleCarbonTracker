@@ -7,7 +7,7 @@ function App() {
     <button>Super</button>
     <button>Yes</button>
     <button>Super Duper</button>
-    <button>Mega</button>
+    <button>Megan</button>
     </>
   );
 }
