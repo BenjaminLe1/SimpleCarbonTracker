@@ -2,7 +2,7 @@ import React from 'react';
  
 const Quiz = () => {
     return (
-        <h1>You can write your blogs!</h1>
+        <h1>Take quiz here!</h1>
     );
 };
  

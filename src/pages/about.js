@@ -4,8 +4,7 @@ const About = () => {
     return (
         <div>
             <h1>
-                GeeksforGeeks is a Computer
-                Science portal for geeks.s
+                This is where you can check your footprint ! ! ! (carbon)
             </h1>
         </div>
     );
