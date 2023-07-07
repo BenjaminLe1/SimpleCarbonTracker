@@ -1,5 +1,6 @@
-https://codewithmarish.com/post/full-stack-crud-app
-
+//https://codewithmarish.com/post/full-stack-crud-app
+https://www.wwf.org.uk/
+https://www.seanhalpin.xyz/
 Quiz
 
 Requirement
@@ -30,7 +31,7 @@ Entities
     Back-end -> Node -> API/service 
              -> DB
 
-    DB -> Tables -> DAO -> Serice -> API -> Front-end 
+    DB -> Tables -> DAO -> Service -> API -> Front-end 
 
 
 Create Question -> DAO -> create.Table - Data Access Object
@@ -72,6 +73,7 @@ Person
     Name
     username
     password - Encrypted
+    email
 
 PersonAnswers
 
