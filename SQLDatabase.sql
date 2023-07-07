@@ -1,3 +1,5 @@
+CREATE SCHEMA `SimpleCarbonTracker`;
+
 CREATE TABLE `Person` (
   `idPerson` int NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
