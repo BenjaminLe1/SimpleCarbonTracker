@@ -1,6 +1,14 @@
 //https://codewithmarish.com/post/full-stack-crud-app
 https://www.wwf.org.uk/
 https://www.seanhalpin.xyz/
+
+Helpful links for backend to frontend connection:
+1. https://fearby.com/article/how-to-setup-pooled-mysql-connections-in-node-js-that-dont-disconnect/#google_vignette
+2. https://www.freecodecamp.org/news/how-to-consume-rest-apis-in-react/
+3. https://www.section.io/engineering-education/how-to-use-cors-in-nodejs-with-express/
+4. https://stackoverflow.com/questions/39153545/how-to-do-post-in-form-submit-using-reactjs-and-pass-the-object-value-into-rest
+5. https://stackoverflow.com/questions/5710358/how-to-access-post-form-fields-in-express
+
 Quiz
 
 Requirement
