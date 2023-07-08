@@ -1,15 +1,42 @@
 import express from "express"
-import mysql from "mysql"
+import mysql from "mysql2"
 import { isBuffer } from "util"
+import cors from "cors"
 
 const app = express()
+
+app.use(cors({
+    origin: 'http://localhost:3001'
+}));
 
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"Canbe56&8",
-    database:"SimpleCarbonTracker"
+    password:"N@vi03kid",
+    database:"simplecarbontracker"
 })
+
+db.connect(function(err) {                 // The server is either down
+    if(err) {                                   // or restarting (takes a while sometimes).
+        console.log('error when connecting to db:', err.code);
+        setTimeout(handleDisconnect, 2000);     // We introduce a delay before attempting to reconnect,
+    }else{
+        console.log('Connected to db!');
+    }                                           // to avoid a hot loop, and to allow our node script to
+});                                             // process asynchronous requests in the meantime.
+                                                // If you're also serving http, display a 503 error.
+db.on('error', function(err) {
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+        handleDisconnect();                       // lost due to either server restart, or a
+    }else{
+        throw err;
+    }
+});
+
+function handleDisconnect() {
+	console.log('handleDisconnect()');
+	db.destroy();
+}
 
 app.get("/", (req,res)=>{
     res.json("hello this is the backend")
