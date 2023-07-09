@@ -15,5 +15,6 @@
             "password": "dataBaseNow12",
             "connectionTimeout": 30
         }
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
