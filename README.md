@@ -29,9 +29,11 @@ Days     Task
 2        Connecting everything
 1        API setup
 3        Make tables on SQL / Test data
-1        API connection with new tables        
-3        
-4        Frontend styling and actual content
+2        API connection with new tables (test frontend connection)        
+4        Algorithms
+3        Testing algorithms, API, SQL
+6        Frontend function
+2        Frontend styling and actual content
 
 
 --
