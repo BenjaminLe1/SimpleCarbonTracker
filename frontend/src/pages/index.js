@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <h1 style={customStyle}>
-                This is where you can check your footprint ! ! ! (carbon)
+                This is where you can check your footprint ! ! ! stfu rhino(carbon)
             </h1>
         </div>
     );

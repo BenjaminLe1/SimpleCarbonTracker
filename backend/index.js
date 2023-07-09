@@ -13,8 +13,13 @@ const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     //password:"N@vi03kid", //vijay
+<<<<<<< HEAD
     //password:"Canbe56&8", //bens
     password:"dataBaseNow12", //pravin
+=======
+    password:"Canbe56&8", //bens
+    //password:"dataBaseNow12" //pravin
+>>>>>>> 0cdee1aec6bee091071f24c3b5b7f0369487f1e5
     database:"simplecarbontracker"
 })
 
