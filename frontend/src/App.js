@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route }
@@ -8,6 +8,20 @@ import About from './pages/about';
 import Quiz from './pages/quiz';
  
 function App() {
+
+    const [posts, setPosts] = useState([]);
+    useEffect(() => {
+       fetch('http://localhost:3000/Person')
+          .then((response) => response.json())
+          .then((data) => {
+             console.log(data);
+             setPosts(data);
+          })
+          .catch((err) => {
+             console.log(err.message);
+          });
+    }, []);
+
     return (
         <Router>
             <Navbar />
