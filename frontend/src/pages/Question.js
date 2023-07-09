@@ -42,19 +42,21 @@ const answerStyle3 ={
     marginTop: "20px"
 }
 
+
+//Onclick: store score to persons account -> load next question
 function Question(){
     return(
         <div>
             <p style={paraStyle}>How many times a week do you drive to work?</p>
             <ol style={listStyle}>
                 <div style={answerStyle1}>
-                    <p>1-3 times a weeks</p>
+                    <button>1-3 times a weeks</button>
                 </div>
                 <div style={answerStyle2}>
-                    <p>3-5 times a week</p>
+                    <button>3-5 times a week</button>
                 </div>
                 <div style={answerStyle3}>
-                    <p>Everyday</p>
+                    <button>Everyday</button>
                 </div>
             </ol>
         </div>
