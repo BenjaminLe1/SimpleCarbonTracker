@@ -61,20 +61,22 @@ Question
 Category
     -> Caretory id
     -> Category Name
-    -> Sequence
+    //-> Sequence
 
 QuestionCategory
     Category id
     Question id
-    Sequence
+    //Sequence
 
 Answer
     AnswerId
     AnswerText
-    score
+    AnswerScore
 
-QuestionAnswer
-
+AnswerCategory
+    AnswerCategoryScore id
+    AnswerScore id
+    Category id
 
 Person
     Perosn id   
@@ -83,7 +85,9 @@ Person
     password - Encrypted
     email
 
-PersonAnswers
+PersonACS
+    AnswerCategoryScore id
+    Person id
 
 
 
