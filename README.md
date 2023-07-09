@@ -1,18 +1,20 @@
+**Reference**
 //https://codewithmarish.com/post/full-stack-crud-app
 https://www.wwf.org.uk/
 https://www.seanhalpin.xyz/
 
-Helpful links for backend to frontend connection:
+
+--
+**Helpful links for backend to frontend connection:**
 1. https://fearby.com/article/how-to-setup-pooled-mysql-connections-in-node-js-that-dont-disconnect/#google_vignette
 2. https://www.freecodecamp.org/news/how-to-consume-rest-apis-in-react/
 3. https://www.section.io/engineering-education/how-to-use-cors-in-nodejs-with-express/
 4. https://stackoverflow.com/questions/39153545/how-to-do-post-in-form-submit-using-reactjs-and-pass-the-object-value-into-rest
 5. https://stackoverflow.com/questions/5710358/how-to-access-post-form-fields-in-express
 
-Quiz
 
-Requirement
-
+--
+**Requirement**
     0) Creating question bank
     1) capturing answers for questions
     2) Person is responding  - Account
@@ -21,8 +23,19 @@ Requirement
     5) Storing result to the Person
 
 
+--
+**Plan**
+Days     Task
+2        Connecting everything
+1        API setup
+3        Make tables on SQL / Test data
+1        API connection with new tables        
+3        
+4        Frontend styling and actual content
 
-Entities
+
+--
+**Entities**
     Question 
         Category
         Answer to questions
@@ -52,7 +65,8 @@ Create Question -> DAO -> create.Table - Data Access Object
                         Validate the required data is passed - Validation
 
 
-DB - Tables
+--
+**DB - Tables**
 
 **THIS IS THE PATH TO GET THE PERSON'S SCORE FROM PersonScore TO THE CATEGORY: THIS ALLOWS US TO HAVE THE SCORE BY CATEGORY TO DISPLAY AFTER
 
@@ -107,8 +121,8 @@ PersonScore                  ---> join with QuestionAnswer to get each persons a
     Person id
 
 
-
-API 
+--
+**API** 
     GET - /Categories -> 
     POST /
     PUT
@@ -119,7 +133,8 @@ API
     GET /Answers/QuestionId/1
 
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------# Getting Started with Create React App
+--------------------------------------------------------------------------------------------
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
