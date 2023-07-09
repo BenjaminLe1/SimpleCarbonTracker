@@ -51,19 +51,24 @@ Create Question -> DAO -> create.Table - Data Access Object
                         Can this call valid, this person calling can create - Autherization
                         Validate the required data is passed - Validation
 
---
 
 DB - Tables
 
+**THIS IS THE PATH TO GET THE PERSON'S SCORE FROM PersonScore TO THE CATEGORY: THIS ALLOWS US TO HAVE THE SCORE BY CATEGORY TO DISPLAY AFTER
+
+SELECT CategoryName, SUM(Score) FROM simplecarbontracker.PersonScore, simplecarbontracker.QuestionAnswer, simplecarbontracker.QuestionCategory, simplecarbontracker.Category
+WHERE PersonScore.Question_Answer_ID = QuestionAnswer.Question_Answer_ID AND QuestionAnswer.QuestionID = QuestionCategory.QuestionID AND QuestionCategory.CategoryID = Category.CategoryID 
+AND PersonScore.PersonID = ?
+GROUP BY CategoryName
+
 Question
-    -> Question id
+    -> Question id 
     -> Question Text
     
 Category
     -> Caretory id
     -> Category Name
-    //4 categories
-    //Sequence
+    //-> Sequence
 
 QuestionCategory
     Category id
@@ -71,27 +76,35 @@ QuestionCategory
     //Sequence
 
 Answer
-    AnswerId
+    AnswerId                        Yes, No, 10, 
     AnswerText
     AnswerScore
 
-AnswerCategory
-    AnswerCategoryScore id
-    AnswerScore id
-    Category id
+
+QuestionAnswer
+    question_answer_id
+    QuestionID                SPorts, clothing
+    AnswerID
+    Score
+    
+
+                            Do You Like Tennis
+                            Yes    No        May Be
+                            5        10        2
+                            Can you stich
 
 Person
-    Person id   
+    Perosn id   
     Name
     username
     password - Encrypted
     email
 
-PersonACS
-    AnswerCategoryScore id
+PersonScore                  ---> join with QuestionAnswer to get each persons answers to certain questions --> join with category to assign question scores to category               
+    question_answer_id
     Person id
 
---
+
 
 API 
     GET - /Categories -> 
