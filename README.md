@@ -51,17 +51,19 @@ Create Question -> DAO -> create.Table - Data Access Object
                         Can this call valid, this person calling can create - Autherization
                         Validate the required data is passed - Validation
 
+--
 
 DB - Tables
 
 Question
-    -> Question id 
+    -> Question id
     -> Question Text
     
 Category
     -> Caretory id
     -> Category Name
-    //-> Sequence
+    //4 categories
+    //Sequence
 
 QuestionCategory
     Category id
@@ -79,7 +81,7 @@ AnswerCategory
     Category id
 
 Person
-    Perosn id   
+    Person id   
     Name
     username
     password - Encrypted
@@ -89,7 +91,7 @@ PersonACS
     AnswerCategoryScore id
     Person id
 
-
+--
 
 API 
     GET - /Categories -> 
