@@ -56,11 +56,6 @@ DB - Tables
 
 **THIS IS THE PATH TO GET THE PERSON'S SCORE FROM PersonScore TO THE CATEGORY: THIS ALLOWS US TO HAVE THE SCORE BY CATEGORY TO DISPLAY AFTER
 
-SELECT CategoryName, SUM(Score) FROM simplecarbontracker.PersonScore, simplecarbontracker.QuestionAnswer, simplecarbontracker.QuestionCategory, simplecarbontracker.Category
-WHERE PersonScore.Question_Answer_ID = QuestionAnswer.Question_Answer_ID AND QuestionAnswer.QuestionID = QuestionCategory.QuestionID AND QuestionCategory.CategoryID = Category.CategoryID 
-AND PersonScore.PersonID = ?
-GROUP BY CategoryName
-
 Question
     -> Question id 
     -> Question Text
@@ -188,3 +183,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+SELECT CategoryName, SUM(Score) FROM simplecarbontracker.PersonScore, simplecarbontracker.QuestionAnswer, simplecarbontracker.QuestionCategory, simplecarbontracker.Category
+WHERE PersonScore.Question_Answer_ID = QuestionAnswer.Question_Answer_ID AND QuestionAnswer.QuestionID = QuestionCategory.QuestionID AND QuestionCategory.CategoryID = Category.CategoryID 
+AND PersonScore.PersonID = ?
+GROUP BY CategoryName
