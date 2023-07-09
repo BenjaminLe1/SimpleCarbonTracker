@@ -73,7 +73,6 @@ QuestionCategory
 Answer
     AnswerId                        Yes, No, 10, 
     AnswerText
-    AnswerScore
 
 
 QuestionAnswer
@@ -81,8 +80,12 @@ QuestionAnswer
     QuestionID                SPorts, clothing
     AnswerID
     Score
-    
 
+                            **ONE QUESTION -> ALL THE ANSWERS FOR THAT QUESTION -> SCORE FOR EACH QUESTION-ANSWER PAIR**
+                            **BEFORE WE DO FRONTEND FOR EACH QUESTION-ANSWER PAIR WE ASSIGN A SCORE**
+                            
+                            How much food you waste
+                            
                             Do You Like Tennis
                             Yes    No        May Be
                             5        10        2
