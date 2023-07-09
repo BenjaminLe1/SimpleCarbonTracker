@@ -65,7 +65,7 @@ Category
     -> Category Name
     //-> Sequence
 
-QuestionCategory
+CategoryQuestion
     Category id
     Question id
     //Sequence
@@ -84,8 +84,12 @@ QuestionAnswer
                             **ONE QUESTION -> ALL THE ANSWERS FOR THAT QUESTION -> SCORE FOR EACH QUESTION-ANSWER PAIR**
                             **BEFORE WE DO FRONTEND FOR EACH QUESTION-ANSWER PAIR WE ASSIGN A SCORE**
                             
-                            How much food you waste
-                            
+                            Q1. How much food you waste
+                            *user picks*     score
+                                Q1-barely      0
+                                Q1-somewhat    1 
+                                Q1-a lot       2
+                                
                             Do You Like Tennis
                             Yes    No        May Be
                             5        10        2
