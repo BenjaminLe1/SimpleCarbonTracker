@@ -2,8 +2,12 @@ import express from "express"
 import mysql from "mysql2"
 import { isBuffer } from "util"
 import cors from "cors"
+import bodyParser from "body-parser"
 
 const app = express()
+app.use(bodyParser.urlencoded({extended: true}));
+
+
 
 app.use(cors({
     origin: 'http://localhost:3001'

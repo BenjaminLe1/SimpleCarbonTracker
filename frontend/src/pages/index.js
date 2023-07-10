@@ -6,14 +6,16 @@ const customStyle = {
 };
 
 const Home = () => {
+
+
     return (
         <div>
             <h1 style={customStyle}>
-                This is where you can check your footprint ! ! ! stfu rhino(carbon)
-                <img src="./VJ.jpeg" alt="" />
+                HOMEPAGE
             </h1>
         </div>
     );
 };
  
 export default Home;
+
