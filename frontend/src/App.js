@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
 import Home from './pages';
 import Quiz from './pages/quiz';
+import Signup from './pages/signup';
  
 function App() {
 
@@ -25,8 +26,9 @@ function App() {
         <Router>
             <Navbar />
             <Routes>
-                <Route exact path='/' exact element={<Home />} />
+                <Route exact path='/' exact element={<Home/>} />
                 <Route path='/quiz' element={<Quiz />} />
+                <Route path='/signup' element={<Signup />} />
             </Routes>
         </Router>
     );
