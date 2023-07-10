@@ -1,18 +1,20 @@
+**Reference**
 //https://codewithmarish.com/post/full-stack-crud-app
 https://www.wwf.org.uk/
 https://www.seanhalpin.xyz/
 
-Helpful links for backend to frontend connection:
+
+--
+**Helpful links for backend to frontend connection:**
 1. https://fearby.com/article/how-to-setup-pooled-mysql-connections-in-node-js-that-dont-disconnect/#google_vignette
 2. https://www.freecodecamp.org/news/how-to-consume-rest-apis-in-react/
 3. https://www.section.io/engineering-education/how-to-use-cors-in-nodejs-with-express/
 4. https://stackoverflow.com/questions/39153545/how-to-do-post-in-form-submit-using-reactjs-and-pass-the-object-value-into-rest
 5. https://stackoverflow.com/questions/5710358/how-to-access-post-form-fields-in-express
 
-Quiz
 
-Requirement
-
+--
+**Requirement**
     0) Creating question bank
     1) capturing answers for questions
     2) Person is responding  - Account
@@ -21,8 +23,21 @@ Requirement
     5) Storing result to the Person
 
 
+--
+**Plan**
+Days     Task
+2        Connecting everything
+1        API setup
+3        Make tables on SQL / Test data
+2        API connection with new tables (test frontend connection)        
+4        Algorithms
+3        Testing algorithms, API, SQL
+6        Frontend function
+2        Frontend styling and actual content
 
-Entities
+
+--
+**Entities**
     Question 
         Category
         Answer to questions
@@ -52,7 +67,10 @@ Create Question -> DAO -> create.Table - Data Access Object
                         Validate the required data is passed - Validation
 
 
-DB - Tables
+--
+**DB - Tables**
+
+**THIS IS THE PATH TO GET THE PERSON'S SCORE FROM PersonScore TO THE CATEGORY: THIS ALLOWS US TO HAVE THE SCORE BY CATEGORY TO DISPLAY AFTER
 
 Question
     -> Question id 
@@ -61,20 +79,37 @@ Question
 Category
     -> Caretory id
     -> Category Name
-    -> Sequence
+    //-> Sequence
 
-QuestionCategory
+CategoryQuestion
     Category id
     Question id
-    Sequence
+    //Sequence
 
 Answer
-    AnswerId
+    AnswerId                        Yes, No, 10, 
     AnswerText
-    score
+
 
 QuestionAnswer
+    question_answer_id
+    QuestionID                SPorts, clothing
+    AnswerID
+    Score
 
+                            **ONE QUESTION -> ALL THE ANSWERS FOR THAT QUESTION -> SCORE FOR EACH QUESTION-ANSWER PAIR**
+                            **BEFORE WE DO FRONTEND FOR EACH QUESTION-ANSWER PAIR WE ASSIGN A SCORE**
+                            
+                            Q1. How much food you waste
+                            *user picks*     score
+                                Q1-barely      0
+                                Q1-somewhat    1 
+                                Q1-a lot       2
+                                
+                            Do You Like Tennis
+                            Yes    No        May Be
+                            5        10        2
+                            Can you stich
 
 Person
     Perosn id   
@@ -83,11 +118,13 @@ Person
     password - Encrypted
     email
 
-PersonAnswers
+PersonScore                  ---> join with QuestionAnswer to get each persons answers to certain questions --> join with category to assign question scores to category               
+    question_answer_id
+    Person id
 
 
-
-API 
+--
+**API** 
     GET - /Categories -> 
     POST /
     PUT
@@ -98,7 +135,8 @@ API
     GET /Answers/QuestionId/1
 
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------# Getting Started with Create React App
+--------------------------------------------------------------------------------------------
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -169,3 +207,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+SELECT CategoryName, SUM(Score) FROM simplecarbontracker.PersonScore, simplecarbontracker.QuestionAnswer, simplecarbontracker.QuestionCategory, simplecarbontracker.Category
+WHERE PersonScore.Question_Answer_ID = QuestionAnswer.Question_Answer_ID AND QuestionAnswer.QuestionID = QuestionCategory.QuestionID AND QuestionCategory.CategoryID = Category.CategoryID 
+AND PersonScore.PersonID = ?
+GROUP BY CategoryName
