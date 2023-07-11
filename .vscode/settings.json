@@ -14,6 +14,20 @@
             "username": "root",
             "password": "dataBaseNow12",
             "connectionTimeout": 30
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "MySQL Local",
+            "database": "simplecarbontracker",
+            "username": "root",
+            "connectionTimeout": 30
         }
     ],
     "git.ignoreLimitWarning": true
