@@ -21,7 +21,6 @@ function App() {
              console.log(err.message);
           });
     }, []);
-
     return (
         <Router>
             <Navbar />
