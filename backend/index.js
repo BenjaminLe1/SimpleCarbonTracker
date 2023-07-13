@@ -3,6 +3,7 @@ import mysql from "mysql2"
 import { isBuffer } from "util"
 import cors from "cors"
 import bodyParser from "body-parser"
+import {Category, Question, Answer, categoryQuestion, questionAnswer} from "CnQnA"
 
 const app = express()
 
@@ -57,7 +58,7 @@ app.get("/", cors(), (req,res)=>{
 
 //ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Canbe56&8';
 
-app.get("/Person", (req,res)=>{
+/* app.get("/Person", (req,res)=>{
     const q = "SELECT * FROM Person"
     db.query(q,(err,data)=>{
         if(err) return res.json(err)
@@ -76,13 +77,41 @@ app.post("/Person", (req,res)=>{
         if(err) return res.json(err)
         return res.json(data)
     })
-})
+}) */
 
 app.post("/post_signup", async (req, res) => {
     var userEmail = req.body.email
     var userUsername = req.body.userName
     var userPassword = req.body.password
-	console.log("EMAIL:",userEmail," | USERNAME:",userUsername," | PASSWORD:",userPassword)
+    var new_signup = [userUsername, userPassword, userEmail]
+    /* var new_signup = []
+    for(var i in req.body)
+        result.push([i, req.body[i]]);
+    console.log(new_signup) */
+    const q = "INSERT INTO SimpleCarbonTracker.Person (username,password,email) VALUES (?);"
+
+    db.query(q,[new_signup], (err, data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+
+    console.log("New Signup -> EMAIL:",userEmail,"USERNAME:",userUsername,"PASSWORD:",userPassword)
+})
+//SIGN IN RIGHT AFTER SIGN UP
+//put error if username or email is not unique for sign up
+//when sign in or sign up success => remove from navbar: create account and sign in
+
+//optional: sign in "forget password" button
+
+app.post("/check_login", (req,res)=>{
+    var checkUsername = req.body.userName
+    var checkPassword = req.body.password
+    const q = "SELECT * FROM simplecarbontracker.person WHERE username = (?)"
+    db.query(q,checkUsername, (err, data)=>{
+        if(err) return res.json(err)
+        else if ((data == "") || (data[0].password != checkPassword)) return console.log("Username or Password is incorrect.") //refresh page then display username or password incorrect
+        return console.log("SUCCESSFUL SIGNIN") //sign them in
+    })
 })
 
 app.listen(4000, ()=>{
