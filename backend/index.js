@@ -3,7 +3,7 @@ import mysql from "mysql2"
 import { isBuffer } from "util"
 import cors from "cors"
 import bodyParser from "body-parser"
-import {Category, Question, Answer, categoryQuestion, questionAnswer} from "CnQnA"
+//import {Category, Question, Answer, categoryQuestion, questionAnswer} from "CnQnA"
 
 const app = express()
 
@@ -79,6 +79,8 @@ app.post("/Person", (req,res)=>{
     })
 }) */
 
+
+
 app.post("/post_signup", async (req, res) => {
     var userEmail = req.body.email
     var userUsername = req.body.userName
@@ -99,7 +101,9 @@ app.post("/post_signup", async (req, res) => {
 })
 //SIGN IN RIGHT AFTER SIGN UP
 //put error if username or email is not unique for sign up
-//when sign in or sign up success => remove from navbar: create account and sign in
+//when sign in or sign up success => remove from navbar: create account and sign in => put sign out in navbar
+
+//NEW LAYOUT WHEN SIGNING IN
 
 //optional: sign in "forget password" button
 
