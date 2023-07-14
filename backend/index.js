@@ -12,9 +12,9 @@ app.use(cors({
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"N@vi03kid", //vijay
+    //password:"N@vi03kid", //vijay
     // password:"Canbe56&8", //bens
-    //password:"dataBaseNow12" //pravin
+    password:"dataBaseNow12", //pravin
     database:"simplecarbontracker"
 })
 
