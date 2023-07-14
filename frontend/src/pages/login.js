@@ -1,16 +1,14 @@
 import React,{useState} from "react";
 import axios from "axios";
 
-function Signup(){
-    const [email,setEmail] = useState("")
+function Login(){
     const [userName,setUsername] = useState("")
     const [password,setPassword] = useState("")
 
-    async function postSignup(e) {
+    async function postSignin(e) {
         e.preventDefault()
         try {
-            await axios.post("http://localhost:4000/post_signup", {
-                email,
+            await axios.post("http://localhost:4000/check_login", {
                 userName,
                 password
             })
@@ -20,16 +18,15 @@ function Signup(){
     }
 
     return (
-        <div classname="Signup">
-            <form onSubmit={postSignup}>
-                <input onChange={(e) => setEmail(e.target.value)} id="email" value={email} placeholder="email" type="email"></input>
+        <div classname="Login">
+            <form onSubmit={postSignin}>
                 <input onChange={(e) => setUsername(e.target.value)} id="userName" value={userName} placeholder="username" type="text"></input>
                 <input onChange={(e) => setPassword(e.target.value)} id="password" value={password} placeholder="password" type="text"></input>
-                <button type="submit">Create an Account</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
     )    
 }
 
-export default Signup
+export default Login
 

@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+//import {useState, useEffect} from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route }
@@ -6,10 +7,11 @@ import { BrowserRouter as Router, Routes, Route }
 import Home from './pages';
 import Quiz from './pages/quiz';
 import Signup from './pages/signup';
+import Login from './pages/login';
  
 function App() {
 
-    const [posts, setPosts] = useState([]);
+    /* const [posts, setPosts] = useState([]);
     useEffect(() => {
        fetch('http://localhost:3000/Person')
           .then((response) => response.json())
@@ -20,15 +22,15 @@ function App() {
           .catch((err) => {
              console.log(err.message);
           });
-    }, []);
-
+    }, []); */
     return (
         <Router>
             <Navbar />
             <Routes>
-                <Route exact path='/' exact element={<Home/>} />
+                <Route path='/' element={<Home/>} />
                 <Route path='/quiz' element={<Quiz />} />
                 <Route path='/signup' element={<Signup />} />
+                <Route path='/login' element={<Login />} />
             </Routes>
         </Router>
     );
