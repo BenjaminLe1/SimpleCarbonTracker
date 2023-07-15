@@ -3,7 +3,7 @@ import mysql from "mysql2"
 import { isBuffer } from "util"
 import cors from "cors"
 import bodyParser from "body-parser"
-//import {Category, Question, Answer, categoryQuestion, questionAnswer} from "CnQnA"
+import get_CQAS, {Category, Question, Answer, categoryQuestion, questionAnswer} from "./CnQnA.js"
 
 const app = express()
 
@@ -79,7 +79,13 @@ app.post("/Person", (req,res)=>{
     })
 }) */
 
-
+//DATABASE INPUT
+const [category,question,answer,score] = get_CQAS()
+Category(db, category)
+Question(db, question)
+Answer(db, answer)
+categoryQuestion(db, category, question, answer)
+questionAnswer(db, category, question, answer, score)
 
 app.post("/post_signup", async (req, res) => {
     var userEmail = req.body.email
