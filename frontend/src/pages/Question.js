@@ -36,27 +36,40 @@ const answerStyle3 ={
     alignItems: "center",
     justifyContent: "center",
     marginLeft: "42%",
-    backgroundColor: "#C70039",
+    backgroundColor: "navy",
     width: "200px",
     height: "100px",
     marginTop: "20px"
 }
 
+const answerStyle4 ={
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: "42%",
+    backgroundColor: "brown",
+    width: "200px",
+    height: "100px",
+    marginTop: "20px"
+}
 
 //Onclick: store score to persons account -> load next question
-function Question(){
+function Question(props){
     return(
         <div>
-            <p style={paraStyle}>How many times a week do you drive to work?</p>
+            <p style={paraStyle}> {props.question_text} </p>
             <ol style={listStyle}>
                 <div style={answerStyle1}>
-                    <button>1-3 times a weeks</button>
+                    <button>{props.ans1}</button>
                 </div>
                 <div style={answerStyle2}>
-                    <button>3-5 times a week</button>
+                    <button>{props.ans2}</button>
                 </div>
                 <div style={answerStyle3}>
-                    <button>Everyday</button>
+                    <button>{props.ans3}</button>
+                </div>
+                <div style={answerStyle4}>
+                    <button>{props.ans4}</button>
                 </div>
             </ol>
         </div>

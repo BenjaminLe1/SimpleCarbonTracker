@@ -80,12 +80,12 @@ app.post("/Person", (req,res)=>{
 }) */
 
 //DATABASE INPUT
-const [category,question,answer,score] = get_CQAS()
+/* const [category,question,answer,score] = get_CQAS()
 Category(db, category)
 Question(db, question)
 Answer(db, answer)
 categoryQuestion(db, category, question, answer)
-questionAnswer(db, category, question, answer, score)
+questionAnswer(db, category, question, answer, score) */
 
 app.post("/post_signup", async (req, res) => {
     var userEmail = req.body.email
@@ -114,13 +114,31 @@ app.post("/post_signup", async (req, res) => {
 //optional: sign in "forget password" button
 
 app.post("/check_login", (req,res)=>{
+    const data = {
+        signInState: true
+    }
     var checkUsername = req.body.userName
     var checkPassword = req.body.password
     const q = "SELECT * FROM simplecarbontracker.person WHERE username = (?)"
     db.query(q,checkUsername, (err, data)=>{
         if(err) return res.json(err)
         else if ((data == "") || (data[0].password != checkPassword)) return console.log("Username or Password is incorrect.") //refresh page then display username or password incorrect
-        return console.log("SUCCESSFUL SIGNIN") //sign them in
+        else app.get("/login", (req,res)=>{
+            const data = {
+                signInState: true
+            }
+            return res.json(data)
+        }) //sign them in
+    })
+})
+
+var curr_q = 193
+//MAKE QUESTION_NUM
+app.get("/Quiz", (req,res)=>{
+    const q = "SELECT Question_Text FROM simplecarbontracker.Question Where idQuestion = (?)"
+    db.query(q,[curr_q],(err,data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
     })
 })
 

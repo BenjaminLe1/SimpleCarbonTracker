@@ -1,10 +1,21 @@
-import React,{useState} from "react";
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
 function Login(){
     const [userName,setUsername] = useState("")
     const [password,setPassword] = useState("")
-
+    const [signInState, setSigninState] = useState(false);
+    useEffect(() => {
+       fetch('http://localhost:4000/login')
+          .then((response) => response.json())
+          .then((data) => {
+             console.log(data);
+             setSigninState(data.signInState);
+          })
+          .catch((err) => {
+             console.log(err.message);
+          });
+  }, []); 
     async function postSignin(e) {
         e.preventDefault()
         try {
@@ -16,6 +27,7 @@ function Login(){
             console.error(error)
         }
     }
+
 
     return (
         <div classname="Login">
