@@ -132,15 +132,22 @@ app.post("/check_login", (req,res)=>{
     })
 })
 
-var curr_q = 193
-//MAKE QUESTION_NUM
-app.get("/Quiz", (req,res)=>{
-    const q = "SELECT Question_Text FROM simplecarbontracker.Question Where idQuestion = (?)"
-    db.query(q,[curr_q],(err,data)=>{
-        if(err) return res.json(err)
-        return res.json(data)
+//GET CURR_Q
+var currqState
+app.post("/get_currq", async (req, res) => {
+    currqState = req.body.currqState
+    console.log("CURRENT QUESTION NUMBER:",currqState)
+    app.get("/Quiz", (req,res)=>{
+        console.log("INSIDE:",currqState)
+        const q = "SELECT Answer_Text, Question_Text from (simplecarbontracker.Question Inner Join simplecarbontracker.QuestionAnswer on QuestionAnswer.idQuestion = Question.idQuestion) Inner Join simplecarbontracker.Answer on QuestionAnswer.idAnswer = Answer.idAnswer WHERE Question.Question_Num = (?);"
+        db.query(q,[currqState],(err,data)=>{
+            if(err) return res.json(err)
+            return res.json(data)
+        })
     })
 })
+//MAKE QUESTION_NUM
+
 
 app.listen(4000, ()=>{
     console.log("Connected to backend: Port 4000")

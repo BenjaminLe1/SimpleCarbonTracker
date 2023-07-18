@@ -31,9 +31,9 @@ function Category(db, category){
     }
 }
 function Question(db, question){
-    q = "INSERT INTO SimpleCarbonTracker.Question (Question_Text) VALUES (?);"
+    q = "INSERT INTO SimpleCarbonTracker.Question (Question_Text, Question_Num) VALUES (?);"
     for(let i = 0; i < question.length; i++){
-        db.query(q,question[i], (err, data)=>{
+        db.query(q,[[question[i], i+1]], (err, data)=>{
             return console.log("Entering Question:", i)
         })
     }

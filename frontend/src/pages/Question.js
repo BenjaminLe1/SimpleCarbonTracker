@@ -59,17 +59,18 @@ function Question(props){
         <div>
             <p style={paraStyle}> {props.question_text} </p>
             <ol style={listStyle}>
+                
                 <div style={answerStyle1}>
-                    <button>{props.ans1}</button>
+                    <button type="submit">{props.ans1}</button>
                 </div>
                 <div style={answerStyle2}>
-                    <button>{props.ans2}</button>
+                    <button type="submit">{props.ans2}</button>
                 </div>
                 <div style={answerStyle3}>
-                    <button>{props.ans3}</button>
+                    <button type="submit">{props.ans3}</button>
                 </div>
                 <div style={answerStyle4}>
-                    <button>{props.ans4}</button>
+                    <button type="submit">{props.ans4}</button>
                 </div>
             </ol>
         </div>
