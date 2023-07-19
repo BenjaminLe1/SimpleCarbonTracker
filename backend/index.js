@@ -9,10 +9,7 @@ const app = express()
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors(/* {
-    origin: 'http://localhost:3001',
-    //methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
-} */));
+app.use(cors());
 
 //
 //var jsonParser = bodyParser.json()
@@ -56,9 +53,10 @@ app.get("/", cors(), (req,res)=>{
     res.send("hello this is the backend")
 })
 
-//ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Canbe56&8';
 
-/* app.get("/Person", (req,res)=>{
+/* 
+GET/POST template
+app.get("/Person", (req,res)=>{
     const q = "SELECT * FROM Person"
     db.query(q,(err,data)=>{
         if(err) return res.json(err)
@@ -77,7 +75,8 @@ app.post("/Person", (req,res)=>{
         if(err) return res.json(err)
         return res.json(data)
     })
-}) */
+})
+*/
 
 //DATABASE INPUT
 /* const [category,question,answer,score] = get_CQAS()
@@ -92,17 +91,11 @@ app.post("/post_signup", async (req, res) => {
     var userUsername = req.body.userName
     var userPassword = req.body.password
     var new_signup = [userUsername, userPassword, userEmail]
-    /* var new_signup = []
-    for(var i in req.body)
-        result.push([i, req.body[i]]);
-    console.log(new_signup) */
     const q = "INSERT INTO SimpleCarbonTracker.Person (username,password,email) VALUES (?);"
-
     db.query(q,[new_signup], (err, data)=>{
         if(err) return res.json(err)
         return res.json(data)
     })
-
     console.log("New Signup -> EMAIL:",userEmail,"USERNAME:",userUsername,"PASSWORD:",userPassword)
 })
 //SIGN IN RIGHT AFTER SIGN UP
@@ -132,10 +125,10 @@ app.post("/check_login", (req,res)=>{
     })
 })
 
-//GET CURR_Q
-var currqState
+//GET CURR_Q WIP
+/* var currqState
 app.post("/get_currq", async (req, res) => {
-    currqState = req.body.currqState
+    currqState = req.body.currq
     console.log("CURRENT QUESTION NUMBER:",currqState)
     app.get("/Quiz", (req,res)=>{
         console.log("INSIDE:",currqState)
@@ -145,9 +138,21 @@ app.post("/get_currq", async (req, res) => {
             return res.json(data)
         })
     })
+}) */
+app.post("/get_currq", async (req, res) => {
+    var currqState = req.body.currq
+    console.log("CURRENT QUESTION NUMBER:",currqState)
 })
-//MAKE QUESTION_NUM
-
+app.get("/Quiz", async (req , res)=>{
+    console.log("INSIDE:",req)
+    var currqState = req.body.currq
+    const q = "SELECT Answer_Text, Question_Text from (simplecarbontracker.Question Inner Join simplecarbontracker.QuestionAnswer on QuestionAnswer.idQuestion = Question.idQuestion) Inner Join simplecarbontracker.Answer on QuestionAnswer.idAnswer = Answer.idAnswer WHERE Question.Question_Num = (?);"
+    db.query(q,[currqState],(err,data)=>{
+        console.log(data)
+        if(err) return res.json(err)
+        return data
+    })
+})
 
 app.listen(4000, ()=>{
     console.log("Connected to backend: Port 4000")
