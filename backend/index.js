@@ -106,45 +106,20 @@ app.post("/post_signup", async (req, res) => {
 
 //optional: sign in "forget password" button
 
-app.post("/check_login", (req,res)=>{
-    const data = {
-        signInState: true
-    }
-    var checkUsername = req.body.userName
-    var checkPassword = req.body.password
+app.get("/check_login", (req,res)=>{
+    var checkUsername = req.query.userName
+    var checkPassword = req.query.password
     const q = "SELECT * FROM simplecarbontracker.person WHERE username = (?)"
     db.query(q,checkUsername, (err, data)=>{
         if(err) return res.json(err)
-        else if ((data == "") || (data[0].password != checkPassword)) return console.log("Username or Password is incorrect.") //refresh page then display username or password incorrect
-        else app.get("/login", (req,res)=>{
-            const data = {
-                signInState: true
-            }
-            return res.json(data)
-        }) //sign them in
+        else if ((data == "") || (data[0].password != checkPassword)) res.send("Username or Password is incorrect, Please try again")
+        else return res.send("Success!");
     })
 })
-
-//GET CURR_Q WIP
-/* var currqState
-app.post("/get_currq", async (req, res) => {
-    currqState = req.body.currq
-    console.log("CURRENT QUESTION NUMBER:",currqState)
-    app.get("/Quiz", (req,res)=>{
-        console.log("INSIDE:",currqState)
-        const q = "SELECT Answer_Text, Question_Text from (simplecarbontracker.Question Inner Join simplecarbontracker.QuestionAnswer on QuestionAnswer.idQuestion = Question.idQuestion) Inner Join simplecarbontracker.Answer on QuestionAnswer.idAnswer = Answer.idAnswer WHERE Question.Question_Num = (?);"
-        db.query(q,[currqState],(err,data)=>{
-            if(err) return res.json(err)
-            return res.json(data)
-        })
-    })
-}) */
+//GET CURR_Q
 app.get("/get_currq", (req , res)=>{
-    var currq = req.query.currq
-    console.log("INSIDE get:", currq)
-    //var currq = req.body.currq
     const q = "SELECT Answer_Text, Question_Text from (simplecarbontracker.Question Inner Join simplecarbontracker.QuestionAnswer on QuestionAnswer.idQuestion = Question.idQuestion) Inner Join simplecarbontracker.Answer on QuestionAnswer.idAnswer = Answer.idAnswer WHERE Question.Question_Num = (?);"
-    db.query(q,[currq],(err,data)=>{
+    db.query(q,[req.query.currq],(err,data)=>{
         if(err) return res.json(err)
         res.json(data)
     })

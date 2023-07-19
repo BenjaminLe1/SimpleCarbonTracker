@@ -15,6 +15,7 @@ function Quiz() {
   const [ans3, setAns3] = useState("Blank");
   const [ans4, setAns4] = useState("Blank");
   
+  //GET REQUEST
   const getQ=async()=>{
     const response = await axios.get("http://localhost:4000/get_currq", {params : {currq: currq}});
     setQuestion(response.data[0].Question_Text);
@@ -32,9 +33,6 @@ function Quiz() {
     //postQ()
     getQ()
   }
-  
-  //SELECT idAnswer From SimpleCarbonTracker.QuestionAnswer WHERE idQuestion = 193
-  //SELECT Answer_Text FROM SimpleCarbonTracker.QuestionAnswer WHERE idAnswer = (?)
   
   return (
       <div classname="Quiz">
