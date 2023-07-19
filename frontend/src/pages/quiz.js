@@ -1,82 +1,116 @@
-import React from "react";
-import axios from "axios"
-export default class Quiz extends React.Component {
+import React, {useEffect, useState} from 'react';
+import axios from 'axios'
+  
+function Quiz() {
+  //onClick you have to iterate to the next quiz Component using the map function. Also delete and store the current question
+  //and response to the the question.
 
-  constructor() {
-    super();
-    this.state = {
-      currq: 1,
-      question: "Blank",
-      ans1: "Blank",
-      ans2: "Blank",
-      ans3: "Blank",
-      ans4: "Blank"
-    }
+  //for the question components pass the questions props. The props passed will be from the sequal table of questions.
+  //so I think we would pass a new question each time by iterating through the sequal table and this would allow us to get
+  // the next question when they click their answer
+  const [currq, setCurrq] = useState(1)
+  const [question, setQuestion] = useState("Blank");
+  const [ans1, setAns1] = useState("Blank");
+  const [ans2, setAns2] = useState("Blank");
+  const [ans3, setAns3] = useState("Blank");
+  const [ans4, setAns4] = useState("Blank");
+  
+  const getQ=async()=>{
+    const response = await axios.get("http://localhost:4000/get_currq", {params : {currq: currq}});
+    setQuestion(response.data[0].Question_Text);
+    setAns1(response.data[0].Answer_Text);
+    setAns2(response.data[1].Answer_Text);
+    setAns3(response.data[2].Answer_Text);
+    setAns4(response.data[3].Answer_Text);
+    console.log(question,ans1,ans2,ans3,ans4);
   }
-  //const [currqState, setCurrqState] = useState(1)
-
-    /* useEffect = () => {
-      fetch('http://localhost:4000/Quiz')
-          .then((response) => response.json())
-          .then((data) => {
-            this.setState({...this.state, question: data[0].Question_Text})
-            this.setState({...this.state, ans1: data[0].Answer_Text})
-            this.setState({...this.state, ans2: data[0].Answer_Text})
-            this.setState({...this.state, ans3: data[0].Answer_Text})
-            this.setState({...this.state, ans4: data[0].Answer_Text})
-            console.log(data)
-            
-          })
-          .catch((err) => {
-            console.log(err.message);
-          });
-  }; */
-  testGet() {
-    console.log("IN testGet")
-    axios
-      .get("http://localhost:4000/Quiz", {
-        currq: this.state.currq
-      })
-      .then(data => {
-        console.log(data)
-        this.setState({question: data[0].Question_Text})        
-      })
-  }
-  handleSubmit = event => {
-    event.preventDefault();
-    axios
-      .post("http://localhost:4000/get_currq", {
-        currq: this.state.currq
-      })
-      .then(res => {
-        console.log(res)
-      })
-      this.increaseCount()
-      this.testGet()
+  useEffect(() => {
+    getQ()
+  });
+  function increaseCurrq() {
+    setCurrq(currq + 1)
+    //postQ()
+    getQ()
   }
   
-  increaseCount = () => {
-    return this.setState({...this.state, currq: this.state.currq + 1});
-  }
-  render() {
+  //SELECT idAnswer From SimpleCarbonTracker.QuestionAnswer WHERE idQuestion = 193
+  //SELECT Answer_Text FROM SimpleCarbonTracker.QuestionAnswer WHERE idAnswer = (?)
+  
   return (
-      <div className="Quiz">
-        <form onSubmit={this.handleSubmit}>
-            <p> currq: {this.state.currq} question: {this.state.question} </p>
-                  <div>
-                      <button type="submit">{this.state.ans1}</button>
-                  </div>
-                  <div>
-                      <button type="submit">{this.state.ans2}</button>
-                  </div>
-                  <div>
-                      <button type="submit">{this.state.ans3}</button>
-                  </div>
-                  <div>
-                      <button type="submit">{this.state.ans4}</button>
-                  </div>
-          </form>
+      <div classname="Quiz">
+          <p style={paraStyle}> Question:{question}......*Fyi* currq:{currq} </p>
+            <ol style={listStyle}>
+                <div style={answerStyle1}>
+                    <button onClick={increaseCurrq}>{ans1}</button>
+                </div>
+                <div style={answerStyle2}>
+                    <button onClick={increaseCurrq}>{ans2}</button>
+                </div>
+                <div style={answerStyle3}>
+                    <button onClick={increaseCurrq}>{ans3}</button>
+                </div>
+                <div style={answerStyle4}>
+                    <button onClick={increaseCurrq}>{ans4}</button>
+                </div>
+            </ol>
       </div>
-    );
-  }
+  );
+}
+export default Quiz;
+
+
+
+//CSS
+
+const paraStyle = {
+  display: "block",
+  textAlign: "center"
+}
+
+const listStyle= {
+  textAlign: "center"
+}
+
+const answerStyle1 ={
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginLeft: "42%",
+  backgroundColor: "#C1E1C1",
+  width: "200px",
+  height: "100px",
+  marginTop: "20px"
+}
+
+const answerStyle2 ={
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginLeft: "42%",
+  backgroundColor: "#FFC300",
+  width: "200px",
+  height: "100px",
+  marginTop: "20px"
+}
+
+const answerStyle3 ={
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginLeft: "42%",
+  backgroundColor: "navy",
+  width: "200px",
+  height: "100px",
+  marginTop: "20px"
+}
+
+const answerStyle4 ={
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginLeft: "42%",
+  backgroundColor: "brown",
+  width: "200px",
+  height: "100px",
+  marginTop: "20px"
 }

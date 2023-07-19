@@ -139,18 +139,14 @@ app.post("/get_currq", async (req, res) => {
         })
     })
 }) */
-app.post("/get_currq", async (req, res) => {
-    var currqState = req.body.currq
-    console.log("CURRENT QUESTION NUMBER:",currqState)
-})
-app.get("/Quiz", async (req , res)=>{
-    console.log("INSIDE:",req)
-    var currqState = req.body.currq
+app.get("/get_currq", (req , res)=>{
+    var currq = req.query.currq
+    console.log("INSIDE get:", currq)
+    //var currq = req.body.currq
     const q = "SELECT Answer_Text, Question_Text from (simplecarbontracker.Question Inner Join simplecarbontracker.QuestionAnswer on QuestionAnswer.idQuestion = Question.idQuestion) Inner Join simplecarbontracker.Answer on QuestionAnswer.idAnswer = Answer.idAnswer WHERE Question.Question_Num = (?);"
-    db.query(q,[currqState],(err,data)=>{
-        console.log(data)
+    db.query(q,[currq],(err,data)=>{
         if(err) return res.json(err)
-        return data
+        res.json(data)
     })
 })
 
