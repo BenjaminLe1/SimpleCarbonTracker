@@ -1,32 +1,38 @@
-import React,{useState} from "react";
-import axios from "axios";
+import React,{useState, useEffect} from "react";
 
 function Results(){
-    const [email,setEmail] = useState("")
-    const [userName,setUsername] = useState("")
-    const [password,setPassword] = useState("")
+    const[cat1,setCat1] = useState(0)
+    const[cat2,setCat2] = useState(0)
+    const[cat3,setCat3] = useState(0)
+    const[cat4,setCat4] = useState(0)
+    const[overall, setOverall] = useState(0)
 
-    async function postSignup(e) {
-        e.preventDefault()
-        try {
-            await axios.post("http://localhost:4000/post_signup", {
-                email,
-                userName,
-                password
-            })
-        } catch(error) {
-            console.error(error)
-        }
+    function getScores(){
+        setCat1(12)
+        setCat2(15)
+        setCat3(6)
+        setCat4(24)
+        setOverall((cat1+cat2+cat3+cat4)/4)
     }
+    function getPerc(score){
+        return (score / 30) * 100
+    }
+    useEffect(() => {
+        getScores()
+    });
 
     return (
-        <div classname="Signup">
-            <form onSubmit={postSignup}>
-                <input onChange={(e) => setEmail(e.target.value)} id="email" value={email} placeholder="email" type="email"></input>
-                <input onChange={(e) => setUsername(e.target.value)} id="userName" value={userName} placeholder="username" type="text"></input>
-                <input onChange={(e) => setPassword(e.target.value)} id="password" value={password} placeholder="password" type="text"></input>
-                <button type="submit">Create an Account</button>
-            </form>
+        <div classname="Results">
+            <p>Your overall footprint is {getPerc(overall)}%</p>
+            <button>Share Score</button>
+            <p>Food: {getPerc(cat1)}%</p>
+            <button>Reduce This Score</button>
+            <p>Home: {getPerc(cat2)}%</p>
+            <button>Reduce This Score</button>
+            <p>Travel: {getPerc(cat3)}%</p>
+            <button>Reduce This Score</button>
+            <p>Utilities: {getPerc(cat4)}%</p>
+            <button>Reduce This Score</button>
         </div>
     )    
 }

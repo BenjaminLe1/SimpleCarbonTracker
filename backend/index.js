@@ -102,6 +102,29 @@ app.post("/post_signup", async (req, res) => {
 //put error if username or email is not unique for sign up
 //when sign in or sign up success => remove from navbar: create account and sign in => put sign out in navbar
 
+app.get("/check_accounts", (req,res)=>{
+    var checkEmail = req.query.email
+    var checkUsername = req.query.userName
+    if (checkUsername == "" || checkEmail == "") return res.send("Email/Username field is empty.")
+    const q = "SELECT * FROM simplecarbontracker.person WHERE email = (?)"
+    db.query(q,checkEmail, (err, data)=>{
+        if(err) return res.json(err)
+        else if (data != ""){
+            return res.send("Email is Taken.")
+        }
+        const g = "SELECT * FROM simplecarbontracker.person WHERE username = (?)"
+        db.query(g,checkUsername, (err, data)=>{
+            if(err) return res.json(err)
+            else if (data != ""){
+                return res.send("Username is Taken.")
+            }
+            else{
+                return res.send("Account Created Successfully!")
+            }
+        })
+    })
+})
+
 //NEW LAYOUT WHEN SIGNING IN
 
 //optional: sign in "forget password" button
@@ -112,10 +135,11 @@ app.get("/check_login", (req,res)=>{
     const q = "SELECT * FROM simplecarbontracker.person WHERE username = (?)"
     db.query(q,checkUsername, (err, data)=>{
         if(err) return res.json(err)
-        else if ((data == "") || (data[0].password != checkPassword)) res.send("Username or Password is incorrect, Please try again")
+        else if ((data == "") || (data[0].password != checkPassword)) return res.send("Username or Password is incorrect, Please try again")
         else return res.send("Success!");
     })
 })
+
 //GET CURR_Q
 app.get("/get_currq", (req , res)=>{
     const q = "SELECT Answer_Text, Question_Text from (simplecarbontracker.Question Inner Join simplecarbontracker.QuestionAnswer on QuestionAnswer.idQuestion = Question.idQuestion) Inner Join simplecarbontracker.Answer on QuestionAnswer.idAnswer = Answer.idAnswer WHERE Question.Question_Num = (?);"
@@ -124,6 +148,7 @@ app.get("/get_currq", (req , res)=>{
         res.json(data)
     })
 })
+//NEED TO STORE DATA IN BACKEND FOR EACH QUESTION
 
 app.listen(4000, ()=>{
     console.log("Connected to backend: Port 4000")

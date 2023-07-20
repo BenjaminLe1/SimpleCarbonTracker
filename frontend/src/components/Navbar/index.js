@@ -1,5 +1,4 @@
 import React from "react";
-import Cover from "../../pages/cover";
 import { Nav, NavLink, NavMenu }
     from "./NavbarElements";
 
@@ -22,10 +21,13 @@ const Navbar = () => {
                         Footprint Quiz
                     </NavLink>
                     <NavLink to="/signup" activeStyle>
-                        Create an Account
+                        Create an Account (temp)
                     </NavLink>
                     <NavLink to="/login" activeStyle>
-                        Sign In
+                        Sign In (temp)
+                    </NavLink>
+                    <NavLink to="/results" activeStyle>
+                        Results (temp)
                     </NavLink>
                 </NavMenu>
             </Nav>
