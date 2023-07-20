@@ -1,3 +1,7 @@
+  body{
+    background-color: #FAF3F0;
+    margin: 0px;
+  }
   .categoryBox{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -27,36 +31,21 @@
     cursor: pointer;
     outline: none;
     color: #fff;
-    background-color: #04AA6D;
+    background-color: #82A284;
     border: none;
     border-radius: 15px;
-    box-shadow: 0 9px #999;
+    /* box-shadow: 0 9px #999; */
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 200px;
+    width: 350px;
+    height: 75px;
   }
   
-  .button:hover {background-color: #3e8e41}
+  .button:hover {background-color: #446A46}
   
   .button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
+    background-color: #446A46;
+    /* box-shadow: 0 5px #666; */
     transform: translateY(4px);
   }
 
-
-  .button2{
-    padding: 15px 25px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: navy;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 200px;
-  }
