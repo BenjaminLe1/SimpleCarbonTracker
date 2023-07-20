@@ -43,7 +43,7 @@ function Quiz() {
           <p className='categoryNames'>Category3</p>
           <p className='categoryNames'>Category4</p>
         </div>
-        <h1> Question:{question}......*Fyi* currq:{currq} </h1>
+        <h1>Question: {question}</h1>
             <ol>
                 <div>
                     <button className='button' onClick={increaseCurrq}>{ans1}</button>
