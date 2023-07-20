@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
+import './pages.css';
   
 function Quiz() {
   //onClick you have to iterate to the next quiz Component using the map function. Also delete and store the current question
@@ -36,79 +37,28 @@ function Quiz() {
   
   return (
       <div classname="Quiz">
-          <p style={paraStyle}> Question:{question}......*Fyi* currq:{currq} </p>
-            <ol style={listStyle}>
-                <div style={answerStyle1}>
-                    <button onClick={increaseCurrq}>{ans1}</button>
+        <div className='categoryBox'>
+          <p className='categoryNames'>Category1</p>
+          <p className='categoryNames'>Category2</p>
+          <p className='categoryNames'>Category3</p>
+          <p className='categoryNames'>Category4</p>
+        </div>
+        <h1> Question:{question}......*Fyi* currq:{currq} </h1>
+            <ol>
+                <div>
+                    <button className='button' onClick={increaseCurrq}>{ans1}</button>
                 </div>
-                <div style={answerStyle2}>
-                    <button onClick={increaseCurrq}>{ans2}</button>
+                <div>
+                    <button className='button' onClick={increaseCurrq}>{ans2}</button>
                 </div>
-                <div style={answerStyle3}>
-                    <button onClick={increaseCurrq}>{ans3}</button>
+                <div>
+                    <button className='button' onClick={increaseCurrq}>{ans3}</button>
                 </div>
-                <div style={answerStyle4}>
-                    <button onClick={increaseCurrq}>{ans4}</button>
+                <div>
+                    <button className='button' onClick={increaseCurrq}>{ans4}</button>
                 </div>
             </ol>
       </div>
   );
 }
 export default Quiz;
-
-
-
-//CSS
-
-const paraStyle = {
-  display: "block",
-  textAlign: "center"
-}
-
-const listStyle= {
-  textAlign: "center"
-}
-
-const answerStyle1 ={
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  marginLeft: "42%",
-  backgroundColor: "#C1E1C1",
-  width: "200px",
-  height: "100px",
-  marginTop: "20px"
-}
-
-const answerStyle2 ={
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  marginLeft: "42%",
-  backgroundColor: "#FFC300",
-  width: "200px",
-  height: "100px",
-  marginTop: "20px"
-}
-
-const answerStyle3 ={
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  marginLeft: "42%",
-  backgroundColor: "navy",
-  width: "200px",
-  height: "100px",
-  marginTop: "20px"
-}
-
-const answerStyle4 ={
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  marginLeft: "42%",
-  backgroundColor: "brown",
-  width: "200px",
-  height: "100px",
-  marginTop: "20px"
-}
