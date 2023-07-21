@@ -29,6 +29,10 @@
     margin-bottom: 4%;
   }
 
+  h4{
+    color: #263A29;
+  }
+
   ol{
     text-align: center;
   }
@@ -57,4 +61,3 @@
     /* box-shadow: 0 5px #666; */
     transform: translateY(4px);
   }
-
