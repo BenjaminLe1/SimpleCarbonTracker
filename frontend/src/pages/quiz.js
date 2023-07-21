@@ -30,7 +30,7 @@ function Quiz() {
   useEffect(() => {
     getQ()
   });
-  function increaseCurrq() {
+  function increaseCurrq(ans) {
     setCurrq(currq + 1)
     //postQ()
     getQ()
@@ -41,6 +41,10 @@ function Quiz() {
     if(currq >= 12){
       setDisplayCategoryNum(3)
     }
+    postQAS(question, ans)
+  }
+  function postQAS() {
+    console.log()
   }
   
   return (
