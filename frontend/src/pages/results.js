@@ -26,13 +26,13 @@ function Results(){
             <p>Your overall footprint is {getPerc(overall)}%</p>
             <button>Share Score</button>
             <p>Food: {getPerc(cat1)}%</p>
-            <button>Reduce This Score</button>
+            <button>Improve This Score</button>
             <p>Home: {getPerc(cat2)}%</p>
-            <button>Reduce This Score</button>
+            <button>Improve This Score</button>
             <p>Travel: {getPerc(cat3)}%</p>
-            <button>Reduce This Score</button>
+            <button>Improve This Score</button>
             <p>Utilities: {getPerc(cat4)}%</p>
-            <button>Reduce This Score</button>
+            <button>Improve This Score</button>
         </div>
     )    
 }
