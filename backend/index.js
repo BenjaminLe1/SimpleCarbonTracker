@@ -21,8 +21,8 @@ app.use(cors());
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"N@vi03kid", //vijay
-    //password:"Canbe56&8", //bens
+    //password:"N@vi03kid", //vijay
+    password:"Canbe56&8", //bens
     //password:"dataBaseNow12" //pravin
     database:"simplecarbontracker"
 })
@@ -147,6 +147,17 @@ app.get("/get_currq", (req , res)=>{
         if(err) return res.json(err)
         res.json(data)
     })
+})
+
+app.post("/post_QAS", async (req, res) => {
+    var qa = [req.body.question,req.body.answer]
+    /* var p = req.body.person
+    console.log(qa,p)
+    const q = "Select idQuestionAnswer FROM SimpleCarbonTracker.QuestionAnswer WHERE idQuestion = (SELECT idQuestion FROM SimpleCarbonTracker.Question WHERE Question_Text = (?)) and idAnswer = (SELECT idAnswer FROM SimpleCarbonTracker.Answer WHERE Answer_Text = (?))"
+    db.query(q,[qa], (err, data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    }) */
 })
 //NEED TO STORE DATA IN BACKEND FOR EACH QUESTION
 

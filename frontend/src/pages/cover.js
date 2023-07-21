@@ -1,19 +1,19 @@
 import React from 'react';
-
+import Signup from './signup'
+import Login from './login'
 
 const Cover = (props) => {
-
+const quizReady = false
+const userName = ""
 
 
 
     return (
         <div>
-            <p>Please Create an Account</p>
+            <p>Sign in here</p>
+            <Login />
+            <p>Or Create an Account</p>
             <button>Create Account</button>
-            <p>or Sign in here</p>
-            <button onClick={(e)=>{
-                props.handleClick(e)
-            }}>Sign in</button>
         </div>
     );
 }
