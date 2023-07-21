@@ -15,6 +15,7 @@ function Quiz() {
   const [ans2, setAns2] = useState("Blank");
   const [ans3, setAns3] = useState("Blank");
   const [ans4, setAns4] = useState("Blank");
+  const [displayCategoryNum, setDisplayCategoryNum] = useState(1)
   
   //GET REQUEST
   const getQ=async()=>{
@@ -33,15 +34,19 @@ function Quiz() {
     setCurrq(currq + 1)
     //postQ()
     getQ()
+    setDisplayCategoryNum(displayCategoryNum+1)
+    if(displayCategoryNum === 3){
+       setDisplayCategoryNum(1)
+    }
+    if(currq >= 12){
+      setDisplayCategoryNum(3)
+    }
   }
   
   return (
       <div classname="Quiz">
-        <div className='categoryBox'>
-          <p className='categoryNames'>Category1</p>
-          <p className='categoryNames'>Category2</p>
-          <p className='categoryNames'>Category3</p>
-          <p className='categoryNames'>Category4</p>
+        <div className='categoryCount'>
+          <p>category1 {displayCategoryNum}/3</p>
         </div>
         <h1>Question: {question}</h1>
             <ol>
@@ -58,6 +63,12 @@ function Quiz() {
                     <button className='button' onClick={increaseCurrq}>{ans4}</button>
                 </div>
             </ol>
+        {/* <div className='categoryBox'>
+          <p className='categoryNames'>Category1</p>
+          <p className='categoryNames'>Category2</p>
+          <p className='categoryNames'>Category3</p>
+          <p className='categoryNames'>Category4</p>
+        </div> */}
       </div>
   );
 }
