@@ -1,4 +1,6 @@
 import React,{useState, useEffect} from "react";
+import "./pages.css"
+import CircularProgressBar from './Circle';
 
 function Results(){
     const[cat1,setCat1] = useState(0)
@@ -21,9 +23,10 @@ function Results(){
         getScores()
     });
 
+
     return (
         <div classname="Results">
-            <p>Your overall footprint is {getPerc(overall)}%</p>
+            <CircularProgressBar percentage={getPerc(overall)}/>
             <button>Share Score</button>
             <p>Food: {getPerc(cat1)}%</p>
             <button>Improve This Score</button>
