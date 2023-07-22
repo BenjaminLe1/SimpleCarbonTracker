@@ -15,10 +15,7 @@ function Quiz() {
   const [ans2, setAns2] = useState("");
   const [ans3, setAns3] = useState("");
   const [ans4, setAns4] = useState("");
-  const [displayCategoryNum, setDisplayCategoryNum] = useState(1)
-
-  var ans = "BLANK"
-  
+  const [displayCategoryNum, setDisplayCategoryNum] = useState(1)  
   //GET REQUEST
   const getQ=async()=>{
     const response = await axios.get("http://localhost:4000/get_currq", {params : {currq: currq}});
@@ -41,12 +38,12 @@ function Quiz() {
     if(currq >= 12){
       setDisplayCategoryNum(3)
     }
-    ans = e.target.value
-    postQAS()
+    //var ans = e.target.value
+    //postQAS()
     setCurrq(currq + 1)
     //console.log(question,ans)
   }
-  async function postQAS(){
+  /* async function postQAS(){
     try {
         await axios.post("http://localhost:4000/post_QAS", {
             question: question,
@@ -56,7 +53,7 @@ function Quiz() {
     } catch(error) {
         console.error(error)
     }
-  }
+  } */
   
   return (
       <div classname="Quiz">
