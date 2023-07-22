@@ -61,3 +61,41 @@
     /* box-shadow: 0 5px #666; */
     transform: translateY(4px);
   }
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Set the body to take up the full height of the viewport */
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr; /* Only one row is needed to take up the full height */
+    gap: 10px;
+    margin: 10px;
+    height: 100vh; /* Set the height of the container to take up the full height of the viewport */
+  }
+  
+  .left-column {
+    /* No need to set grid-row as we only have one row now */
+    /* grid-row: 1 / 3; */
+    height: 100%; /* Set the height of .left-column to take up the full height of its parent */
+    display: flex; /* Make sure the content is centered vertically */
+    flex-direction: column; /* Make sure the content is centered vertically */ /* Make sure the content is centered vertically */
+  }
+  
+  .right-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    height: 100%; /* Set the height of .right-column to take up the full height of its parent */
+  }
+  
+  .box {
+    padding: 10px;
+    margin: 20px;
+    width: 100%;
+    height: 100%;
+  }
+  
