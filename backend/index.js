@@ -5,19 +5,15 @@ import cors from "cors"
 import bodyParser from "body-parser"
 import get_CQAS, {Category, Question, Answer, categoryQuestion, questionAnswer} from "./CnQnA.js"
 
-const app = express()
 
+//API setup
+const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors());
 
-//
-//var jsonParser = bodyParser.json()
- 
-// create application/x-www-form-urlencoded parser
-//var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-//CONNECTING TO SQL
+//CONNECTING TO SQL database
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
@@ -54,30 +50,6 @@ app.get("/", cors(), (req,res)=>{
 })
 
 
-/* 
-GET/POST template
-app.get("/Person", (req,res)=>{
-    const q = "SELECT * FROM Person"
-    db.query(q,(err,data)=>{
-        if(err) return res.json(err)
-        return res.json(data)
-    })
-})
-
-app.post("/Person", (req,res)=>{
-    const q = "INSERT INTO SimpleCarbonTracker.Person (username,password) VALUES (?);"
-    const values = [
-        "BenCow",
-        "bingbong"
-    ];
-
-    db.query(q,[values], (err, data)=>{
-        if(err) return res.json(err)
-        return res.json(data)
-    })
-})
-*/
-
 //DATABASE INPUT
 // const [category,question,answer,score] = get_CQAS()
 // Category(db, category)
@@ -86,6 +58,10 @@ app.post("/Person", (req,res)=>{
 // categoryQuestion(db, category, question, answer)
 // questionAnswer(db, category, question, answer, score)
 
+
+//API CALLS
+
+//Post a new signup
 app.post("/post_signup", async (req, res) => {
     var userEmail = req.body.email
     var userUsername = req.body.userName
@@ -98,10 +74,12 @@ app.post("/post_signup", async (req, res) => {
     })
     console.log("New Signup -> EMAIL:",userEmail,"USERNAME:",userUsername,"PASSWORD:",userPassword)
 })
+
 //SIGN IN RIGHT AFTER SIGN UP
 //put error if username or email is not unique for sign up
 //when sign in or sign up success => remove from navbar: create account and sign in => put sign out in navbar
 
+//Check if account is unique (create an account)
 app.get("/check_accounts", (req,res)=>{
     var checkEmail = req.query.email
     var checkUsername = req.query.userName
@@ -125,10 +103,9 @@ app.get("/check_accounts", (req,res)=>{
     })
 })
 
-//NEW LAYOUT WHEN SIGNING IN
-
 //optional: sign in "forget password" button
 
+//Check if login valid
 app.get("/check_login", (req,res)=>{
     var checkUsername = req.query.userName
     var checkPassword = req.query.password
@@ -140,7 +117,7 @@ app.get("/check_login", (req,res)=>{
     })
 })
 
-//GET CURR_Q
+//Get current question
 app.get("/get_currq", (req , res)=>{
     const q = "SELECT Answer_Text, Question_Text from (simplecarbontracker.Question Inner Join simplecarbontracker.QuestionAnswer on QuestionAnswer.idQuestion = Question.idQuestion) Inner Join simplecarbontracker.Answer on QuestionAnswer.idAnswer = Answer.idAnswer WHERE Question.Question_Num = (?);"
     db.query(q,[req.query.currq],(err,data)=>{
@@ -149,6 +126,7 @@ app.get("/get_currq", (req , res)=>{
     })
 })
 
+//Post scores to Person
 app.post("/post_QAS", async (req, res) => {
     var qa = [req.body.question,req.body.answer]
     /* var p = req.body.person
@@ -159,7 +137,15 @@ app.post("/post_QAS", async (req, res) => {
         return res.json(data)
     }) */
 })
-//NEED TO STORE DATA IN BACKEND FOR EACH QUESTION
+
+//Get scores for results page
+app.get("/get_scores", (req , res)=>{
+    const q = "SELECT Category1_Score,Category2_Score,Category3_Score,Category4_Score from simplecarbontracker.PersonScore where idPerson = (?);"
+    db.query(q,[person],(err,data)=>{
+        if(err) return res.json(err)
+        res.json(data)
+    })
+})
 
 app.listen(4000, ()=>{
     console.log("Connected to backend: Port 4000")
