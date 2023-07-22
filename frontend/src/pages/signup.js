@@ -35,11 +35,13 @@ function Signup(){
 
     return (
         <div classname="Signup">
+            <p>Create an account</p>
             <input onChange={(e) => setEmail(e.target.value)} id="email" value={email} placeholder="email" type="email"></input>
             <input onChange={(e) => setUsername(e.target.value)} id="userName" value={userName} placeholder="username" type="text"></input>
             <input onChange={(e) => setPassword(e.target.value)} id="password" value={password} placeholder="password" type="text"></input>
             <button onClick={handleSubmit}>Create an Account</button>
             <p>{error}</p>
+            <a href="/cover">Sign in</a>
         </div>
     )    
 }

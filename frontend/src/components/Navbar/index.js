@@ -20,6 +20,9 @@ const Navbar = () => {
                     <NavLink to="/quiz" activeStyle>
                         Footprint Quiz
                     </NavLink>
+                    <NavLink to="/signup" activeStyle>
+                        Create an Account
+                    </NavLink>
                     <NavLink to="/results" activeStyle>
                         Results (temp)
                     </NavLink>
