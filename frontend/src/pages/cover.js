@@ -10,10 +10,9 @@ const userName = ""
 
     return (
         <div>
-            <p>Sign in here</p>
+            <p>Sign in to take quiz!</p>
             <Login />
-            <p>Or Create an Account</p>
-            <button>Create Account</button>
+            <a href="/signup">Create Account</a>
         </div>
     );
 }
