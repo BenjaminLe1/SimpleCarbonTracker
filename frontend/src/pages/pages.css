@@ -61,41 +61,78 @@
     /* box-shadow: 0 5px #666; */
     transform: translateY(4px);
   }
-
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* Set the body to take up the full height of the viewport */
-  }
   
   .container {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr; /* Only one row is needed to take up the full height */
+    display: flex;
     gap: 10px;
-    margin: 10px;
-    height: 100vh; /* Set the height of the container to take up the full height of the viewport */
+    gap: 10px 20px; /* row-gap column gap */
+    row-gap: 10px;
+    column-gap: 20px;
   }
-  
-  .left-column {
-    /* No need to set grid-row as we only have one row now */
-    /* grid-row: 1 / 3; */
-    height: 100%; /* Set the height of .left-column to take up the full height of its parent */
-    display: flex; /* Make sure the content is centered vertically */
-    flex-direction: column; /* Make sure the content is centered vertically */ /* Make sure the content is centered vertically */
+
+  .circle{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    position: absolute;
+    top: 33.5%;
+    left: 44%
   }
-  
-  .right-column {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    height: 100%; /* Set the height of .right-column to take up the full height of its parent */
+
+  #bottom-right {
+    width: 650px;
+    height: 300px;
+    background: #D4E2D4;
+    -webkit-mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 200px, black 201px);
+    mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 200px, black 201px);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 52%
   }
-  
-  .box {
-    padding: 10px;
-    margin: 20px;
-    width: 100%;
-    height: 100%;
+
+  #top-right {
+    width: 650px;
+    height: 300px;
+    background: #D4E2D4;
+    -webkit-mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 200px, black 201px);
+    mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 200px, black 201px);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    position: absolute;
+    top: 15%;
+    left: 52%;
   }
-  
+
+  #top-left {
+    width: 650px;
+    height: 300px;
+    background: #D4E2D4;
+    -webkit-mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 200px, black 201px);
+    mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 200px, black 201px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 33.5%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+  }
+
+  #bottom-left {
+    width: 650px;
+    height: 300px;
+    background: #D4E2D4;
+    -webkit-mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 200px, black 201px);
+    mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 200px, black 201px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 41.5%;
+    left: 25%;
+    transform: translate(-50%, 50%);
+  }
