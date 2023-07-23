@@ -83,36 +83,38 @@
     width: 650px;
     height: 300px;
     background: #D4E2D4;
-    -webkit-mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 200px, black 201px);
-    mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 200px, black 201px);
+    -webkit-mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 175px, black 176px);
+    mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 175px, black 176px);
     display: flex; 
     justify-content: center; 
     align-items: center;
     position: absolute;
     top: 60%;
-    left: 52%
+    left: 52%;
+    border-radius: 25px;
   }
 
   #top-right {
     width: 650px;
     height: 300px;
     background: #D4E2D4;
-    -webkit-mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 200px, black 201px);
-    mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 200px, black 201px);
+    -webkit-mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 175px, black 176px);
+    mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 175px, black 176px);
     display: flex; 
     justify-content: center; 
     align-items: center;
     position: absolute;
     top: 15%;
     left: 52%;
+    border-radius: 25px;
   }
 
   #top-left {
     width: 650px;
     height: 300px;
     background: #D4E2D4;
-    -webkit-mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 200px, black 201px);
-    mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 200px, black 201px);
+    -webkit-mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 175px, black 176px);
+    mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 175px, black 176px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,14 +122,15 @@
     top: 33.5%;
     left: 25%;
     transform: translate(-50%, -50%);
+    border-radius: 25px;
   }
 
   #bottom-left {
     width: 650px;
     height: 300px;
     background: #D4E2D4;
-    -webkit-mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 200px, black 201px);
-    mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 200px, black 201px);
+    -webkit-mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 175px, black 176px);
+    mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 175px, black 176px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,4 +138,5 @@
     top: 41.5%;
     left: 25%;
     transform: translate(-50%, 50%);
+    border-radius: 25px;
   }
