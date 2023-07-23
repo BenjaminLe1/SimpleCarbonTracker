@@ -25,14 +25,16 @@ function Results(){
 
 
     return (
-<div className="container">
-  <div className="left-column">
-    <div className="centered-container">
-      <CircularProgressBar percentage={getPerc(overall)} />
-      <button>Share Score</button>
+<div>
+    <div className='circle'>
+        <CircularProgressBar percentage={getPerc(overall)} />
     </div>
-  </div>
-  <div className="right-column">
+
+    <div id='bottom-right'></div>
+    <div id='top-right'></div>
+    <div id='bottom-left'></div>
+    <div id='top-left'></div>
+    {/* <button>Share Score</button>
     <div className="box">
       <p>Food: {getPerc(cat1)}%</p>
       <button>Improve This Score</button>
@@ -48,8 +50,7 @@ function Results(){
     <div className="box">
       <p>Utilities: {getPerc(cat4)}%</p>
       <button>Improve This Score</button>
-    </div>
-  </div>
+    </div> */}
 </div>
 
     )    
