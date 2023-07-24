@@ -34,33 +34,39 @@ function Results(){
     });
 
 
+
+    //format UL like this. Percentage in a <span> (make it big) --> category next to it with small icon
+    // click here! or something under that
     return (
 <div>
     <div className='circle'>
         <CircularProgressBar percentage={getPerc(overall)} />
     </div>
 
-    <button className='results-button' id='bottom-right'></button>
-    <button className='results-button' id='top-right'></button>
-    <button className='results-button' id='top-left'></button>
-    <button className='results-button' id='bottom-left'></button>
-    {/* <button>Share Score</button>
-    <div className="box">
-      <p>Food: {getPerc(cat1)}%</p>
-      <button>Improve This Score</button>
-    </div>
-    <div className="box">
-      <p>Home: {getPerc(cat2)}%</p>
-      <button>Improve This Score</button>
-    </div>
-    <div className="box">
-      <p>Travel: {getPerc(cat3)}%</p>
-      <button>Improve This Score</button>
-    </div>
-    <div className="box">
-      <p>Utilities: {getPerc(cat4)}%</p>
-      <button>Improve This Score</button>
-    </div> */}
+    <button className='results-button' id='bottom-right'>
+        {/* <ul>
+            <h2>Food: {getPerc(cat1)}%</h2>
+            <h6>Click to improve your score!</h6>
+        </ul> */}
+    </button>
+    <button className='results-button' id='top-right'>
+        {/* <ul>
+            <h2>Food: {getPerc(cat2)}%</h2>
+            <h6>Click to improve your score!</h6>
+        </ul> */}
+    </button>
+    <button className='results-button' id='top-left'>
+        {/* <ul>
+            <h2>Food: {getPerc(cat3)}%</h2>
+            <h6>Click to improve your score!</h6>
+        </ul> */}
+    </button>
+    <button className='results-button' id='bottom-left'>
+        {/* <ul>
+            <h2>Food: {getPerc(cat4)}%</h2>
+            <h6>Click to improve your score!</h6>
+        </ul> */}
+    </button>
 </div>
 
     )    
