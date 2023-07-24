@@ -40,10 +40,10 @@ function Results(){
         <CircularProgressBar percentage={getPerc(overall)} />
     </div>
 
-    <div id='bottom-right'></div>
-    <div id='top-right'></div>
-    <div id='bottom-left'></div>
-    <div id='top-left'></div>
+    <button className='results-button' id='bottom-right'></button>
+    <button className='results-button' id='top-right'></button>
+    <button className='results-button' id='top-left'></button>
+    <button className='results-button' id='bottom-left'></button>
     {/* <button>Share Score</button>
     <div className="box">
       <p>Food: {getPerc(cat1)}%</p>
