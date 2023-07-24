@@ -86,7 +86,7 @@
     -webkit-mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 175px, black 176px);
     mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 175px, black 176px);
     display: flex; 
-    justify-content: center; 
+    justify-content: right;
     align-items: center;
     position: absolute;
     top: 58.5%;
@@ -101,7 +101,7 @@
     -webkit-mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 175px, black 176px);
     mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 175px, black 176px);
     display: flex; 
-    justify-content: center; 
+    justify-content: right;
     align-items: center;
     position: absolute;
     top: 15%;
@@ -116,7 +116,7 @@
     -webkit-mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 175px, black 176px);
     mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 175px, black 176px);
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     position: absolute;
     top: 15%;
@@ -131,7 +131,7 @@
     -webkit-mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 175px, black 176px);
     mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 175px, black 176px);
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     position: absolute;
     top: 58.5%;
@@ -143,20 +143,21 @@
   .results-button {
     padding: 15px 25px;
     font-size: 24px;
-    text-align: center;
+    text-align: left;
     cursor: pointer;
     outline: none;
-    color: #FAF3F0;
-    background-color: #82A284;
+    color: #263A29;
     border: none;
     border-radius: 15px;
-    /* box-shadow: 0 9px #999; */
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 350px;
-    height: 75px;
+    font-family: serif;
   }
   
   .results-button:active {
     transform: translateY(4px);
+  }
+
+  ul{
+    text-align: left;
   }
