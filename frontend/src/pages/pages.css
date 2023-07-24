@@ -75,7 +75,7 @@
     justify-content: center; 
     align-items: center;
     position: absolute;
-    top: 33.5%;
+    top: 35%;
     left: 44%
   }
 
@@ -83,8 +83,8 @@
     width: 650px;
     height: 300px;
     background: #D4E2D4;
-    -webkit-mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 175px, black 176px);
-    mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 175px, black 176px);
+    -webkit-mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 125px, black 126px);
+    mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 125px, black 126px);
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -98,8 +98,8 @@
     width: 650px;
     height: 300px;
     background: #D4E2D4;
-    -webkit-mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 175px, black 176px);
-    mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 175px, black 176px);
+    -webkit-mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 125px, black 126px);
+    mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 125px, black 126px);
     display: flex; 
     justify-content: right;
     align-items: center;
@@ -113,8 +113,8 @@
     width: 650px;
     height: 300px;
     background: #D4E2D4;
-    -webkit-mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 175px, black 176px);
-    mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 175px, black 176px);
+    -webkit-mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 125px, black 126px);
+    mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 125px, black 126px);
     display: flex;
     justify-content: left;
     align-items: center;
@@ -128,8 +128,8 @@
     width: 650px;
     height: 300px;
     background: #D4E2D4;
-    -webkit-mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 175px, black 176px);
-    mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 175px, black 176px);
+    -webkit-mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 125px, black 126px);
+    mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 125px, black 126px);
     display: flex;
     justify-content: left;
     align-items: center;
