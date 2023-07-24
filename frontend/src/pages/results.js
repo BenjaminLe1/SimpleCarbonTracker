@@ -44,7 +44,7 @@ function Results(){
     </div>
 
     <button className='results-button' id='bottom-right'>
-        {/* <ul>
+         {/* <ul>
             <h2>Food: {getPerc(cat1)}%</h2>
             <h6>Click to improve your score!</h6>
         </ul> */}
