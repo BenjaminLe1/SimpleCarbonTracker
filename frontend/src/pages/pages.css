@@ -86,7 +86,7 @@
     -webkit-mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 175px, black 176px);
     mask-image: radial-gradient(circle 10px at 0 0, transparent 0, transparent 175px, black 176px);
     display: flex; 
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     position: absolute;
     top: 58.5%;
@@ -137,6 +137,7 @@
     top: 58.5%;
     left: 2.5%;
     border-radius: 25px;
+    box-shadow: 10px 5px #446A46;
   }
 
 
@@ -146,7 +147,6 @@
     text-align: left;
     cursor: pointer;
     outline: none;
-    color: #263A29;
     border: none;
     border-radius: 15px;
     margin-top: 10px;
@@ -155,9 +155,5 @@
   }
   
   .results-button:active {
-    transform: translateY(4px);
-  }
-
-  ul{
-    text-align: left;
+    transform: translateY(5px);
   }
