@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
 import Home from './pages';
 import Quiz from './pages/quiz';
-import Signup from './pages/signup';
-import Login from './pages/login';
+import Registration from './pages/registration';
 import Results from './pages/results';
+import Signout from './pages/signout';
 //import axios from "axios"
 
 
@@ -23,10 +23,10 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='/login' element={<Login/>} />
                 <Route path='/quiz' element={<Quiz/>}/>
-                <Route path='/signup' element={<Signup/>}/>
+                <Route path='/account' element={<Registration/>}/>
                 <Route path='/results' element={<Results />} />
+                <Route path='/signout' element={<Signout />} />
             </Routes>
         </Router>
     );

@@ -16,7 +16,7 @@ const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors({
-    origin: ["http://localgost:3000"],
+    origin: ["http://localhost:3000"],
     methods: ["GET","POST"],
     credentials: true
 }));
@@ -129,10 +129,8 @@ app.get("/check_accounts", (req,res)=>{
 
 //Check if login valid
 app.post("/check_login", (req,res)=>{
-    console.log(req.body)
     const checkUsername = req.body.userName
     const checkPassword = req.body.password
-    console.log(checkPassword,checkUsername)
     const q = "SELECT * FROM simplecarbontracker.person WHERE username = (?)"
     db.query(q,checkUsername, (err, data)=>{
         if(err) return res.json(err)
@@ -141,24 +139,31 @@ app.post("/check_login", (req,res)=>{
                 if(response){
                     req.session.user = data;
                     console.log(req.session.user)
-                    res.send("Success!")
+                    res.send({
+                        msg: "Success!",
+                        info: data
+                    })
                 }
                 else{
-                    res.send("Username or Password is incorrect, Please try again.")
+                    res.send({msg: "Username or Password is incorrect, Please try again.", info:""})
                 }
             })
         }
-        else res.send("User does not exist!");
+        else res.send({msg: "User does not exist!", info:""});
     })
 })
 
-/* app.get("/login", (req,res)=>{
+app.get("/check_login", (req,res)=>{
     if(req.session.user){
         res.send({loggedIn: true, user: req.session.user})
     }else{
         res.send({loggedIn: false})
     }
-}) */
+})
+
+app.post("/signout", (req,res)=>{
+    req.session.user = ""
+})
 
 //Get current question
 app.get("/get_currq", (req , res)=>{
