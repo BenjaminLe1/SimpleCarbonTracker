@@ -176,14 +176,15 @@ app.get("/get_currq", (req , res)=>{
 
 //Post scores to Person
 app.post("/post_QAS", async (req, res) => {
-    var qa = [req.body.question,req.body.answer]
-    /* var p = req.body.person
-    console.log(qa,p)
-    const q = "Select idQuestionAnswer FROM SimpleCarbonTracker.QuestionAnswer WHERE idQuestion = (SELECT idQuestion FROM SimpleCarbonTracker.Question WHERE Question_Text = (?)) and idAnswer = (SELECT idAnswer FROM SimpleCarbonTracker.Answer WHERE Answer_Text = (?))"
-    db.query(q,[qa], (err, data)=>{
+    var qu = req.body.question
+    var a = req.body.answer
+    var u = req.body.username
+    const q = "INSERT INTO SimpleCarbonTracker.PersonScore (idPerson, idQuestionAnswer) VALUES ((SELECT idPerson FROM SimpleCarbonTracker.Person WHERE username = (?)),(Select idQuestionAnswer FROM SimpleCarbonTracker.QuestionAnswer WHERE idQuestion = (SELECT idQuestion FROM SimpleCarbonTracker.Question WHERE Question_Text = (?)) and idAnswer = (SELECT idAnswer FROM SimpleCarbonTracker.Answer WHERE Answer_Text = (?))));"
+    db.query(q,[u,qu,a], (err, data)=>{
+        console.log(data)
         if(err) return res.json(err)
         return res.json(data)
-    }) */
+    })
 })
 
 //Get scores for results page

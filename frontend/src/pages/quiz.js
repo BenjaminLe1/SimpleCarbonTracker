@@ -15,7 +15,9 @@ function Quiz() {
   const [ans2, setAns2] = useState("");
   const [ans3, setAns3] = useState("");
   const [ans4, setAns4] = useState("");
-  const [displayCategoryNum, setDisplayCategoryNum] = useState(1)  
+  const [displayCategoryNum, setDisplayCategoryNum] = useState(1)
+  const [login, setLogin] = useState("")
+  var ans = ""
   //GET REQUEST
   const getQ=async()=>{
     const response = await axios.get("http://localhost:4000/get_currq", {params : {currq: currq}});
@@ -28,6 +30,14 @@ function Quiz() {
   }
   useEffect(() => {
     getQ()
+    axios.get("http://localhost:4000/check_login").then((response)=>{
+        if (response.data.loggedIn === true){
+            setLogin(response.data.user[0].username)
+        }
+        else{
+          window.location.replace("http://localhost:3000/account")
+        }
+    })
   });
   
   function increaseCurrq(e) {
@@ -38,22 +48,21 @@ function Quiz() {
     if(currq >= 12){
       setDisplayCategoryNum(3)
     }
-    //var ans = e.target.value
-    //postQAS()
+    ans = e.target.value
+    postQAS()
     setCurrq(currq + 1)
     //console.log(question,ans)
   }
-  /* async function postQAS(){
-    try {
-        await axios.post("http://localhost:4000/post_QAS", {
+
+  const postQAS = () => {
+    axios.post("http://localhost:4000/post_QAS", {
             question: question,
-            answer: ans
+            answer: ans,
+            username: login
             //person: *cover page*
-        })
-    } catch(error) {
-        console.error(error)
-    }
-  } */
+    });
+  }
+  //STILL NEED TO REMOVE DUPLICATES
   
   return (
       <div classname="Quiz">
@@ -66,13 +75,13 @@ function Quiz() {
                     <button className='button' onClick={increaseCurrq} value={ans1}>{ans1}</button>
                 </div>
                 <div>
-                    <button className='button' onClick={increaseCurrq} ans={ans2}>{ans2}</button>
+                    <button className='button' onClick={increaseCurrq} value={ans2}>{ans2}</button>
                 </div>
                 <div>
-                    <button className='button' onClick={increaseCurrq} ans={ans3}>{ans3}</button>
+                    <button className='button' onClick={increaseCurrq} value={ans3}>{ans3}</button>
                 </div>
                 <div>
-                    <button className='button' onClick={increaseCurrq} ans={ans4}>{ans4}</button>
+                    <button className='button' onClick={increaseCurrq} value={ans4}>{ans4}</button>
                 </div>
             </ol>
         {/* <div className='categoryBox'>

@@ -50,10 +50,10 @@ const Navbar = () => {
                         <NavLink to="/quiz" activeStyle>
                             Footprint Quiz
                         </NavLink>
-                        <p>
+                        <p style={{color: "white"}}>
                             {login}
                         </p>
-                        <NavLink to="/signout" activeStyle>
+                        <NavLink to="/signout" activeStyle style={{textDecorationLine: 'underline'}}>
                             Sign Out
                         </NavLink>
                     </NavMenu>
