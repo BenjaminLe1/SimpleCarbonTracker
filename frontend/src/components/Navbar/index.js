@@ -2,6 +2,7 @@ import React from "react";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
 import {useState, useEffect} from "react";
 import axios from "axios";
+import "./ben.css"
 
  
 const Navbar = () => {
@@ -19,9 +20,8 @@ const Navbar = () => {
                 <Nav>
                     <NavMenu>
                         <NavLink to="/" activeStyle>
-                            About
+                            <img className="logo" src={require("../../pages/images/banana.png")} alt="Logo"></img>  
                         </NavLink>
-
                         {/*Do not show "quiz", "signout", "username display" IF not signed in*/}
                         {/*Do not show "cover(quiz)", "create an account", "signin" IF signed in*/}
 

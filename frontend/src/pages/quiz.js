@@ -62,7 +62,6 @@ function Quiz() {
             //person: *cover page*
     });
   }
-  //STILL NEED TO REMOVE DUPLICATES
   
   return (
       <div classname="Quiz">

@@ -179,9 +179,12 @@ app.post("/post_QAS", async (req, res) => {
     var qu = req.body.question
     var a = req.body.answer
     var u = req.body.username
+    //In person score table
+    //NEED ID QUESTION (for duplicates)
+    //OR person_score data after signout
+    //NEED ID CATEGORY (for results page)
     const q = "INSERT INTO SimpleCarbonTracker.PersonScore (idPerson, idQuestionAnswer) VALUES ((SELECT idPerson FROM SimpleCarbonTracker.Person WHERE username = (?)),(Select idQuestionAnswer FROM SimpleCarbonTracker.QuestionAnswer WHERE idQuestion = (SELECT idQuestion FROM SimpleCarbonTracker.Question WHERE Question_Text = (?)) and idAnswer = (SELECT idAnswer FROM SimpleCarbonTracker.Answer WHERE Answer_Text = (?))));"
     db.query(q,[u,qu,a], (err, data)=>{
-        console.log(data)
         if(err) return res.json(err)
         return res.json(data)
     })
