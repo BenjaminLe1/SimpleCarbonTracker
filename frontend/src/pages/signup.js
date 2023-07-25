@@ -41,7 +41,7 @@ function Signup(){
             <input onChange={(e) => setPassword(e.target.value)} id="password" value={password} placeholder="password" type="text"></input>
             <button onClick={handleSubmit}>Create an Account</button>
             <p>{error}</p>
-            <a href="/cover">Sign in</a>
+            <a href="/login">Sign in</a>
         </div>
     )    
 }

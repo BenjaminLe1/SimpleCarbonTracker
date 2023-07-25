@@ -2,23 +2,43 @@ import express from "express"
 import mysql from "mysql2"
 import { isBuffer } from "util"
 import cors from "cors"
+import session from "express-session"
 import bodyParser from "body-parser"
+import cookieParser from "cookie-parser"
+import bcrypt from "bcrypt"
 import get_CQAS, {Category, Question, Answer, categoryQuestion, questionAnswer} from "./CnQnA.js"
+
+const saltRounds = 10
 
 
 //API setup
 const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors());
+app.use(cors({
+    origin: ["http://localgost:3000"],
+    methods: ["GET","POST"],
+    credentials: true
+}));
+app.use(cookieParser())
+app.use(bodyParser.urlencoded({ extended: true }))
 
+app.use(session({
+    key:"userid",
+    secret:"BenCow is god",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        expires: 60 * 60 * 24,
+    },
+}))
 
 //CONNECTING TO SQL database
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"N@vi03kid", //vijay
-    //password:"Canbe56&8", //bens
+    //password:"N@vi03kid", //vijay
+    password:"Canbe56&8", //bens
     //password:"dataBaseNow12" //pravin
     database:"simplecarbontracker"
 })
@@ -45,6 +65,7 @@ function handleDisconnect() {
 	db.destroy();
 }
 
+
 app.get("/", cors(), (req,res)=>{
     res.send("hello this is the backend")
 })
@@ -66,13 +87,14 @@ app.post("/post_signup", async (req, res) => {
     var userEmail = req.body.email
     var userUsername = req.body.userName
     var userPassword = req.body.password
-    var new_signup = [userUsername, userPassword, userEmail]
-    const q = "INSERT INTO SimpleCarbonTracker.Person (username,password,email) VALUES (?);"
-    db.query(q,[new_signup], (err, data)=>{
-        if(err) return res.json(err)
-        return res.json(data)
+    bcrypt.hash(userPassword, saltRounds, (err, hash) =>{
+        var new_signup = [userUsername, hash, userEmail]
+        const q = "INSERT INTO SimpleCarbonTracker.Person (username,password,email) VALUES (?);"
+        db.query(q,[new_signup], (err, data)=>{
+            if(err) return res.json(err)
+        })
+        console.log("New Signup -> EMAIL:",userEmail,"USERNAME:",userUsername,"PASSWORD(hashed):",hash)
     })
-    console.log("New Signup -> EMAIL:",userEmail,"USERNAME:",userUsername,"PASSWORD:",userPassword)
 })
 
 //SIGN IN RIGHT AFTER SIGN UP
@@ -106,16 +128,37 @@ app.get("/check_accounts", (req,res)=>{
 //optional: sign in "forget password" button
 
 //Check if login valid
-app.get("/check_login", (req,res)=>{
-    var checkUsername = req.query.userName
-    var checkPassword = req.query.password
+app.post("/check_login", (req,res)=>{
+    console.log(req.body)
+    const checkUsername = req.body.userName
+    const checkPassword = req.body.password
+    console.log(checkPassword,checkUsername)
     const q = "SELECT * FROM simplecarbontracker.person WHERE username = (?)"
     db.query(q,checkUsername, (err, data)=>{
         if(err) return res.json(err)
-        else if ((data == "") || (data[0].password != checkPassword)) return res.send("Username or Password is incorrect, Please try again")
-        else return res.send("Success!");
+        if (data.length > 0){
+            bcrypt.compare(checkPassword, data[0].password, (err, response) =>{
+                if(response){
+                    req.session.user = data;
+                    console.log(req.session.user)
+                    res.send("Success!")
+                }
+                else{
+                    res.send("Username or Password is incorrect, Please try again.")
+                }
+            })
+        }
+        else res.send("User does not exist!");
     })
 })
+
+/* app.get("/login", (req,res)=>{
+    if(req.session.user){
+        res.send({loggedIn: true, user: req.session.user})
+    }else{
+        res.send({loggedIn: false})
+    }
+}) */
 
 //Get current question
 app.get("/get_currq", (req , res)=>{
