@@ -14,17 +14,17 @@ function CircularProgressBar(props) {
   var pathColor = '';
   var trailColor = '';
   var textColor = '';
-  if (percentage >= 70) {
+  if (percentage > 66) {
     pathColor = '#446A46';
     trailColor = '#82A284';
     textColor = '#446A46';
   }
-  if (percentage >= 50 && percentage < 70) {
+  if (percentage > 33 && percentage <= 66) {
     pathColor = '#F1C93B';
     trailColor = '#FAE392';
     textColor = '#D49B54';
   }
-  if (percentage < 50) {
+  if (percentage <= 33) {
     pathColor = '#A10035';
     trailColor = '#FF869E';
     textColor = '#850000';

@@ -57,6 +57,67 @@ function Results(){
         }
     });
 
+
+    //COLORING BOXES
+    var background1 = ""
+    var textColor1 = ""
+    if(getPerc(cat1) > 66) {
+        background1 = '#D4E2D4';
+        textColor1 = '#263A29';
+      }
+      if (getPerc(cat1) > 33 && getPerc(cat1) <= 66) {
+        background1 = '#FFEBB4';
+        textColor1 = '#C07F00';
+      }
+      if (getPerc(cat1) <= 33) {
+        background1 = '#F8C4B4';
+        textColor1 = '#3D0000';
+      }
+
+      var background2 = ""
+      var textColor2 = ""
+      if(getPerc(cat2) > 66) {
+          background2 = '#D4E2D4';
+          textColor2 = '#263A29';
+        }
+        if (getPerc(cat2) > 33 && getPerc(cat2) <= 66) {
+          background2 = '#FFEBB4';
+          textColor2 = '#C07F00';
+        }
+        if (getPerc(cat2) <= 33) {
+          background2 = '#F8C4B4';
+          textColor2 = '#3D0000';
+        }
+
+        var background3 = ""
+    var textColor3 = ""
+    if(getPerc(cat3) > 66) {
+        background3 = '#D4E2D4';
+        textColor3 = '#263A29';
+      }
+      if (getPerc(cat3)  > 33 && getPerc(cat4) <= 66) {
+        background3 = '#FFEBB4';
+        textColor3 = '#C07F00';
+      }
+      if (getPerc(cat3) <= 33) {
+        background3 = '#F8C4B4';
+        textColor3 = '#3D0000';
+      }
+      var background4 = ""
+      var textColor4 = ""
+      if(getPerc(cat4) > 66) {
+          background4 = '#D4E2D4';
+          textColor4 = '#263A29';
+        }
+        if (getPerc(cat4) > 33 && getPerc(cat4) <= 66) {
+          background4 = '#FFEBB4';
+          textColor4 = '#C07F00';
+        }
+        if (getPerc(cat4) <= 33) {
+          background4 = '#F8C4B4';
+          textColor4 = '#3D0000';
+        }
+
     //format UL like this. Percentage in a <span> (make it big) --> category next to it with small icon
     // click here! or something under that
     return (
@@ -65,28 +126,28 @@ function Results(){
                 <CircularProgressBar percentage={getPerc(overall)} />
             </div>
 
-            <button className='results-button' id='bottom-right'>
+            <button style={{backgroundColor: background1}} className='results-button' id='bottom-right'>
                 <ul>
-                    <h2>{cats[0]}: {getPerc(cat1)}%</h2>
-                    <h6>Click to improve your score!</h6>
+                    <h2 style={{color: textColor1}}>{cats[0]}: {getPerc(cat1)}%</h2>
+                    <h6 style={{color: textColor1}} className='clickImprove'> Click to improve your score!</h6>
                 </ul>
             </button>
-            <button className='results-button' id='top-right'>
+            <button style={{backgroundColor: background2}} className='results-button' id='top-right'>
                 <ul>
-                    <h2>{cats[1]}: {getPerc(cat2)}%</h2>
-                    <h6>Click to improve your score!</h6>
+                    <h2 style={{color: textColor2}}>{cats[1]}: {getPerc(cat2)}%</h2>
+                    <h6 style={{color: textColor2}} className='clickImprove'>Click to improve your score!</h6>
                 </ul>
             </button>
-            <button className='results-button' id='top-left'>
+            <button style={{backgroundColor: background3}} className='results-button' id='top-left'>
                 <ul>
-                    <h2>{cats[2]}: {getPerc(cat3)}%</h2>
-                    <h6>Click to improve your score!</h6>
+                    <h2 style={{color: textColor3}}>{cats[2]}: {getPerc(cat3)}%</h2>
+                    <h6 style={{color: textColor3}} className='clickImprove'>Click to improve your score!</h6>
                 </ul>
             </button>
-            <button className='results-button' id='bottom-left'>
+            <button style={{backgroundColor: background4}} className='results-button' id='bottom-left'>
                 <ul>
-                    <h2>{cats[3]}: {getPerc(cat4)}%</h2>
-                    <h6>Click to improve your score!</h6>
+                    <h2 style={{color: textColor4}}>{cats[3]}: {getPerc(cat4)}%</h2>
+                    <h6 style={{color: textColor4}} className='clickImprove'>Click to improve your score!</h6>
                 </ul>
             </button>
         </div>

@@ -74,7 +74,7 @@ function Quiz() {
   if (currq === 0){
     return (
       <div classname="Cover">
-                <div>
+                <div className='coverButton'>
                     <button className='button' onClick={increaseCurrq} >Calculate Footprint</button>
                 </div>
       </div>
