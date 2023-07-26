@@ -101,7 +101,7 @@
     -webkit-mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 120px, black 121px);
     mask-image: radial-gradient(circle 10px at 0 100%, transparent 0, transparent 120px, black 121px);
     display: flex; 
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     position: absolute;
     top: 15%;
@@ -116,7 +116,7 @@
     -webkit-mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 120px, black 121px);
     mask-image: radial-gradient(circle 10px at 100% 100%, transparent 0, transparent 120px, black 121px);
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     position: absolute;
     top: 15%;
@@ -131,7 +131,7 @@
     -webkit-mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 120px, black 121px);
     mask-image: radial-gradient(circle 10px at 100% 0, transparent 0, transparent 120px, black 121px);
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     position: absolute;
     top: 58.5%;
@@ -156,4 +156,48 @@
   
   .results-button:active {
     transform: translateY(5px);
+  }
+
+  .logo{
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    left: 0%;
+    top: 1%;
+    border: none;
+  }
+
+  .coverButton{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+  }
+
+
+  /*Inverted edge maybe code*/
+
+  /* .inverted-rectangle {
+    width: 300px;
+    height: 150px;
+    background-color: #D4E2D4;
+    position: relative;
+    border-radius: 10px;
+  }
+   */
+  /* .inverted-rectangle::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #D4E2D4;
+    transform: skewY(-10deg);
+    z-index: -1;
+  } */
+
+  .clickImprove{
+    position: absolute;
+    bottom: 0;
+    left: 40%;
   }
