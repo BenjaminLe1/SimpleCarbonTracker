@@ -20,13 +20,13 @@ const Navbar = () => {
                 <Nav>
                     <NavMenu>
                         <NavLink className="logonav" to="/" activeStyle>
-                            <img className="logo" src={require("../../pages/images/banana.png")} alt="Logo"></img>  
+                            <img className="logo" src={require("../../pages/images/logo.png")} alt="Logo"></img>  
                         </NavLink>
                         {/*Do not show "quiz", "signout", "username display" IF not signed in*/}
                         {/*Do not show "cover(quiz)", "create an account", "signin" IF signed in*/}
 
                         <NavLink to="/quiz" activeStyle>
-                            Footprint Quiz
+                            Footprint Calculator
                         </NavLink>
                         <NavLink to="/account" activeStyle>
                             Signin/Signup
