@@ -2,6 +2,7 @@ import React from "react";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
 import {useState, useEffect} from "react";
 import axios from "axios";
+import "./ben.css"
 
  
 const Navbar = () => {
@@ -18,10 +19,9 @@ const Navbar = () => {
             <>
                 <Nav>
                     <NavMenu>
-                        <NavLink to="/" activeStyle>
-                            About
+                        <NavLink className="logonav" to="/" activeStyle>
+                            <img className="logo" src={require("../../pages/images/banana.png")} alt="Logo"></img>  
                         </NavLink>
-
                         {/*Do not show "quiz", "signout", "username display" IF not signed in*/}
                         {/*Do not show "cover(quiz)", "create an account", "signin" IF signed in*/}
 
@@ -30,9 +30,6 @@ const Navbar = () => {
                         </NavLink>
                         <NavLink to="/account" activeStyle>
                             Signin/Signup
-                        </NavLink>
-                        <NavLink to="/results" activeStyle>
-                            Results (temp)
                         </NavLink>
                     </NavMenu>
                 </Nav>
@@ -45,15 +42,15 @@ const Navbar = () => {
                 <Nav>
                     <NavMenu>
                         <NavLink to="/" activeStyle>
-                            About
+                            <img className="logo" src={require("../../pages/images/banana.png")} alt="Logo"></img>
                         </NavLink>
                         <NavLink to="/quiz" activeStyle>
                             Footprint Quiz
                         </NavLink>
-                        <p>
+                        <p style={{color: "white"}}>
                             {login}
                         </p>
-                        <NavLink to="/signout" activeStyle>
+                        <NavLink to="/signout" activeStyle style={{textDecorationLine: 'underline'}}>
                             Sign Out
                         </NavLink>
                     </NavMenu>
