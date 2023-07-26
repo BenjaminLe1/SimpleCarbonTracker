@@ -27,16 +27,12 @@ function Registration(){
         }});
         setError(response.data);
     }
-    async function postSignup(e) {
-        try {
-            await axios.post("http://localhost:4000/post_signup", {
-                email,
-                userName,
-                password
-            })
-        } catch(error) {
-            console.error(error)
-        }
+    const postSignup = () => {
+        axios.post("http://localhost:4000/post_signup", {
+            email,
+            userName,
+            password
+        })
     }
 
     const checkLogin = () =>{
