@@ -19,7 +19,7 @@ const Navbar = () => {
             <>
                 <Nav>
                     <NavMenu>
-                        <NavLink to="/" activeStyle>
+                        <NavLink className="logonav" to="/" activeStyle>
                             <img className="logo" src={require("../../pages/images/banana.png")} alt="Logo"></img>  
                         </NavLink>
                         {/*Do not show "quiz", "signout", "username display" IF not signed in*/}
@@ -30,9 +30,6 @@ const Navbar = () => {
                         </NavLink>
                         <NavLink to="/account" activeStyle>
                             Signin/Signup
-                        </NavLink>
-                        <NavLink to="/results" activeStyle>
-                            Results (temp)
                         </NavLink>
                     </NavMenu>
                 </Nav>
@@ -45,7 +42,7 @@ const Navbar = () => {
                 <Nav>
                     <NavMenu>
                         <NavLink to="/" activeStyle>
-                            About
+                            <img className="logo" src={require("../../pages/images/banana.png")} alt="Logo"></img>
                         </NavLink>
                         <NavLink to="/quiz" activeStyle>
                             Footprint Quiz

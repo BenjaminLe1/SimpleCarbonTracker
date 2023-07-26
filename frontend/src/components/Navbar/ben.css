@@ -3,3 +3,12 @@
     height: 50px;
     align-items: left;
 }
+.logonav{
+    align-items: left;
+}
+
+/* Replace()
+Sign out/Sign In
+Results page -> login state error
+need to lock out certain pages depending on state
+Lot of inefficiencies */

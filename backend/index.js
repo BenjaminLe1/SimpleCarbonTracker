@@ -174,6 +174,19 @@ app.get("/get_currq", (req , res)=>{
     })
 })
 
+app.post("/delete_prev", async (req, res) => {
+    var u = req.body.username
+    //In person score table
+    //NEED ID QUESTION (for duplicates)
+    //OR person_score data after signout
+    //NEED ID CATEGORY (for results page)
+    const q = "DELETE FROM SimpleCarbonTracker.PersonScore WHERE idPerson = (SELECT idPerson from SimpleCarbonTracker.Person WHERE username = (?));"
+    db.query(q,[u], (err, data)=>{
+        if(err) return res.json(err)
+        return res.json(data)
+    })
+})
+
 //Post scores to Person
 app.post("/post_QAS", async (req, res) => {
     var qu = req.body.question
@@ -183,8 +196,8 @@ app.post("/post_QAS", async (req, res) => {
     //NEED ID QUESTION (for duplicates)
     //OR person_score data after signout
     //NEED ID CATEGORY (for results page)
-    const q = "INSERT INTO SimpleCarbonTracker.PersonScore (idPerson, idQuestionAnswer) VALUES ((SELECT idPerson FROM SimpleCarbonTracker.Person WHERE username = (?)),(Select idQuestionAnswer FROM SimpleCarbonTracker.QuestionAnswer WHERE idQuestion = (SELECT idQuestion FROM SimpleCarbonTracker.Question WHERE Question_Text = (?)) and idAnswer = (SELECT idAnswer FROM SimpleCarbonTracker.Answer WHERE Answer_Text = (?))));"
-    db.query(q,[u,qu,a], (err, data)=>{
+    const q = "INSERT INTO SimpleCarbonTracker.PersonScore (idPerson, Score, idCategory) VALUES ((SELECT idPerson FROM SimpleCarbonTracker.Person WHERE username = (?)),(Select Score FROM SimpleCarbonTracker.QuestionAnswer WHERE idQuestion = (SELECT idQuestion FROM SimpleCarbonTracker.Question WHERE Question_Text = (?)) and idAnswer = (SELECT idAnswer FROM SimpleCarbonTracker.Answer WHERE Answer_Text = (?))),(SELECT idCategory FROM SimpleCarbonTracker.CategoryQuestion WHERE idQuestion = (SELECT idQuestion FROM SimpleCarbonTracker.Question WHERE Question_Text = (?))));"
+    db.query(q,[u,qu,a,qu], (err, data)=>{
         if(err) return res.json(err)
         return res.json(data)
     })
@@ -192,12 +205,16 @@ app.post("/post_QAS", async (req, res) => {
 
 //Get scores for results page
 app.get("/get_scores", (req , res)=>{
-    const q = "SELECT Category1_Score,Category2_Score,Category3_Score,Category4_Score from simplecarbontracker.PersonScore where idPerson = (?);"
-    db.query(q,[person],(err,data)=>{
+    var u = req.query.username
+    var c = req.query.cat
+    //console.log(u,c)
+    const q = "SELECT Score from simplecarbontracker.PersonScore WHERE idPerson = (SELECT idPerson FROM SimpleCarbonTracker.Person WHERE username = (?)) and idCategory = (SELECT idCategory FROM SimpleCarbonTracker.Category WHERE Category_Name = (?));"
+    db.query(q,[u,c],(err,data)=>{
         if(err) return res.json(err)
-        res.json(data)
+        res.json(data[0].Score + data[1].Score + data[2].Score)
     })
 })
+
 
 app.listen(4000, ()=>{
     console.log("Connected to backend: Port 4000")
