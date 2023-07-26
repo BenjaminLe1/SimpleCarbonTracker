@@ -1,5 +1,4 @@
 import React from 'react';
-//import {useEffect} from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route }
@@ -9,13 +8,17 @@ import Quiz from './pages/quiz';
 import Registration from './pages/registration';
 import Signout from './pages/signout';
 //import axios from "axios"
+//import {useEffect} from 'react';
 
 
 function App() {
     /* axios.defaults.withCredentials = true;
-
     useEffect(()=> [
-        axios.get("http://localhost:4000/login")
+        axios.get("http://localhost:4000/check_login").then((response)=>{
+            if (response.data.loggedIn === true){
+                setLogin(response.data.user[0].username)
+            }
+        })
     ], []) */
     return (
         <Router>

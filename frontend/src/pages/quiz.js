@@ -4,6 +4,7 @@ import './pages.css';
 import Results from "./results"
   
 function Quiz() {
+  axios.defaults.withCredentials = true;
   //onClick you have to iterate to the next quiz Component using the map function. Also delete and store the current question
   //and response to the the question.
 

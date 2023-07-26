@@ -43,7 +43,7 @@ function Registration(){
                 console.log(response.data.info[0])
                 setErrorLog(response.data.msg)
             }).then(()=>{
-                window.location.reload()
+                window.location.replace("http://localhost:3000/quiz")
             });
     };
     /* useEffect(()=> [

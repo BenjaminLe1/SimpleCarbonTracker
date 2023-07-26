@@ -16,6 +16,8 @@ function Results(){
     const getScores=async()=>{
         /* axios.get("http://localhost:4000/check_login").then((response)=>{
             setLogin(response.data.user[0].username)
+            console.log(response.data.user[0].username)
+            console.log("login",login)
         }) */
         //Change below inefficient
         axios.get("http://localhost:4000/get_scores", {params:{
