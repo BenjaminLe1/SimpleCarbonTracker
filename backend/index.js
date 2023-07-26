@@ -138,7 +138,7 @@ app.post("/check_login", (req,res)=>{
             bcrypt.compare(checkPassword, data[0].password, (err, response) =>{
                 if(response){
                     req.session.user = data;
-                    console.log(req.session.user)
+                    console.log("New Sign In:", req.session.user[0].username)
                     res.send({
                         msg: "Success!",
                         info: data
