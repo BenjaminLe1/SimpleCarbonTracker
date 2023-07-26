@@ -4,19 +4,15 @@ import CircularProgressBar from './Circle';
 import axios from "axios"
 
 function Results(){
-    //axios.defaults.withCredentials = true;
-    //const[login, setLogin] = useState("")
+    axios.defaults.withCredentials = true;
+    const[login, setLogin] = useState("")
     const[cat1,setCat1] = useState(0)
     const[cat2,setCat2] = useState(0)
     const[cat3,setCat3] = useState(0)
     const[cat4,setCat4] = useState(0)
     const[overall, setOverall] = useState(0)
-    var login = "BenCow" //TEMP
     const cats = ["dog", "cat", "rat", "squid"] //TEMP
     const getScores=async()=>{
-        /* axios.get("http://localhost:4000/check_login").then((response)=>{
-            setLogin(response.data.user[0].username)
-        }) */
         //Change below inefficient
         axios.get("http://localhost:4000/get_scores", {params:{
             cat: cats[0],
@@ -49,7 +45,16 @@ function Results(){
         return (score / 30) * 100
     }
     useEffect(() => {
-        getScores()
+        axios.get("http://localhost:4000/check_login").then((response)=>{
+            if (response.data.loggedIn === true){
+                setLogin(response.data.user[0].username)
+            }
+            //console.log(response.data.user[0].username)
+            console.log("login",login)
+        })
+        if(login){
+            getScores()
+        }
     });
 
     //format UL like this. Percentage in a <span> (make it big) --> category next to it with small icon
