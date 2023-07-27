@@ -2,7 +2,7 @@ import React from "react";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
 import {useState, useEffect} from "react";
 import axios from "axios";
-import "./ben.css"
+import "../../pages/pages.css"
 
  
 const Navbar = () => {
@@ -42,7 +42,7 @@ const Navbar = () => {
                 <Nav>
                     <NavMenu>
                         <NavLink to="/" activeStyle>
-                            <img className="logo" src={require("../../pages/images/banana.png")} alt="Logo"></img>
+                            <img className="logo" src={require("../../pages/images/logo.png")} alt="Logo"></img>
                         </NavLink>
                         <NavLink to="/quiz" activeStyle>
                             Footprint Quiz
