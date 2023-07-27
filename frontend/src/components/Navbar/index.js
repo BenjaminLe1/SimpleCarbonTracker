@@ -26,7 +26,7 @@ const Navbar = () => {
                         {/*Do not show "cover(quiz)", "create an account", "signin" IF signed in*/}
 
                         <NavLink to="/quiz" activeStyle>
-                            Footprint Calculator
+                            Quiz
                         </NavLink>
                         <NavLink to="/account" activeStyle>
                             Signin/Signup
