@@ -6,10 +6,10 @@ import axios from "axios"
 function Results(){
     axios.defaults.withCredentials = true;
     const[login, setLogin] = useState("")
-    const[cat1,setCat1] = useState(-1)
-    const[cat2,setCat2] = useState(-1)
-    const[cat3,setCat3] = useState(-1)
-    const[cat4,setCat4] = useState(-1)
+    const[cat1,setCat1] = useState(0)
+    const[cat2,setCat2] = useState(0)
+    const[cat3,setCat3] = useState(0)
+    const[cat4,setCat4] = useState(0)
     const[overall, setOverall] = useState(-1)
     const cats = ["Transportation", "Home", "Food", "Spending"];
     const getScores=async()=>{
@@ -42,6 +42,7 @@ function Results(){
         console.log(cat1,cat2,cat3,cat4)
     }
     function getPerc(score){
+        console.log(score)
         return parseInt((score / 30) * 100)
     }
     useEffect(() => {
@@ -95,7 +96,7 @@ function Results(){
         background3 = '#D4E2D4';
         textColor3 = '#263A29';
       }
-      if (getPerc(cat3)  > 33 && getPerc(cat4) <= 66) {
+      if (getPerc(cat3)  > 33 && getPerc(cat3) <= 66) {
         background3 = '#FFEBB4';
         textColor3 = '#C07F00';
       }
