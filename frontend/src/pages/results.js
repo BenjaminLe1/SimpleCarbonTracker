@@ -6,11 +6,11 @@ import axios from "axios"
 function Results(){
     axios.defaults.withCredentials = true;
     const[login, setLogin] = useState("")
-    const[cat1,setCat1] = useState(0)
-    const[cat2,setCat2] = useState(0)
-    const[cat3,setCat3] = useState(0)
-    const[cat4,setCat4] = useState(0)
-    const[overall, setOverall] = useState(0)
+    const[cat1,setCat1] = useState(-1)
+    const[cat2,setCat2] = useState(-1)
+    const[cat3,setCat3] = useState(-1)
+    const[cat4,setCat4] = useState(-1)
+    const[overall, setOverall] = useState(-1)
     const cats = ["Transportation", "Home", "Food", "Spending"];
     const getScores=async()=>{
         //Change below inefficient
@@ -42,7 +42,7 @@ function Results(){
         console.log(cat1,cat2,cat3,cat4)
     }
     function getPerc(score){
-        return (score / 30) * 100
+        return parseInt((score / 30) * 100)
     }
     useEffect(() => {
         axios.get("http://localhost:4000/check_login").then((response)=>{
@@ -120,38 +120,47 @@ function Results(){
 
     //format UL like this. Percentage in a <span> (make it big) --> category next to it with small icon
     // click here! or something under that
-    return (
-        <div>
-            <div className='circle'>
-                <CircularProgressBar percentage={getPerc(overall)} />
+    if(overall === 0){
+        return (
+            <div>
+                <a href="http://localhost:3000/youareamonkey"><img className="monkey" src={require("../pages/images/banana.png")} alt="monkey"></img></a>  
             </div>
+        )
+    }
+    else{
+        return (
+            <div>
+                <div className='circle'>
+                    <CircularProgressBar percentage={getPerc(overall)} />
+                </div>
 
-            <button style={{backgroundColor: background1}} className='results-button' id='bottom-right'>
-                <ul>
-                    <h2 style={{color: textColor1}}>{cats[0]}: {getPerc(cat1)}%</h2>
-                    <h6 style={{color: textColor1}} className='clickImprove'> Click to improve your score!</h6>
-                </ul>
-            </button>
-            <button style={{backgroundColor: background2}} className='results-button' id='top-right'>
-                <ul>
-                    <h2 style={{color: textColor2}}>{cats[1]}: {getPerc(cat2)}%</h2>
-                    <h6 style={{color: textColor2}} className='clickImprove'>Click to improve your score!</h6>
-                </ul>
-            </button>
-            <button style={{backgroundColor: background3}} className='results-button' id='top-left'>
-                <ul>
-                    <h2 style={{color: textColor3}}>{cats[2]}: {getPerc(cat3)}%</h2>
-                    <h6 style={{color: textColor3}} className='clickImprove'>Click to improve your score!</h6>
-                </ul>
-            </button>
-            <button style={{backgroundColor: background4}} className='results-button' id='bottom-left'>
-                <ul>
-                    <h2 style={{color: textColor4}}>{cats[3]}: {getPerc(cat4)}%</h2>
-                    <h6 style={{color: textColor4}} className='clickImprove'>Click to improve your score!</h6>
-                </ul>
-            </button>
-        </div>
-    )    
+                <button style={{backgroundColor: background1}} className='results-button' id='bottom-right'>
+                    <ul>
+                        <h2 style={{color: textColor1}}>{cats[0]}: {getPerc(cat1)}%</h2>
+                        <h6 style={{color: textColor1}} className='clickImprove'> Click to improve your score!</h6>
+                    </ul>
+                </button>
+                <button style={{backgroundColor: background2}} className='results-button' id='top-right'>
+                    <ul>
+                        <h2 style={{color: textColor2}}>{cats[1]}: {getPerc(cat2)}%</h2>
+                        <h6 style={{color: textColor2}} className='clickImprove'>Click to improve your score!</h6>
+                    </ul>
+                </button>
+                <button style={{backgroundColor: background3}} className='results-button' id='top-left'>
+                    <ul>
+                        <h2 style={{color: textColor3}}>{cats[2]}: {getPerc(cat3)}%</h2>
+                        <h6 style={{color: textColor3}} className='clickImprove'>Click to improve your score!</h6>
+                    </ul>
+                </button>
+                <button style={{backgroundColor: background4}} className='results-button' id='bottom-left'>
+                    <ul>
+                        <h2 style={{color: textColor4}}>{cats[3]}: {getPerc(cat4)}%</h2>
+                        <h6 style={{color: textColor4}} className='clickImprove'>Click to improve your score!</h6>
+                    </ul>
+                </button>
+            </div>
+        )
+    }
 }
 
 export default Results
