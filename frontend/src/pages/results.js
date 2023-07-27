@@ -6,10 +6,10 @@ import axios from "axios"
 function Results(){
     axios.defaults.withCredentials = true;
     const[login, setLogin] = useState("")
-    const[cat1,setCat1] = useState(-1)
-    const[cat2,setCat2] = useState(-1)
-    const[cat3,setCat3] = useState(-1)
-    const[cat4,setCat4] = useState(-1)
+    const[cat1,setCat1] = useState(0)
+    const[cat2,setCat2] = useState(0)
+    const[cat3,setCat3] = useState(0)
+    const[cat4,setCat4] = useState(0)
     const[overall, setOverall] = useState(-1)
     const cats = ["Transportation", "Home", "Food", "Spending"];
     const getScores=async()=>{
@@ -123,7 +123,9 @@ function Results(){
     if(overall === 0){
         return (
             <div>
-                <a href="http://localhost:3000/youareamonkey"><img className="monkey" src={require("../pages/images/banana.png")} alt="monkey"></img></a>  
+                <img src={require("../pages/images/cry.png")} style={{width:'600px', height:'400px'}}alt="monkey"></img> 
+                <img src={require("../pages/images/bubble.png")} style={{width:'400px', height:'200px'}}alt="monkey"></img> 
+                <a href="http://localhost:3000/youareamonkey"><img className="monkey" style={{width:'400px', height:'400px'}} src={require("../pages/images/banana.png")} alt="monkey"></img></a>  
             </div>
         )
     }
