@@ -42,6 +42,7 @@ function Results(){
         console.log(cat1,cat2,cat3,cat4)
     }
     function getPerc(score){
+        console.log(score)
         return parseInt((score / 30) * 100)
     }
     useEffect(() => {
@@ -95,7 +96,7 @@ function Results(){
         background3 = '#D4E2D4';
         textColor3 = '#263A29';
       }
-      if (getPerc(cat3)  > 33 && getPerc(cat4) <= 66) {
+      if (getPerc(cat3)  > 33 && getPerc(cat3) <= 66) {
         background3 = '#FFEBB4';
         textColor3 = '#C07F00';
       }
