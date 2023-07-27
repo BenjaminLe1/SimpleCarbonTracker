@@ -7,6 +7,7 @@ import Home from './pages';
 import Quiz from './pages/quiz';
 import Registration from './pages/registration';
 import Signout from './pages/signout';
+import Monkey from './pages/monkey';
 //import axios from "axios"
 //import {useEffect} from 'react';
 
@@ -28,6 +29,8 @@ function App() {
                 <Route path='/quiz' element={<Quiz/>}/>
                 <Route path='/account' element={<Registration/>}/>
                 <Route path='/signout' element={<Signout />} />
+                <Route path='/youareamonkey' element={<Monkey />} />
+
             </Routes>
         </Router>
     );
