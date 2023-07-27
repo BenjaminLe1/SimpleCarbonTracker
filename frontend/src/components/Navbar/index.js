@@ -26,7 +26,7 @@ const Navbar = () => {
                         {/*Do not show "cover(quiz)", "create an account", "signin" IF signed in*/}
 
                         <NavLink to="/quiz" activeStyle>
-                            Footprint Calculator
+                            <img src={require("../../pages/images/banana.png")} alt="Logo"></img>  
                         </NavLink>
                         <NavLink to="/account" activeStyle>
                             Signin/Signup

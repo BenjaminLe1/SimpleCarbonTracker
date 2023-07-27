@@ -11,7 +11,7 @@ function Results(){
     const[cat3,setCat3] = useState(0)
     const[cat4,setCat4] = useState(0)
     const[overall, setOverall] = useState(0)
-    const cats = ["dog", "cat", "rat", "squid"] //TEMP
+    const cats = ["Transportation", "Home", "Food", "Spending"];
     const getScores=async()=>{
         //Change below inefficient
         axios.get("http://localhost:4000/get_scores", {params:{
