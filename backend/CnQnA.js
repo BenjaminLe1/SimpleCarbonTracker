@@ -8,18 +8,41 @@ var q = "";
 var AperQ = 4 
 var QperC = 3
 function get_CQAS(){
-    const category = ["dog", "cat", "rat", "squid"];
-    const question = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-    const answer = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-            "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-            "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-            "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
-            "41", "42", "43", "44", "45", "46", "47", "48"];
-    const score = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-            "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
-            "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-            "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
-            "41", "42", "43", "44", "45", "46", "47", "48"];
+    const category = ["Transportation", "Home", "Food", "Spending"];
+    const question = [
+        "What is your primary method of transportation?", "What fuel does your car use?", "How many miles do you fly a year?",
+        "What type of power does your home primarily use? ", "How much of your home's electricity comes from renewable sources?", "How large is your residence in square feet?",
+        "What is your diet?", "What percent of your diet is self-grown or bought locally?", "What percent of food do you waste?",
+        "How much do you spend on appliances each month?", "What type of clothing do you generally purchase?", "How much do you spend on luxuries per month?"
+    ];
+    const answer = [
+        "Car", "Walk/Bike", "Public Transport", "None of the above",
+        "Diesel", "Gas", "Electric/Hybrid", "I do not drive a car",
+        "10000+", "10000-1000", "1000-500", "less than 500",
+        "Electricity", "Renewable Energy", "Natural Gas", "I don't know",
+        "Most", "Some", "None", "Not sure",
+        "4000+", "2500-4000", "900-2500", "less than 900",
+        "Carnivore", "Mixed Diet", "Vegetarian", "Vegan",
+        "75-100%", "50-75%", "25-50%", "0-25%",
+        "50%+", "30-50%", "5-30%", "less than 5%",
+        "$150+", "$100-150", "$50-100", "less than $50",
+        "Second-hand", "Organic Fabric", "Synthetic material", "I'm not sure",
+        "$300+", "$200-300", "$100-200", "less than $100"
+    ];
+    const score = [
+        "0", "10", "7", "4",
+        "0", "4", "7", "10",
+        "0", "3", "6", "10",
+        "6", "10", "0", "4",
+        "10", "6", "0", "4",
+        "0", "3", "7", "10",
+        "0", "4", "8", "10",
+        "10", "8", "6", "0",
+        "0", "1", "4", "10",
+        "0", "4", "7", "10",
+        "10", "9", "0", "4",
+        "0", "3", "7", "10"
+    ];
     return ([category,question,answer,score])
 }
 function Category(db, category){
@@ -31,9 +54,10 @@ function Category(db, category){
     }
 }
 function Question(db, question){
-    q = "INSERT INTO SimpleCarbonTracker.Question (Question_Text) VALUES (?);"
+    q = "INSERT INTO SimpleCarbonTracker.Question (Question_Text, Question_Num) VALUES (?);"
     for(let i = 0; i < question.length; i++){
-        db.query(q,question[i], (err, data)=>{
+        db.query(q,[[question[i], i+1]], (err, data)=>{
+            if (err) return console.log(err)
             return console.log("Entering Question:", i)
         })
     }
@@ -59,10 +83,12 @@ function categoryQuestion(db, category, question, answer){
 function questionAnswer(db, category, question, answer, score){
         for(let j = 0; j < question.length; j++){
             for(let k = 0; k < AperQ; k++){
-                console.log(j*AperQ+k)
+                //console.log(j*AperQ+k)
+                //console.log("Question:",question[j], "Answer:",answer[j*AperQ+k], "Score:", score[j*AperQ+k])
                 q = "INSERT INTO SimpleCarbonTracker.QuestionAnswer (idQuestion, idAnswer, Score) VALUES ((SELECT idQuestion FROM simplecarbontracker.Question WHERE Question_Text = (?)),(SELECT idAnswer FROM simplecarbontracker.Answer WHERE Answer_Text = (?)),(?));"
                 db.query(q,[question[j], answer[j*AperQ+k], score[j*AperQ+k]], (err, data)=>{
-                    console.log("Question:",question[j], "Answer:",answer[j*AperQ+k], "Score:", score[j*AperQ+k])
+                    //if (err) return console.log(err)
+                    return console.log("Question:",question[j], "Answer:",answer[j*AperQ+k], "Score:", score[j*AperQ+k])
                 })
             }
         }    

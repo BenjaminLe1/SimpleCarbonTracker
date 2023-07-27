@@ -1,13 +1,23 @@
 {
   "dependencies": {
     "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "express-mysql-session": "^3.0.0",
+    "express-session": "^1.17.3",
     "mysql2": "^3.5.0",
     "nodemon": "^3.0.0",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
+<<<<<<< HEAD
     "react-router-dom": "^6.14.1",
+=======
+    "react-router-dom": "^6.14.2",
+>>>>>>> 09bd6853df66a224516120c20fbbc7a8b294de6d
     "react-scripts": "^5.0.1",
     "styled-components": "^6.0.3"
   }

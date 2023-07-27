@@ -1,36 +1,36 @@
 import React from 'react';
-//import {useState, useEffect} from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route }
     from 'react-router-dom';
 import Home from './pages';
 import Quiz from './pages/quiz';
-import Signup from './pages/signup';
-import Login from './pages/login';
- 
-function App() {
+import Registration from './pages/registration';
+import Signout from './pages/signout';
+import Monkey from './pages/monkey';
+//import axios from "axios"
+//import {useEffect} from 'react';
 
-    /* const [posts, setPosts] = useState([]);
-    useEffect(() => {
-       fetch('http://localhost:3000/Person')
-          .then((response) => response.json())
-          .then((data) => {
-             console.log(data);
-             setPosts(data);
-          })
-          .catch((err) => {
-             console.log(err.message);
-          });
-    }, []); */
+
+function App() {
+    /* axios.defaults.withCredentials = true;
+    useEffect(()=> [
+        axios.get("http://localhost:4000/check_login").then((response)=>{
+            if (response.data.loggedIn === true){
+                setLogin(response.data.user[0].username)
+            }
+        })
+    ], []) */
     return (
         <Router>
             <Navbar />
             <Routes>
                 <Route path='/' element={<Home/>} />
-                <Route path='/quiz' element={<Quiz />} />
-                <Route path='/signup' element={<Signup />} />
-                <Route path='/login' element={<Login />} />
+                <Route path='/quiz' element={<Quiz/>}/>
+                <Route path='/account' element={<Registration/>}/>
+                <Route path='/signout' element={<Signout />} />
+                <Route path='/youareamonkey' element={<Monkey />} />
+
             </Routes>
         </Router>
     );
