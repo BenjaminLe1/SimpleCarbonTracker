@@ -124,9 +124,46 @@ function Results(){
     if(overall === 0){
         return (
             <div>
-                <img src={require("../pages/images/cry.png")} style={{width:'600px', height:'400px'}}alt="monkey"></img> 
-                <img src={require("../pages/images/bubble.png")} style={{width:'400px', height:'200px'}}alt="monkey"></img> 
-                <a href="http://localhost:3000/youareamonkey"><img className="monkey" style={{width:'400px', height:'400px'}} src={require("../pages/images/banana.png")} alt="monkey"></img></a>  
+                <div className='circle'>
+                    <CircularProgressBar percentage={0} />
+                </div>
+                <div>
+                    <img className="monkey" src={require("../pages/images/cry.png")} style={{width:'600px', height:'400px'}}alt="monkey"></img> 
+                    <img className="textbox" src={require("../pages/images/bubble.png")} style={{width:'400px', height:'200px'}}alt="monkey"></img> 
+                    <a className="banana" href="http://localhost:3000/youareamonkey"><img className="monkey" style={{width:'400px', height:'400px'}} src={require("../pages/images/banana.png")} alt="monkey"></img></a>  
+                </div>
+            </div>
+        )
+    }
+    if(getPerc(overall) === 100){
+        return (
+            <div>
+                <div className='circle'>
+                    <CircularProgressBar percentage={100} />
+                </div>
+                <button style={{backgroundColor: background1}} className='results-button' id='bottom-right'>
+                    <ul>
+                        <h2 style={{color: textColor1}}>{cats[0]}: {100}%</h2>
+                    </ul>
+                </button>
+                <button style={{backgroundColor: background2}} className='results-button' id='top-right'>
+                    <ul>
+                        <h2 style={{color: textColor2}}>{cats[1]}: {100}%</h2>
+                    </ul>
+                </button>
+                <button style={{backgroundColor: background3}} className='results-button' id='top-left'>
+                    <ul>
+                        <h2 style={{color: textColor3}}>{cats[2]}: {100}%</h2>
+                    </ul>
+                </button>
+                <button style={{backgroundColor: background4}} className='results-button' id='bottom-left'>
+                    <ul>
+                        <h2 style={{color: textColor4}}>{cats[3]}: {100}%</h2>
+                    </ul>
+                </button>
+                <div>
+                    <a href="http://localhost:3000/youareanangel"><img className="angel" style={{width:'100px', height:'100px'}} src={require("../pages/images/angel.png")} alt="angel"></img></a>  
+                </div>
             </div>
         )
     }
