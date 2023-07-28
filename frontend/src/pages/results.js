@@ -42,6 +42,7 @@ function Results(){
         })
         setOverall(parseInt((cat1+cat2+cat3+cat4)/4))
         console.log(cat1,cat2,cat3,cat4, overall)
+
     }
     useEffect(() => {
         axios.get("http://localhost:4000/check_login").then((response)=>{
@@ -91,7 +92,7 @@ function Results(){
         background3 = '#D4E2D4';
         textColor3 = '#263A29';
     }
-      if (cat3  > 33 && cat4 <= 66) {
+      if (cat3  > 33 && cat3 <= 66) {
         background3 = '#FFEBB4';
         textColor3 = '#C07F00';
       }

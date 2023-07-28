@@ -16,9 +16,7 @@ function Registration(){
     
     function handleSubmit(){
         checkAccounts()
-        if (error === "Account Created Successfully!") {
-            postSignup()
-        }
+        postSignup()
     }
     const checkAccounts=async()=>{
         const response = await axios.get("http://localhost:4000/check_accounts", {params : {
@@ -42,9 +40,11 @@ function Registration(){
             }).then((response) => {
                 console.log(response.data.info[0])
                 setErrorLog(response.data.msg)
-            }).then(()=>{
-                window.location.replace("http://localhost:3000/quiz")
-            });
+                if (response.data.info[0]){
+                    window.location.replace("http://localhost:3000/quiz")
+                }
+                console.log(errorLog)
+            })
     };
     /* useEffect(()=> [
         axios.get("http://localhost:4000/check_login").then((response)=>{
