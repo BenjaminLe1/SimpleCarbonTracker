@@ -117,22 +117,30 @@ function Results(){
     function send(e){
         var x = parseInt(e.target.value)
         if(x === 1){
-            window.location.replace("http://localhost:3000/improve_transportation")
+            window.open("http://localhost:3000/improve_transportation", '_blank')
         }
         if(x === 2){
-            window.location.replace("http://localhost:3000/improve_home")
+            window.open("http://localhost:3000/improve_home", '_blank')
         }
         if(x === 3){
-            window.location.replace("http://localhost:3000/improve_food")
+            window.open("http://localhost:3000/improve_food", '_blank')
         }
         if(x === 4){
-            window.location.replace("http://localhost:3000/improve_spending")
+            window.open("http://localhost:3000/improve_spending", '_blank')
         }
     }
 
     //format UL like this. Percentage in a <span> (make it big) --> category next to it with small icon
     // click here! or something under that
 
+    if(overall === -999){
+        console.log("quiz not taken")
+        return (
+            <div>
+                <a href="http://localhost:3000/quiz" style={{textAlign:'center'}}>Please Take Quiz</a>  
+            </div>
+        )
+    }
     if(overall === 100){
         console.log("angel")
         return (
