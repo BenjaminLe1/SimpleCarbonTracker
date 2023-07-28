@@ -86,9 +86,9 @@ function Quiz() {
     return (
         <div classname="Quiz">
           <div className='categoryCount'>
-            <p>category1 {displayCategoryNum}/3</p>
+            <p>{displayCategoryNum}/3</p>
           </div>
-          <h1>Question: {question}</h1>
+          <h1>{question}</h1>
               <ol>
                   <div>
                       <button className='button' onClick={increaseCurrq} value={ans1}>{ans1}</button>
