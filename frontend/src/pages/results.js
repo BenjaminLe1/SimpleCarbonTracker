@@ -63,57 +63,57 @@ function Results(){
     if(cat1 > 66) {
         background1 = '#D4E2D4';
         textColor1 = '#263A29';
-      }
-      if (cat1 > 33 && cat1 <= 66) {
+    }
+    if (cat1 > 33 && cat1 <= 66) {
         background1 = '#FFEBB4';
         textColor1 = '#C07F00';
-      }
-      if (cat1 <= 33) {
+    }
+    if (cat1 <= 33) {
         background1 = '#F8C4B4';
         textColor1 = '#3D0000';
-      }
-      var background2 = ""
-      var textColor2 = ""
-      if(cat2 > 66) {
-          background2 = '#D4E2D4';
-          textColor2 = '#263A29';
-        }
-        if (cat2 > 33 && cat2 <= 66) {
-          background2 = '#FFEBB4';
-          textColor2 = '#C07F00';
-        }
-        if (cat2 <= 33) {
-          background2 = '#F8C4B4';
-          textColor2 = '#3D0000';
-        }
+    }
+    var background2 = ""
+    var textColor2 = ""
+    if(cat2 > 66) {
+        background2 = '#D4E2D4';
+        textColor2 = '#263A29';
+    }
+    if (cat2 > 33 && cat2 <= 66) {
+        background2 = '#FFEBB4';
+        textColor2 = '#C07F00';
+    }
+    if (cat2 <= 33) {
+        background2 = '#F8C4B4';
+        textColor2 = '#3D0000';
+    }
     var background3 = ""
     var textColor3 = ""
     if(cat3 > 66) {
         background3 = '#D4E2D4';
         textColor3 = '#263A29';
     }
-      if (cat3  > 33 && cat3 <= 66) {
-        background3 = '#FFEBB4';
-        textColor3 = '#C07F00';
-      }
-      if (cat3 <= 33) {
-        background3 = '#F8C4B4';
-        textColor3 = '#3D0000';
-      }
-      var background4 = ""
-      var textColor4 = ""
-      if(cat4 > 66) {
-          background4 = '#D4E2D4';
-          textColor4 = '#263A29';
-        }
-        if (cat4 > 33 && cat4 <= 66) {
-          background4 = '#FFEBB4';
-          textColor4 = '#C07F00';
-        }
-        if (cat4 <= 33) {
-          background4 = '#F8C4B4';
-          textColor4 = '#3D0000';
-        }
+    if (cat3  > 33 && cat3 <= 66) {
+    background3 = '#FFEBB4';
+    textColor3 = '#C07F00';
+    }
+    if (cat3 <= 33) {
+    background3 = '#F8C4B4';
+    textColor3 = '#3D0000';
+    }
+    var background4 = ""
+    var textColor4 = ""
+    if(cat4 > 66) {
+        background4 = '#D4E2D4';
+        textColor4 = '#263A29';
+    }
+    if (cat4 > 33 && cat4 <= 66) {
+        background4 = '#FFEBB4';
+        textColor4 = '#C07F00';
+    }
+    if (cat4 <= 33) {
+        background4 = '#F8C4B4';
+        textColor4 = '#3D0000';
+    }
 
     function send(e){
         var x = parseInt(e.target.value)
