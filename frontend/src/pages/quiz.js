@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import './pages.css';
-import Results from "./results"
   
 function Quiz() {
   axios.defaults.withCredentials = true;
@@ -59,6 +58,9 @@ function Quiz() {
       postQAS()
     }
     setCurrq(currq + 1)
+    if (currq > 11){
+      window.location.replace("http://localhost:3000/results")
+    }
     //console.log(question,ans)
   }
 
@@ -77,13 +79,6 @@ function Quiz() {
                 <div className='coverButton'>
                     <button className='button' onClick={increaseCurrq} >Calculate Footprint</button>
                 </div>
-      </div>
-    );
-  }
-  else if (currq > 12){
-    return (
-      <div classname = "Results">
-        <Results />
       </div>
     );
   }

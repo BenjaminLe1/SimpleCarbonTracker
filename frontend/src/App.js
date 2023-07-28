@@ -7,8 +7,13 @@ import Home from './pages';
 import Quiz from './pages/quiz';
 import Registration from './pages/registration';
 import Signout from './pages/signout';
+import Result from './pages/results';
 import Monkey from './pages/monkey';
 import Angel from './pages/angel';
+import Transportation from './pages/transportation';
+import House from './pages/house';
+import Food from './pages/food';
+import Spending from './pages/spending';
 //import axios from "axios"
 //import {useEffect} from 'react';
 
@@ -30,9 +35,13 @@ function App() {
                 <Route path='/quiz' element={<Quiz/>}/>
                 <Route path='/account' element={<Registration/>}/>
                 <Route path='/signout' element={<Signout />} />
+                <Route path='/results' element={<Result />} />
                 <Route path='/youareamonkey' element={<Monkey />} />
                 <Route path='/youareanangel' element={<Angel />} />
-
+                <Route path='/improve_transportation' element={<Transportation />} />
+                <Route path='/improve_food' element={<Food />} />
+                <Route path='/improve_home' element={<House />} />
+                <Route path='/improve_spending' element={<Spending />} />
             </Routes>
         </Router>
     );

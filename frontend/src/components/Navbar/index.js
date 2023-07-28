@@ -3,7 +3,7 @@ import { Nav, NavLink, NavMenu } from "./NavbarElements";
 import {useState, useEffect} from "react";
 import axios from "axios";
 import "../../pages/pages.css"
-
+import "./boot.css"
  
 const Navbar = () => {
     const [login, setLogin] = useState("")
@@ -14,6 +14,23 @@ const Navbar = () => {
             }
         })
     ], [])
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
     if (login === ""){
         return (
             <>
@@ -53,6 +70,13 @@ const Navbar = () => {
                         <NavLink to="/signout" activeStyle style={{textDecorationLine: 'underline'}}>
                             Sign Out
                         </NavLink>
+                        <div class="dropdown">
+                            <button onclick={myFunction} className="dropbtn">Dropdown</button>
+                            <div id="myDropdown" className="dropdown-content">
+                                <a href="http://localhost:3000/youareamonkey">Sign up</a>
+                                <a href="http://localhost:3000/youareamonkey">Sign in</a>
+                            </div>
+                        </div>
                     </NavMenu>
                 </Nav>
             </>
