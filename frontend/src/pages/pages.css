@@ -194,14 +194,7 @@
     transform: translateY(5px);
   }
 
-  .logo{
-    width: 110px;
-    height: 110px;
-    position: absolute;
-    left: 1%;
-    top: 1%;
-    border: none;
-  }
+
 
   .coverButton{
     position: absolute;
@@ -245,4 +238,31 @@
     color: #263A29;
     margin-bottom: 4%;
     margin-top: 75px
+}
+
+.Login{
+   display:flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.logo{
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    left: 1%;
+    top: 1%;
+    border: none;
+  }
+
+.svg{
+
+    position: absolute;
+    left: 9%;
+    top: 2.75%;
+}
+
+.trigger{
+  position:absolute;
+  right: 5%;
 }
