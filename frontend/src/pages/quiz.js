@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import './pages.css';
-import Results from "./results"
   
 function Quiz() {
   axios.defaults.withCredentials = true;
@@ -59,6 +58,9 @@ function Quiz() {
       postQAS()
     }
     setCurrq(currq + 1)
+    if (currq > 11){
+      window.location.replace("http://localhost:3000/results")
+    }
     //console.log(question,ans)
   }
 
@@ -80,20 +82,13 @@ function Quiz() {
       </div>
     );
   }
-  else if (currq > 12){
-    return (
-      <div classname = "Results">
-        <Results />
-      </div>
-    );
-  }
   else if (login){
     return (
         <div classname="Quiz">
           <div className='categoryCount'>
-            <p>category1 {displayCategoryNum}/3</p>
+            <p>{displayCategoryNum}/3</p>
           </div>
-          <h1>Question: {question}</h1>
+          <h1>{question}</h1>
               <ol>
                   <div>
                       <button className='button' onClick={increaseCurrq} value={ans1}>{ans1}</button>

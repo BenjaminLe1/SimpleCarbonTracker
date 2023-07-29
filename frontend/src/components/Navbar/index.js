@@ -3,7 +3,6 @@ import { Nav, NavLink, NavMenu } from "./NavbarElements";
 import {useState, useEffect} from "react";
 import axios from "axios";
 import "../../pages/pages.css"
-
  
 const Navbar = () => {
     const [login, setLogin] = useState("")

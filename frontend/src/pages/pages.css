@@ -1,3 +1,37 @@
+  .textbox{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    left: 22%
+  }
+  .banana{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 60%
+  }
+  .monkey{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 0%
+  }
+  
+  .angel{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    position: absolute;
+    top: 28%;
+    left: 46%
+  }
+  
   body{
     background-color: #FAF3F0;
     margin: 0px;
