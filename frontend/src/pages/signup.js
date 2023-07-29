@@ -10,7 +10,6 @@ function Signup(){
     const [password,setPassword] = useState("")
     
     const [error, setError] = useState("")
-    const [errorLog,setErrorLog] = useState("")
     
     function handleSubmit(){
         checkAccounts()
