@@ -13,11 +13,7 @@
     "react-circular-progressbar": "^2.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-<<<<<<< HEAD
     "react-router-dom": "^6.14.1",
-=======
-    "react-router-dom": "^6.14.2",
->>>>>>> 09bd6853df66a224516120c20fbbc7a8b294de6d
     "react-scripts": "^5.0.1",
     "styled-components": "^6.0.3"
   }

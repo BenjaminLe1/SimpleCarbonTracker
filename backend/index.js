@@ -72,12 +72,12 @@ app.get("/", cors(), (req,res)=>{
 
 
 //DATABASE INPUT
-/* const [category,question,answer,score] = get_CQAS()
+const [category,question,answer,score] = get_CQAS()
 Category(db, category)
 Question(db, question)
 Answer(db, answer)
 categoryQuestion(db, category, question, answer)
-questionAnswer(db, category, question, answer, score) */
+questionAnswer(db, category, question, answer, score) 
 
 
 //API CALLS
