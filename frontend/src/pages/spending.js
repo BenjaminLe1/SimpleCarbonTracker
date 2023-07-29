@@ -2,7 +2,7 @@ import "./pages.css"
 
 const Spending = () => {
     return (
-        <div>
+        <div className="resultsContainer">
             <div>
                 <p>something spending</p>
             </div>
