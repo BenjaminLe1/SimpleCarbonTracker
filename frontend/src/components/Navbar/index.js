@@ -61,7 +61,7 @@ const Navbar = () => {
                             <img className="logo" src={require("../../pages/images/logo.png")} alt="Logo"></img>
                         </NavLink>
                         <NavLink className="calc" to="/quiz" activeStyle>
-                            Footprint Quiz
+                            Footprint Calculator
                         </NavLink>
                         <div className="trigger" onClick={()=>{setOpen(!open)}}>
                             <img alt="profile"src={require("../../pages/images/profile.png")} className="profile" id="prof"></img>
