@@ -38,8 +38,8 @@ const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     //password:"N@vi03kid", //vijay
-    // password:"Canbe56&8", //bens
-    password:"dataBaseNow12", //pravin
+    password:"Canbe56&8", //bens
+    //password:"dataBaseNow12", //pravin
     database:"simplecarbontracker"
 })
 
@@ -133,6 +133,7 @@ app.post("/check_login", (req,res)=>{
     const checkUsername = req.body.userName
     const checkPassword = req.body.password
     const q = "SELECT * FROM simplecarbontracker.person WHERE username = (?)"
+    console.log("e")
     db.query(q,checkUsername, (err, data)=>{
         if(err) return res.json(err)
         if (data.length > 0){
