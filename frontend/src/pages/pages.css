@@ -201,6 +201,13 @@
     border: none;
   }
 
+  .calc{
+    position: absolute;
+    left: 10%;
+    top: -42%;
+    border: none;
+  }
+
   .coverButton{
     position: absolute;
     top: 30%;

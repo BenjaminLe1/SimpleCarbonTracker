@@ -14,7 +14,7 @@
     width:200px;
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.4s;
+    transition: max-height 0.5s;
 }
 .sub-menu-wrap.active{
     position: absolute;
@@ -23,7 +23,7 @@
     width:200px;
     max-height: 400px;
     overflow: hidden;
-    transition: max-height 0.4s;
+    transition: max-height 0.5s;
 }
 .sub-menu{
     background: #fff;
