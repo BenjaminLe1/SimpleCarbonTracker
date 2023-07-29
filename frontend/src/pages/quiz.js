@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import './pages.css';
-  
+import LinearProgressWithLabel from './ProgressBar';
+
+
 function Quiz() {
   axios.defaults.withCredentials = true;
   //onClick you have to iterate to the next quiz Component using the map function. Also delete and store the current question
@@ -73,6 +75,8 @@ function Quiz() {
     });
   }
 
+  var progress = parseInt((currq / 12) * 100)
+
   if (currq === 0){
     return (
       <div classname="Cover">
@@ -82,13 +86,12 @@ function Quiz() {
       </div>
     );
   }
+
   else if (login){
     return (
         <div classname="Quiz">
-          <div className='categoryCount'>
-            <p>{displayCategoryNum}/3</p>
-          </div>
-          <h1>{question}</h1>
+          <LinearProgressWithLabel value={progress}/>
+          <h1 className='quizTitle'>{question}</h1>
               <ol>
                   <div>
                       <button className='button' onClick={increaseCurrq} value={ans1}>{ans1}</button>
