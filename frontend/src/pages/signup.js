@@ -34,19 +34,26 @@ function Signup(){
         <div>
             <body>
                 <div classname="center">
-                    <div classname="Signup">
-                        <h1>SignIn</h1>
+                    <h1>SignIn</h1>
+                    <form>
                         <div class="txt_field">
-
                             <input onChange={(e) => setEmail(e.target.value)} id="email" value={email} type="text" required></input>                   
                             <span></span>
                             <label>Email</label>                        
                         </div>
-                        <input onChange={(e) => setUsername(e.target.value)} id="userName"  value={userName} placeholder="username" type="text"></input>
-                        <input onChange={(e) => setPassword(e.target.value)} id="password" value={password} placeholder="password" type="text"></input>
+                        <div class="txt_field">
+                            <input onChange={(e) => setUsername(e.target.value)} id="userName"  value={userName} type="username" required></input>
+                            <span></span>
+                            <label>Username</label>  
+                        </div>
+                        <div class="txt_field">
+                            <input onChange={(e) => setPassword(e.target.value)} id="password" value={password} type="password" required></input>
+                            <span></span>
+                            <label>Password</label>  
+                        </div>
                         <button onClick={handleSubmit}>Create an Account</button>
                         <p>{error}</p>
-                    </div>
+                    </form>
                 </div>
             </body>
         </div>

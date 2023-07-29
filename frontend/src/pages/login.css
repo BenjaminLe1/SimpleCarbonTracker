@@ -8,7 +8,6 @@
 body{
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg,#2980b9, #8e44ad);
   height: 100vh;
   overflow: hidden;
 }
@@ -111,5 +110,3 @@ input[type="submit"]:hover{
 .signup_link a:hover{
   text-decoration: underline;
 }
-
-  
