@@ -3,6 +3,7 @@ import { Nav, NavLink, NavMenu } from "./NavbarElements";
 import {useState, useEffect} from "react";
 import axios from "axios";
 import "../../pages/pages.css"
+import "./boot.css"
  
 const Navbar = () => {
     const [login, setLogin] = useState("")
@@ -13,6 +14,8 @@ const Navbar = () => {
             }
         })
     ], [])
+    const[open, setOpen] = useState(false)
+    
     if (login === ""){
         return (
             <>
@@ -30,8 +33,29 @@ const Navbar = () => {
                         <NavLink to="/account" activeStyle>
                             Signin/Signup
                         </NavLink>
+                        <div className="trigger" onClick={()=>{setOpen(!open)}}>
+                            <img alt="profile"src={require("../../pages/images/profile.png")} className="profile" id="prof"></img>
+                        </div>
+                        <div className={`sub-menu-wrap ${open? 'active' : 'inactive'}`}>
+                            <div className="sub-menu">
+                                <div className="user-info">
+                                    <p className="user">BenCow</p>
+                                </div>
+                                <hr>
+                                </hr>
+                                <a href="http://localhost:3000/youareamonkey" class="sub-menu-link">
+                                    <p>Sign in</p>
+                                    <span>></span>
+                                </a>
+                                <a href="http://localhost:3000/youareamonkey" class="sub-menu-link">
+                                    <p>Sign up</p>
+                                    <span>></span>
+                                </a>
+                            </div>
+                        </div>
                     </NavMenu>
                 </Nav>
+                
             </>
         );
     }
@@ -56,7 +80,8 @@ const Navbar = () => {
                 </Nav>
             </>
         );
-    }
+    }   
 };
+
  
 export default Navbar;
