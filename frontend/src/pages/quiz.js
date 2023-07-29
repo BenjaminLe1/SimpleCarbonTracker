@@ -113,10 +113,9 @@ function Quiz() {
     );
   }
   else{
+    setCurrq(0)
     return (
-      <div className='nullSignin'>
-        <a href="http://localhost:3000/login">Please Sign In to Take Quiz</a>
-      </div>
+      window.location.replace("http://localhost:3000/login")
     );
   }
 }
