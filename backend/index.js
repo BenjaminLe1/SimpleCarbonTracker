@@ -38,8 +38,8 @@ const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     //password:"N@vi03kid", //vijay
-    password:"Canbe56&8", //bens
-    //password:"dataBaseNow12" //pravin
+    // password:"Canbe56&8", //bens
+    password:"dataBaseNow12", //pravin
     database:"simplecarbontracker"
 })
 
@@ -72,13 +72,14 @@ app.get("/", cors(), (req,res)=>{
 
 
 //DATABASE INPUT
-/* const [category,question,answer,score] = get_CQAS()
+/*
+const [category,question,answer,score] = get_CQAS()
 Category(db, category)
 Question(db, question)
 Answer(db, answer)
 categoryQuestion(db, category, question, answer)
-questionAnswer(db, category, question, answer, score) */
-
+questionAnswer(db, category, question, answer, score) 
+*/
 
 //API CALLS
 

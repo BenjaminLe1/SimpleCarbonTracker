@@ -33,6 +33,12 @@ const Navbar = () => {
                         <NavLink to="/account" activeStyle>
                             Signin/Signup
                         </NavLink>
+                        <NavLink to="/login" activeStyle>
+                            Login
+                        </NavLink>
+                        <NavLink to="/signup" activeStyle>
+                            Signup
+                        </NavLink>
                         <div className="trigger" onClick={()=>{setOpen(!open)}}>
                             <img alt="profile"src={require("../../pages/images/profile.png")} className="profile" id="prof"></img>
                         </div>
@@ -53,6 +59,7 @@ const Navbar = () => {
                                 </a>
                             </div>
                         </div>
+                        
                     </NavMenu>
                 </Nav>
                 
