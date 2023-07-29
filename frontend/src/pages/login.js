@@ -8,7 +8,6 @@ function Login(){
     const [userNameLog,setUsernameLog] = useState("")
     const [passwordLog,setPasswordLog] = useState("")
     
-    const [error, setError] = useState("")
     const [errorLog,setErrorLog] = useState("")
     
     const checkLogin = () =>{
