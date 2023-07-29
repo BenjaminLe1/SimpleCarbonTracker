@@ -4,6 +4,7 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 import "../../pages/pages.css"
 import "./boot.css"
+import SVGComponent from "../../pages/SVGComponent";
  
 const Navbar = () => {
     const [login, setLogin] = useState("")
@@ -27,8 +28,8 @@ const Navbar = () => {
                         {/*Do not show "quiz", "signout", "username display" IF not signed in*/}
                         {/*Do not show "cover(quiz)", "create an account", "signin" IF signed in*/}
 
-                        <NavLink className="calc"to="/quiz" activeStyle>
-                            Footprint Calculator
+                        <NavLink to="/quiz" activeStyle>
+                            <SVGComponent className='svg'/>
                         </NavLink>
                         <div className="trigger" onClick={()=>{setOpen(!open)}}>
                             <img alt="profile"src={require("../../pages/images/profile.png")} className="profile" id="prof"></img>
@@ -60,8 +61,9 @@ const Navbar = () => {
                         <NavLink to="/" activeStyle>
                             <img className="logo" src={require("../../pages/images/logo.png")} alt="Logo"></img>
                         </NavLink>
-                        <NavLink className="calc" to="/quiz" activeStyle>
-                            Footprint Calculator
+                        <NavLink to="/quiz" activeStyle>
+                            {/* <img alt="profile" src={require("../../pages/images/footprint.png")} className="calcNav"></img> */}
+                            <SVGComponent className='svg'/>
                         </NavLink>
                         <div className="trigger" onClick={()=>{setOpen(!open)}}>
                             <img alt="profile"src={require("../../pages/images/profile.png")} className="profile" id="prof"></img>

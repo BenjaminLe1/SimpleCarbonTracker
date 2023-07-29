@@ -26,7 +26,7 @@ function Login(){
 
     return (
         <div>
-            <div classname="Login">
+            <div className="Login">
                 <p>Login</p>
                 <input onChange={(e) => setUsernameLog(e.target.value)} id="userNameLog" value={userNameLog} placeholder="username" type="text"></input>    
                 <input onChange={(e) => setPasswordLog(e.target.value)} id="passwordLog" value={passwordLog} placeholder="password" type="password"></input>
