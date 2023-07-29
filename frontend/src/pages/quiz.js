@@ -115,7 +115,7 @@ function Quiz() {
   else{
     return (
       <div className='nullSignin'>
-        <a href="http://localhost:3000/account">Please Sign In to Take Quiz</a>
+        <a href="http://localhost:3000/login">Please Sign In to Take Quiz</a>
       </div>
     );
   }
