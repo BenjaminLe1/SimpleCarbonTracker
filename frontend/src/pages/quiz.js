@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import './pages.css';
 import LinearProgressWithLabel from './ProgressBar';
+import Box from '@mui/material/Box';
 
 
 function Quiz() {
@@ -36,6 +37,7 @@ function Quiz() {
       getQ()
     }
     axios.get("http://localhost:4000/check_login").then((response)=>{
+        console.log(response)
         if (response.data.loggedIn === true){
             setLogin(response.data.user[0].username)
         }
@@ -75,7 +77,7 @@ function Quiz() {
     });
   }
 
-  var progress = parseInt((currq / 12) * 100)
+  var progress = parseInt(((currq - 1)/ 12) * 100)
 
   if (currq === 0){
     return (
@@ -90,7 +92,9 @@ function Quiz() {
   else if (login){
     return (
         <div classname="Quiz">
-          {/* <LinearProgressWithLabel value={progress}/> */}
+          <Box sx={{ width: '60%', position: 'absolute', left: '21%', bottom: '5%'}}>
+            <LinearProgressWithLabel value={progress} color="success" />
+          </Box>
           <h1 className='quizTitle'>{question}</h1>
               <ol>
                   <div>
