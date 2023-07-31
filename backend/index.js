@@ -37,8 +37,8 @@ app.use(session({
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"N@vi03kid", //vijay
-    //password:"Canbe56&8", //bens
+    //password:"N@vi03kid", //vijay
+    password:"Canbe56&8", //bens
     //password:"dataBaseNow12", //pravin
     database:"simplecarbontracker"
 })
@@ -133,7 +133,6 @@ app.post("/check_login", (req,res)=>{
     const checkUsername = req.body.userName
     const checkPassword = req.body.password
     const q = "SELECT * FROM simplecarbontracker.person WHERE username = (?)"
-    console.log("e")
     db.query(q,checkUsername, (err, data)=>{
         if(err) return res.json(err)
         if (data.length > 0){
@@ -164,7 +163,10 @@ app.get("/check_login", (req,res)=>{
 })
 
 app.post("/signout", (req,res)=>{
-    req.session.user = ""
+    console.log(req.session)
+    req.session.destroy()
+    console.log(req.session)
+    console.log("Signed Out")
 })
 
 //Get current question

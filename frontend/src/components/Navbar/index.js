@@ -81,6 +81,7 @@ const Navbar = () => {
                                 </a>
                             </div>
                         </div>
+                        <p className="user">{login}</p>
                     </NavMenu>
                 </Nav>
             </>

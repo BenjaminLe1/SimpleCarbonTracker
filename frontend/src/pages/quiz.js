@@ -90,7 +90,7 @@ function Quiz() {
   else if (login){
     return (
         <div classname="Quiz">
-          <LinearProgressWithLabel value={progress}/>
+          {/* <LinearProgressWithLabel value={progress}/> */}
           <h1 className='quizTitle'>{question}</h1>
               <ol>
                   <div>
