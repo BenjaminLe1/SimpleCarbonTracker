@@ -3,10 +3,9 @@ import "./pages.css"
 const Food = () => {
     return (
         <div>
-            <div>
-                <p>something food</p>
-            </div>
+            <b>Header</b>
+            <p>Food info</p>
         </div>
-    );
+    )
 }
 export default Food;
