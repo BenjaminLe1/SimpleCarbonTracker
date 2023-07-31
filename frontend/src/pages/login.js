@@ -32,6 +32,7 @@ function Login(){
                 <input onChange={(e) => setPasswordLog(e.target.value)} id="passwordLog" value={passwordLog} placeholder="password" type="password"></input>
                 <button onClick={checkLogin}>Login</button>
                 <p>{errorLog}</p>
+                <p>or create an account <a href="http://localhost:3000/signup">here</a></p>
             </div>
         </div>
     )    
