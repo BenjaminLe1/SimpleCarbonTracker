@@ -83,7 +83,7 @@ function Quiz() {
     return (
       <div classname="Cover">
                 <div className='coverButton'>
-                    <button className='button' onClick={increaseCurrq} >Calculate Footprint</button>
+                    <button className='qbutton' onClick={increaseCurrq} >Calculate Footprint</button>
                 </div>
       </div>
     );
@@ -98,16 +98,16 @@ function Quiz() {
           <h1 className='quizTitle'>{question}</h1>
               <ol>
                   <div>
-                      <button className='button' onClick={increaseCurrq} value={ans1}>{ans1}</button>
+                      <button className='qbutton' onClick={increaseCurrq} value={ans1}>{ans1}</button>
                   </div>
                   <div>
-                      <button className='button' onClick={increaseCurrq} value={ans2}>{ans2}</button>
+                      <button className='qbutton' onClick={increaseCurrq} value={ans2}>{ans2}</button>
                   </div>
                   <div>
-                      <button className='button' onClick={increaseCurrq} value={ans3}>{ans3}</button>
+                      <button className='qbutton' onClick={increaseCurrq} value={ans3}>{ans3}</button>
                   </div>
                   <div>
-                      <button className='button' onClick={increaseCurrq} value={ans4}>{ans4}</button>
+                      <button className='qbutton' onClick={increaseCurrq} value={ans4}>{ans4}</button>
                   </div>
               </ol>
           {/* <div className='categoryBox'>
