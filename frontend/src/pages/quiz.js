@@ -1,7 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import './pages.css';
-  
+import LinearProgressWithLabel from './ProgressBar';
+import Box from '@mui/material/Box';
+
+
 function Quiz() {
   axios.defaults.withCredentials = true;
   //onClick you have to iterate to the next quiz Component using the map function. Also delete and store the current question
@@ -34,6 +37,7 @@ function Quiz() {
       getQ()
     }
     axios.get("http://localhost:4000/check_login").then((response)=>{
+        console.log(response)
         if (response.data.loggedIn === true){
             setLogin(response.data.user[0].username)
         }
@@ -73,6 +77,8 @@ function Quiz() {
     });
   }
 
+  var progress = parseInt(((currq - 1)/ 12) * 100)
+
   if (currq === 0){
     return (
       <div classname="Cover">
@@ -82,13 +88,14 @@ function Quiz() {
       </div>
     );
   }
+
   else if (login){
     return (
         <div classname="Quiz">
-          <div className='categoryCount'>
-            <p>{displayCategoryNum}/3</p>
-          </div>
-          <h1>{question}</h1>
+          <Box sx={{ width: '60%', position: 'absolute', left: '21%', bottom: '5%'}}>
+            <LinearProgressWithLabel value={progress} color="success" />
+          </Box>
+          <h1 className='quizTitle'>{question}</h1>
               <ol>
                   <div>
                       <button className='button' onClick={increaseCurrq} value={ans1}>{ans1}</button>
@@ -113,10 +120,9 @@ function Quiz() {
     );
   }
   else{
+    setCurrq(0)
     return (
-      <div className='nullSignin'>
-        <a href="http://localhost:3000/account">Please Sign In to Take Quiz</a>
-      </div>
+      window.location.replace("http://localhost:3000/login")
     );
   }
 }

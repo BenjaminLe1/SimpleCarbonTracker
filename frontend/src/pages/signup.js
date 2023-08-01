@@ -10,7 +10,6 @@ function Signup(){
     const [password,setPassword] = useState("")
     
     const [error, setError] = useState("")
-    const [errorLog,setErrorLog] = useState("")
     
     function handleSubmit(){
         checkAccounts()
@@ -34,7 +33,7 @@ function Signup(){
         <div>
             <body>
                 <div classname="center">
-                    <h1>SignIn</h1>
+                    <h1>Create an Account</h1>
                     <form>
                         <div class="txt_field">
                             <input onChange={(e) => setEmail(e.target.value)} id="email" value={email} type="text" required></input>                   
@@ -53,6 +52,7 @@ function Signup(){
                         </div>
                         <button onClick={handleSubmit}>Create an Account</button>
                         <p>{error}</p>
+                        <p>or sign in <a href="http://localhost:3000/login">here</a></p>
                     </form>
                 </div>
             </body>

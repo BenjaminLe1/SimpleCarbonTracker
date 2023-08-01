@@ -3,9 +3,8 @@ import "./pages.css"
 const Transportation = () => {
     return (
         <div>
-            <div>
-                <p>something trans</p>
-            </div>
+            <b>Header</b>
+            <p>Transportation info</p>
         </div>
     );
 }

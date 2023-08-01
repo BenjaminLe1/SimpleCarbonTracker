@@ -38,8 +38,8 @@ const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     //password:"N@vi03kid", //vijay
-    // password:"Canbe56&8", //bens
-    password:"dataBaseNow12", //pravin
+    password:"Canbe56&8", //bens
+    //password:"dataBaseNow12", //pravin
     database:"simplecarbontracker"
 })
 
@@ -67,6 +67,7 @@ function handleDisconnect() {
 
 
 app.get("/", cors(), (req,res)=>{
+    console.log(req.session.cookie)
     res.send("hello this is the backend")
 })
 
@@ -163,7 +164,9 @@ app.get("/check_login", (req,res)=>{
 })
 
 app.post("/signout", (req,res)=>{
-    req.session.user = ""
+    //console.log(req.session.cookie)
+    delete req.session.user
+    console.log("Signed Out")
 })
 
 //Get current question

@@ -2,6 +2,11 @@ import React,{useState, useEffect} from "react";
 import "./pages.css"
 import CircularProgressBar from './Circle';
 import axios from "axios"
+import Popup from "./popup";
+import Transportation from "./transportation";
+import Food from "./food";
+import House from "./house";
+import Spending from "./spending";
 
 function Results(){
     axios.defaults.withCredentials = true;
@@ -115,20 +120,21 @@ function Results(){
         textColor4 = '#3D0000';
     }
 
-    function send(e){
-        var x = parseInt(e.target.value)
-        if(x === 1){
-            window.open("http://localhost:3000/improve_transportation", '_blank')
-        }
-        if(x === 2){
-            window.open("http://localhost:3000/improve_home", '_blank')
-        }
-        if(x === 3){
-            window.open("http://localhost:3000/improve_food", '_blank')
-        }
-        if(x === 4){
-            window.open("http://localhost:3000/improve_spending", '_blank')
-        }
+    const [open1, setOpen1] = useState(false);
+    const toggle1 = () => {
+        setOpen1(!open1);
+    }
+    const [open2, setOpen2] = useState(false);
+    const toggle2 = () => {
+        setOpen2(!open2);
+    }
+    const [open3, setOpen3] = useState(false);
+    const toggle3 = () => {
+        setOpen3(!open3);
+    }
+    const [open4, setOpen4] = useState(false);
+    const toggle4 = () => {
+        setOpen4(!open4);
     }
 
     //format UL like this. Percentage in a <span> (make it big) --> category next to it with small icon
@@ -183,30 +189,46 @@ function Results(){
                     <CircularProgressBar percentage={overall} />
                 </div>
 
-                <button value={1} onClick={send} style={{backgroundColor: background1}} className='results-button' id='bottom-right'>
+                <button value={1} onClick={toggle1} style={{backgroundColor: background1}} className='results-button' id='bottom-right'>
                     <ul>
                         <h2 style={{color: textColor1}}>{cats[0]}: {cat1}%</h2>
                         <h6 style={{color: textColor1}} className='clickImprove'> Click to improve your score!</h6>
                     </ul>
                 </button>
-                <button value={2} onClick={send} style={{backgroundColor: background2}} className='results-button' id='top-right'>
+                <button value={2} onClick={toggle2} style={{backgroundColor: background2}} className='results-button' id='top-right'>
                     <ul>
                         <h2 style={{color: textColor2}}>{cats[1]}: {cat2}%</h2>
                         <h6 style={{color: textColor2}} className='clickImprove'>Click to improve your score!</h6>
                     </ul>
                 </button>
-                <button value={3} onClick={send} style={{backgroundColor: background3}} className='results-button' id='top-left'>
+                <button value={3} onClick={toggle3} style={{backgroundColor: background3}} className='results-button' id='top-left'>
                     <ul>
                         <h2 style={{color: textColor3}}>{cats[2]}: {cat3}%</h2>
                         <h6 style={{color: textColor3}} className='clickImprove'>Click to improve your score!</h6>
                     </ul>
                 </button>
-                <button value={4} onClick={send} style={{backgroundColor: background4}} className='results-button' id='bottom-left'>
+                <button value={4} onClick={toggle4} style={{backgroundColor: background4}} className='results-button' id='bottom-left'>
                     <ul>
                         <h2 style={{color: textColor4}}>{cats[3]}: {cat4}%</h2>
                         <h6 style={{color: textColor4}} className='clickImprove'>Click to improve your score!</h6>
                     </ul>
                 </button>
+                {open1 && <Popup
+                    content={<><Transportation/></>}
+                    handleClose={toggle1}
+                />}
+                {open2 && <Popup
+                    content={<><House/></>}
+                    handleClose={toggle2}
+                />}
+                {open3 && <Popup
+                    content={<><Food/></>}
+                    handleClose={toggle3}
+                />}
+                {open4 && <Popup
+                    content={<><Spending/></>}
+                    handleClose={toggle4}
+                />}
             </div>
         )
     }

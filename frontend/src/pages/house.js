@@ -3,9 +3,8 @@ import "./pages.css"
 const House = () => {
     return (
         <div>
-            <div>
-                <p>something house</p>
-            </div>
+            <b>Header</b>
+            <p>House info</p>
         </div>
     );
 }

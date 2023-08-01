@@ -3,6 +3,8 @@ import { Nav, NavLink, NavMenu } from "./NavbarElements";
 import {useState, useEffect} from "react";
 import axios from "axios";
 import "../../pages/pages.css"
+import "./boot.css"
+import SVGComponent from "../../pages/SVGComponent";
  
 const Navbar = () => {
     const [login, setLogin] = useState("")
@@ -13,6 +15,8 @@ const Navbar = () => {
             }
         })
     ], [])
+    const[open, setOpen] = useState(false)
+    
     if (login === ""){
         return (
             <>
@@ -25,19 +29,27 @@ const Navbar = () => {
                         {/*Do not show "cover(quiz)", "create an account", "signin" IF signed in*/}
 
                         <NavLink to="/quiz" activeStyle>
-                            Quiz
+                            <SVGComponent className='svg'/>
                         </NavLink>
-                        <NavLink to="/account" activeStyle>
-                            Signin/Signup
-                        </NavLink>
-                        <NavLink to="/login" activeStyle>
-                            Login
-                        </NavLink>
-                        <NavLink to="/signup" activeStyle>
-                            Signup
-                        </NavLink>
+                        <div className="trigger" onClick={()=>{setOpen(!open)}}>
+                            <img alt="profile"src={require("../../pages/images/profile.png")} className="profile" id="prof"></img>
+                        </div>
+                        <div className={`sub-menu-wrap ${open? 'active' : 'inactive'}`}>
+                            <div className="sub-menu">
+                                <a href="http://localhost:3000/signup" class="sub-menu-link">
+                                    <p>Sign up</p>
+                                    <span>></span>
+                                </a>
+                                <a href="http://localhost:3000/login" class="sub-menu-link">
+                                    <p>Sign in</p>
+                                    <span>></span>
+                                </a>
+                            </div>
+                        </div>
+                        
                     </NavMenu>
                 </Nav>
+                
             </>
         );
     }
@@ -50,19 +62,32 @@ const Navbar = () => {
                             <img className="logo" src={require("../../pages/images/logo.png")} alt="Logo"></img>
                         </NavLink>
                         <NavLink to="/quiz" activeStyle>
-                            Footprint Quiz
+                            {/* <img alt="profile" src={require("../../pages/images/footprint.png")} className="calcNav"></img> */}
+                            <SVGComponent className='svg'/>
                         </NavLink>
-                        <p style={{color: "white"}}>
-                            {login}
-                        </p>
-                        <NavLink to="/signout" activeStyle style={{textDecorationLine: 'underline'}}>
-                            Sign Out
-                        </NavLink>
+                        <div className="trigger" onClick={()=>{setOpen(!open)}}>
+                            <img alt="profile"src={require("../../pages/images/profile.png")} className="profile" id="prof"></img>
+                        </div>
+                        <div className={`sub-menu-wrap ${open? 'active' : 'inactive'}`}>
+                            <div className="sub-menu">
+                                <div className="user-info">
+                                    <p className="user">{login}</p>
+                                </div>
+                                <hr>
+                                </hr>
+                                <a href="http://localhost:3000/signout" class="sub-menu-link">
+                                    <p>Sign out</p>
+                                    <span>></span>
+                                </a>
+                            </div>
+                        </div>
+                        <p className="user">{login}</p>
                     </NavMenu>
                 </Nav>
             </>
         );
-    }
+    }   
 };
+
  
 export default Navbar;

@@ -8,7 +8,6 @@ function Login(){
     const [userNameLog,setUsernameLog] = useState("")
     const [passwordLog,setPasswordLog] = useState("")
     
-    const [error, setError] = useState("")
     const [errorLog,setErrorLog] = useState("")
     
     const checkLogin = () =>{
@@ -27,12 +26,13 @@ function Login(){
 
     return (
         <div>
-            <div classname="Login">
+            <div className="Login">
                 <p>Login</p>
                 <input onChange={(e) => setUsernameLog(e.target.value)} id="userNameLog" value={userNameLog} placeholder="username" type="text"></input>    
                 <input onChange={(e) => setPasswordLog(e.target.value)} id="passwordLog" value={passwordLog} placeholder="password" type="password"></input>
                 <button onClick={checkLogin}>Login</button>
                 <p>{errorLog}</p>
+                <p>or create an account <a href="http://localhost:3000/signup">here</a></p>
             </div>
         </div>
     )    

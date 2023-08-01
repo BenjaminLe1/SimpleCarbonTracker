@@ -3,9 +3,8 @@ import "./pages.css"
 const Spending = () => {
     return (
         <div>
-            <div>
-                <p>something spending</p>
-            </div>
+            <b>Header</b>
+            <p>Spending info</p>
         </div>
     );
 }
