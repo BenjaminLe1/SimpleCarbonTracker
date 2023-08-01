@@ -73,7 +73,7 @@
     text-align: center;
   }
 
-  .button {
+  .qbutton {
     padding: 15px 25px;
     font-size: 24px;
     text-align: center;
@@ -90,9 +90,9 @@
     height: 75px;
   }
   
-  .button:hover {background-color: #446A46}
+  .qbutton:hover {background-color: #446A46}
   
-  .button:active {
+  .qbutton:active {
     background-color: #446A46;
     /* box-shadow: 0 5px #666; */
     transform: translateY(4px);
