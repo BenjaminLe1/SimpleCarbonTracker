@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import "./login.css"
+import "./pages.css"
 
 function Signup(){
     axios.defaults.withCredentials = true;
@@ -32,29 +32,25 @@ function Signup(){
     return (
         <div>
             <body>
-                <div classname="center">
-                    <h1>Create an Account</h1>
+                <div className="account-create-login-form">
+                    <h1 className="account-create-login-header"> Sign Up Now</h1>
                     <form>
-                        <div class="txt_field">
-                            <input onChange={(e) => setEmail(e.target.value)} id="email" value={email} type="text" required></input>                   
-                            <span></span>
-                            <label>Email</label>                        
-                        </div>
-                        <div class="txt_field">
-                            <input onChange={(e) => setUsername(e.target.value)} id="userName"  value={userName} type="username" required></input>
-                            <span></span>
-                            <label>Username</label>  
-                        </div>
-                        <div class="txt_field">
-                            <input onChange={(e) => setPassword(e.target.value)} id="password" value={password} type="password" required></input>
-                            <span></span>
-                            <label>Password</label>  
-                        </div>
-                        <button onClick={handleSubmit}>Create an Account</button>
+                        <input onChange={(e) => setEmail(e.target.value)} value={email} type="email" id="email" className="input-box" placeholder="Your Email" ></input>
+                        <input onChange={(e) => setUsername(e.target.value)} value={userName} type="username" id="username" className="input-box" placeholder="Your Username" ></input>
+                        <input onChange={(e) => setPassword(e.target.value)} value={password} type="password" id="password" className="input-box" placeholder="Your Password" ></input>
+                        <p>
+                            <span>
+                                <input type="checkbox"></input>
+                            </span>
+                            I agree to the terms of service
+                        </p>
+                        <button onClick={handleSubmit} className="account-create-login-submit">Create an Account</button>
                         <p>{error}</p>
-                        <p>or sign in <a href="http://localhost:3000/login">here</a></p>
+                        <p className="or">OR</p>
+                        <p>Already have an account?</p>
+                        <p><a href="/login">Sign in</a></p>
                     </form>
-                </div>
+                </div>     
             </body>
         </div>
     )    
