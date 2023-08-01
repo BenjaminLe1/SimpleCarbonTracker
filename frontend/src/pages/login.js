@@ -12,6 +12,7 @@ function Login(){
     const [errorLog,setErrorLog] = useState("")
     
     const checkLogin = () =>{
+        console.log("Test")
         axios.post("http://localhost:4000/check_login", {
             userName: userNameLog,
             password: passwordLog,
@@ -30,8 +31,7 @@ function Login(){
             <body>
                 <div className="account-create-login-form">
                     <h1 className="account-create-login-header"> Login Now</h1>
-                    <form>
-                        <p>Login</p>
+                    
                         <input onChange={(e) => setUsernameLog(e.target.value)} id="userNameLog" value={userNameLog} className="input-box" placeholder="username" type="text"></input>    
                         <input onChange={(e) => setPasswordLog(e.target.value)} id="passwordLog" value={passwordLog} className="input-box" placeholder="password" type="password"></input>
                         <button onClick={checkLogin} className="account-create-login-submit">Login</button>
@@ -39,7 +39,6 @@ function Login(){
                         <p className="or">OR</p>
                         <p>Create an account?</p>
                         <p><a href="/signup">Sign Up</a></p>                    
-                    </form>
                 </div>
             </body>
         </div>
