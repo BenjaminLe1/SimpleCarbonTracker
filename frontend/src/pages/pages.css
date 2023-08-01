@@ -288,13 +288,14 @@
   width: 93%;
   margin: 0 auto;
   height: auto;
-  max-height: 95vh;
+  max-height: 89vh;
   margin-top: 3%;
-  background: #fff;
+  background: #FAF3F0;
   border-radius: 4px;
   padding: 20px;
   border: 1px solid #999;
   overflow: auto;
+  border-radius: 25px;
 }
  
 .close-icon {
@@ -308,8 +309,33 @@
   border-radius: 50%;
   line-height: 20px;
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
 }
 .close-icon:hover{
-  color: pink;
+  color: gray;
+}
+
+
+.house1{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #D4E2D4;
+  border-radius: 25px;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 30px;
+}
+
+.description{
+  padding-right: 10%;
+  padding-left: 10%;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.houseTitle1{
+    color: #263A29;
+    text-align: center;
+    margin-bottom: 10px;
 }
