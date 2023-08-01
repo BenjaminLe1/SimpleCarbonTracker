@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 //import {useEffect} from 'react';
 import axios from "axios";
+import "./pages.css"
 
 function Login(){
     axios.defaults.withCredentials = true;
@@ -26,14 +27,21 @@ function Login(){
 
     return (
         <div>
-            <div className="Login">
-                <p>Login</p>
-                <input onChange={(e) => setUsernameLog(e.target.value)} id="userNameLog" value={userNameLog} placeholder="username" type="text"></input>    
-                <input onChange={(e) => setPasswordLog(e.target.value)} id="passwordLog" value={passwordLog} placeholder="password" type="password"></input>
-                <button onClick={checkLogin}>Login</button>
-                <p>{errorLog}</p>
-                <p>or create an account <a href="http://localhost:3000/signup">here</a></p>
-            </div>
+            <body>
+                <div className="account-create-login-form">
+                    <h1 className="account-create-login-header"> Login Now</h1>
+                    <form>
+                        <p>Login</p>
+                        <input onChange={(e) => setUsernameLog(e.target.value)} id="userNameLog" value={userNameLog} className="input-box" placeholder="username" type="text"></input>    
+                        <input onChange={(e) => setPasswordLog(e.target.value)} id="passwordLog" value={passwordLog} className="input-box" placeholder="password" type="password"></input>
+                        <button onClick={checkLogin} className="account-create-login-submit">Login</button>
+                        <p>{errorLog}</p>
+                        <p className="or">OR</p>
+                        <p>Create an account?</p>
+                        <p><a href="/signup">Sign Up</a></p>                    
+                    </form>
+                </div>
+            </body>
         </div>
     )    
 }
