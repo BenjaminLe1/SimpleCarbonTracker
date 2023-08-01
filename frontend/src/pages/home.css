@@ -49,10 +49,12 @@
 
 
 .button--pen{
-    --main_color : #4d4d4d ;
-    --sub_color1 : #FFF ;
+    /* --main_color : #4d4d4d ; */
+    --main_color : #446A46;
+    /* --sub_color1 : #FFF ; */
+    --sub_color1 : #FAF3F0 ;
     --sub_color2 : #e9b800 ;
-    --base_color : #e9b800 ;
+    --base_color : #FAF3F0 ;
     --border_radius1 : 60px 60px 40px 40px / 48px 48px 30px 30px ;
     --border_radius2 : 70px 70px 40px 40px / 48px 48px 30px 30px ;
     --border_radius3 : 40px 40px 40px 40px / 48px 48px 30px 30px ;
