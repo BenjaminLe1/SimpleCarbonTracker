@@ -64,8 +64,9 @@ const Navbar = () => {
                             <img className="logo" src={require("../../pages/images/logo.png")} alt="Logo"></img>
                         </NavLink>
                         <NavLink to="/quiz" activeStyle>
-                            {/* <img alt="profile" src={require("../../pages/images/footprint.png")} className="calcNav"></img> */}
-                            <SVGComponent className='svg'/>
+                            <div className="calcBox">
+                                <p className="navCalc">Footprint Calculator</p>
+                            </div>
                         </NavLink>
                         <div className="trigger" onClick={()=>{setOpen(!open)}}>
                             <img alt="profile"src={require("../../pages/images/profile.png")} className="profile" id="prof"></img>
@@ -83,7 +84,6 @@ const Navbar = () => {
                                 </a>
                             </div>
                         </div>
-                        <p className="user">{login}</p>
                     </NavMenu>
                 </Nav>
             </>
