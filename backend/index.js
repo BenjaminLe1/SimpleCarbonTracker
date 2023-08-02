@@ -37,8 +37,8 @@ app.use(session({
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"N@vi03kid", //vijay
-    //password:"Canbe56&8", //bens
+    //password:"N@vi03kid", //vijay
+    password:"Canbe56&8", //bens
     //password:"dataBaseNow12", //pravin
     database:"simplecarbontracker"
 })
@@ -107,7 +107,9 @@ app.post("/post_signup", async (req, res) => {
 app.get("/check_accounts", (req,res)=>{
     var checkEmail = req.query.email
     var checkUsername = req.query.userName
+    var checkPassword = req.query.password
     if (checkUsername == "" || checkEmail == "") return res.send("Email/Username field is empty.")
+    if (checkPassword == "") return res.send("Password field is empty.")
     const q = "SELECT * FROM simplecarbontracker.person WHERE email = (?)"
     db.query(q,checkEmail, (err, data)=>{
         if(err) return res.json(err)
