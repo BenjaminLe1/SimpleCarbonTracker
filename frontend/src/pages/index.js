@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <div>
             <h1 className="xh1">
-                Do you want these monkeys die?
+                Do you want to learn about your impact on the planet?
             </h1>
             <h3 className="xh3">
                 Take a step towards environmental awareness and find out how much impact your daily choices have on the planet. Our interactive quiz will assess your carbon footprint by evaluating various aspects of your lifestyle, such as transportation, dietary and spending habits, and home energy consumption. Uncover your carbon footprint score and receive personalized tips on how to reduce your environmental impact. Start the quiz now and be part of the solution!
