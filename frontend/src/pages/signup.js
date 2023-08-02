@@ -10,14 +10,19 @@ function Signup(){
     const [password,setPassword] = useState("")
     
     const [error, setError] = useState("")
+    const [box, setBox] = useState(false)
     
+    function toggleBox(){
+        setBox(!box)
+    }
     function handleSubmit(){
         checkAccounts()
-        postSignup()
+        postSignup()   
         if (error === "Account Created Successfully!"){
             window.location.replace("http://localhost:3000/login")
         }
     }
+
     const checkAccounts=async()=>{
         const response = await axios.get("http://localhost:4000/check_accounts", {params : {
             email: email,
@@ -42,12 +47,12 @@ function Signup(){
                         <input onChange={(e) => setPassword(e.target.value)} value={password} type="password" id="password" className="input-box" placeholder="Your Password" ></input>
                         <p>
                             <span>
-                                <input type="checkbox"></input>
+                                <input onChange={toggleBox}type="checkbox"></input>
                             </span>
                             I agree to the terms of service
                         </p>
-                        <button onClick={handleSubmit} className="account-create-login-submit">Create an Account</button>
-                        <p>{error}</p>
+                        <button onClick={handleSubmit} className={`account-create-login-submit ${box? 'active' : 'inactive'}`}>Create an Account</button>
+                        <p className="error">{error}</p>
                         <p className="or">OR</p>
                         <p>Already have an account?</p>
                         <p><a href="/login">Sign in</a></p>

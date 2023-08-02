@@ -276,14 +276,23 @@
     top: 2.75%;
 }
 
+.calcBox{
+  
+}
+.navCalc{
+  font-family: Georgia, serif;
+  font-size:30px;
+  font-weight: 900;
+  color: #446A46;
+  position: absolute;
+  left: 11%;
+  top: 2%;
+}
+
 .trigger{
   position:absolute;
   right: 5%;
 }
-
-
-
-
 /* POP UP STUFF BELOW*/
 .popup-box {
   position: fixed;
@@ -369,11 +378,11 @@
   border-radius: 30px; 
   padding: 10px;
   margin: 10px 0; 
-  width: 100%; 
+  width: 93%;
   border: 1px solid #999;
   outline: none; 
 }
-.account-create-login-submit{
+.login-submit{
   color: #fff; 
   width: 100%;
   padding: 10px;
@@ -384,6 +393,37 @@
   outline: none; 
   cursor: pointer; 
   background-color: #1c8adb;
+}
+
+.account-create-login-submit.active{
+  color: #fff; 
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px; 
+  font-size:15px; 
+  margin: 10px 0; 
+  border: none; 
+  outline: none; 
+  cursor: pointer; 
+  background-color: #1c8adb;
+}
+
+.account-create-login-submit.inactive{
+  background-color: #1c8adb;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.35;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px; 
+  font-size:15px; 
+  margin: 10px 0; 
+  border: none; 
+  outline: none; 
+  cursor: pointer; 
 }
 
 a{
@@ -418,6 +458,9 @@ a{
   top:  50%;
 }
 
+.error{
+  color: red;
+}
 
 .quizT{
   margin-top: 10%;
