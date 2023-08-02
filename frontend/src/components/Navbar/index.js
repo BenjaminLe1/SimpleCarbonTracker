@@ -29,7 +29,9 @@ const Navbar = () => {
                         {/*Do not show "cover(quiz)", "create an account", "signin" IF signed in*/}
 
                         <NavLink to="/quiz" activeStyle>
-                            <SVGComponent className='svg'/>
+                            <div className="calcBox">
+                                <p className="navCalc">Footprint Calculator</p>
+                            </div>
                         </NavLink>
                         <div className="trigger" onClick={()=>{setOpen(!open)}}>
                             <img alt="profile"src={require("../../pages/images/profile.png")} className="profile" id="prof"></img>

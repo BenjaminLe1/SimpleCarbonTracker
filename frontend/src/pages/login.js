@@ -34,10 +34,10 @@ function Login(){
                     
                         <input onChange={(e) => setUsernameLog(e.target.value)} id="userNameLog" value={userNameLog} className="input-box" placeholder="username" type="text"></input>    
                         <input onChange={(e) => setPasswordLog(e.target.value)} id="passwordLog" value={passwordLog} className="input-box" placeholder="password" type="password"></input>
-                        <button onClick={checkLogin} className="account-create-login-submit">Login</button>
-                        <p>{errorLog}</p>
+                        <button onClick={checkLogin} className="login-submit">Login</button>
+                        <p className="error"> {errorLog}</p>
                         <p className="or">OR</p>
-                        <p>Create an account?</p>
+                        <p>Need to create an account?</p>
                         <p><a href="/signup">Sign Up</a></p>                    
                 </div>
             </body>
