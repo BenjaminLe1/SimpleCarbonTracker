@@ -47,7 +47,7 @@ function Signup(){
                         <input onChange={(e) => setUsername(e.target.value)} value={userName} type="username" id="username" className="input-box" placeholder="Your Username" ></input>
                         <input onChange={(e) => setPassword(e.target.value)} value={password} type="password" id="password" className="input-box" placeholder="Your Password" ></input>
                         <p>
-                            <span>
+                            <span className="terms">
                                 <input onChange={toggleBox}type="checkbox"></input>
                             </span>
                             I agree to the terms of service
@@ -56,7 +56,7 @@ function Signup(){
                         <p className="error">{error}</p>
                         <p className="or">OR</p>
                         <p>Already have an account?</p>
-                        <p><a href="/login">Sign in</a></p>
+                        <p className = "switch"><a href="/login">Sign in</a></p>
                 </div>     
             </body>
         </div>

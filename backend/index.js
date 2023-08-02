@@ -166,9 +166,9 @@ app.get("/check_login", (req,res)=>{
 })
 
 app.post("/signout", (req,res)=>{
-    //console.log(req.session.cookie)
     delete req.session.user
     console.log("Signed Out")
+    res.send("Signed Out")
 })
 
 //Get current question

@@ -144,7 +144,6 @@ function Results(){
         console.log("quiz not taken")
         return (
             <div>
-                <a href="http://localhost:3000/quiz" style={{textAlign:'center'}}>Please Take Quiz</a>  
             </div>
         )
     }

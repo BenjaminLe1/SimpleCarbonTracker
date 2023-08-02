@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 //import {useEffect} from 'react';
 import axios from "axios";
 import "./pages.css"
+//import Popupreg from './popupreg';
 
 function Login(){
     axios.defaults.withCredentials = true;
@@ -10,9 +11,11 @@ function Login(){
     const [passwordLog,setPasswordLog] = useState("")
     
     const [errorLog,setErrorLog] = useState("")
-    
+    /* const toggle = () => {
+        window.location.replace("http://localhost:3000")
+    } */
+
     const checkLogin = () =>{
-        console.log("Test")
         axios.post("http://localhost:4000/check_login", {
             userName: userNameLog,
             password: passwordLog,
@@ -31,17 +34,24 @@ function Login(){
             <body>
                 <div className="account-create-login-form">
                     <h1 className="account-create-login-header"> Login Now</h1>
-                    
                         <input onChange={(e) => setUsernameLog(e.target.value)} id="userNameLog" value={userNameLog} className="input-box" placeholder="username" type="text"></input>    
                         <input onChange={(e) => setPasswordLog(e.target.value)} id="passwordLog" value={passwordLog} className="input-box" placeholder="password" type="password"></input>
                         <button onClick={checkLogin} className="login-submit">Login</button>
                         <p className="error"> {errorLog}</p>
                         <p className="or">OR</p>
                         <p>Need to create an account?</p>
-                        <p><a href="/signup">Sign Up</a></p>                    
+                        <p className = "switch"><a href="/signup">Sign Up</a></p>
                 </div>
             </body>
         </div>
-    )    
+        /* <div>
+            <Popupreg
+                content={<>
+                
+                </>}
+                handleClose={toggle}
+            />
+        </div> */
+    )
 }
 export default Login
