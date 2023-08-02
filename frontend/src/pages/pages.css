@@ -375,7 +375,7 @@
 }
 
 .account-create-login-form .account-create-login-header {
-  color: #1c8adb; 
+  color: #263A29; 
   margin-bottom: 30px; 
 }
 
@@ -386,7 +386,14 @@
   width: 93%;
   border: 1px solid #999;
   outline: none; 
+  background-color: #D4E2D4;
+  color: #263A29; 
 }
+
+.input-box::placeholder{
+  color: #263A29; 
+}
+
 .login-submit{
   color: #fff; 
   width: 100%;
@@ -397,7 +404,8 @@
   border: none; 
   outline: none; 
   cursor: pointer; 
-  background-color: #1c8adb;
+  background-color: #446A46
+  ;
 }
 
 .account-create-login-submit.active{
@@ -410,11 +418,11 @@
   border: none; 
   outline: none; 
   cursor: pointer; 
-  background-color: #1c8adb;
+  background-color: #446A46;
 }
 
 .account-create-login-submit.inactive{
-  background-color: #1c8adb;
+  background-color: #446A46;
   pointer-events: none;
   cursor: not-allowed;
   opacity: 0.35;
