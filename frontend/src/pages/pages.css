@@ -1,3 +1,13 @@
+  
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap%27');
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
   .textbox{
     display: flex; 
     justify-content: center; 
@@ -111,8 +121,8 @@
     justify-content: center; 
     align-items: center;
     position: absolute;
-    top: 40%;
-    left: 44%;
+    top: 39.5%;
+    left: 44.3%;
   }
 
   #bottom-right {
@@ -202,6 +212,10 @@
     left: 40%;
   }
 
+  .Cover{
+    text-align: center;
+    margin-top: 5%;
+  }
 
   /*Inverted edge maybe code*/
 
@@ -266,9 +280,6 @@
   position:absolute;
   right: 5%;
 }
-
-
-
 
 
 
@@ -405,4 +416,27 @@ a{
   position: absolute;
   right: 30px; 
   top:  50%;
+}
+
+
+.quizT{
+  margin-top: 10%;
+  padding-right: 5%;
+  padding-left: 5%;
+  font-family: 'Courier New', monospace;
+  font-weight: 8000;
+  font-size: 3rem;
+  text-align: center;
+  color: #263A29;
+}
+.quizDescription{
+  margin-top: 10px;
+  padding-right: 10%;
+  padding-left: 10%;
+  color: #263A29;
+  font-family: 'Courier New', monospace;
+  font-weight: 1050;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 30px;
 }
