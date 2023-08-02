@@ -11,24 +11,25 @@ function Signup(){
     
     const [error, setError] = useState("")
     const [box, setBox] = useState(false)
-    
+
     function toggleBox(){
         setBox(!box)
     }
-    function handleSubmit(){
-        checkAccounts()
-        postSignup()   
-        if (error === "Account Created Successfully!"){
-            window.location.replace("http://localhost:3000/login")
-        }
-    }
-
-    const checkAccounts=async()=>{
-        const response = await axios.get("http://localhost:4000/check_accounts", {params : {
+    const checkAccounts= () =>{
+        axios.get("http://localhost:4000/check_accounts", {params : {
             email: email,
-            userName: userName
-        }});
-        setError(response.data);
+            userName: userName,
+            password: password
+        }}).then((response)=>{
+            setError(response.data);
+            if (response.data === "Account Created Successfully!"){
+                postSignup()
+                window.location.replace("http://localhost:3000/login")
+            }
+        })
+    }
+    function handleSubmit(){
+        checkAccounts() 
     }
     const postSignup = () => {
         axios.post("http://localhost:4000/post_signup", {
