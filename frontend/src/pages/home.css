@@ -24,15 +24,16 @@
     color: pink;
 }
 .picContainer{
-    margin-top: -63%;
-    margin-left: 52%;
+    margin-top: -67%;
+    margin-left: 53%;
 }
 .homePic{
     width:630px;
     height:630px;
+    border-radius: 25px;
 }
 .buttons-container {
-    margin-top: -22%;
+    margin-top: -20%;
     margin-left: 3%;
     width: 100%;
     height: 100vh;

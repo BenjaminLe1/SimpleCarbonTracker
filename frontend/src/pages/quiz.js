@@ -4,7 +4,6 @@ import './pages.css';
 import LinearProgressWithLabel from './ProgressBar';
 import Box from '@mui/material/Box';
 
-
 function Quiz() {
   axios.defaults.withCredentials = true;
   //onClick you have to iterate to the next quiz Component using the map function. Also delete and store the current question
@@ -81,10 +80,14 @@ function Quiz() {
 
   if (currq === 0){
     return (
-      <div classname="Cover">
-                <div className='coverButton'>
+      <div className="Cover">
+               <div className='quizStart'>
+                  <h1 className="quizT">Take the first step learn about your impact</h1>
+                    <h3 className='quizDescription'>Discover your carbon footprint and learn how to make a positive impact on the planet by taking this quiz! Gain insights on your carbon emissions and find out how you can make changes to contribute to a greener and more sustainable future. Let's take a step towards a better environment together! </h3>
+                  <div>
                     <button className='qbutton' onClick={increaseCurrq} >Calculate Footprint</button>
-                </div>
+                  </div>
+                  </div>
       </div>
     );
   }
