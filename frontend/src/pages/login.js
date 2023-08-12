@@ -23,7 +23,7 @@ function Login(){
             console.log(response.data.info[0])
             setErrorLog(response.data.msg)
             if (response.data.info[0]){
-                window.location.replace("http://localhost:3000/quiz")
+                window.location.replace("https://main.d38ai00lc1thuw.amplifyapp.com/quiz")
             }
             console.log(errorLog)
         })

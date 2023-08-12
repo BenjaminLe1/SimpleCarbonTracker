@@ -175,7 +175,7 @@ function Results(){
                     </ul>
                 </button>
                 <div>
-                    <a href="http://localhost:3000/youareanangel"><img className="angel" style={{width:'100px', height:'100px'}} src={require("../pages/images/angel.png")} alt="angel"></img></a>  
+                    <a href="https://main.d38ai00lc1thuw.amplifyapp.com/youareanangel"><img className="angel" style={{width:'100px', height:'100px'}} src={require("../pages/images/angel.png")} alt="angel"></img></a>  
                 </div>
             </div>
         )
@@ -241,7 +241,7 @@ function Results(){
                 <div>
                     <img className="monkey" src={require("../pages/images/cry.png")} style={{width:'600px', height:'400px'}}alt="monkey"></img> 
                     <img className="textbox" src={require("../pages/images/bubble.png")} style={{width:'400px', height:'200px'}}alt="monkey"></img> 
-                    <a className="banana" href="http://localhost:3000/youareamonkey"><img className="monkey" style={{width:'400px', height:'400px'}} src={require("../pages/images/banana.png")} alt="monkey"></img></a>  
+                    <a className="banana" href="https://main.d38ai00lc1thuw.amplifyapp.com/youareamonkey"><img className="monkey" style={{width:'400px', height:'400px'}} src={require("../pages/images/banana.png")} alt="monkey"></img></a>  
                 </div>
             </div>
         )

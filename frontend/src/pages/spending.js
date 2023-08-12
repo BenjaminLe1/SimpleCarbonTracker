@@ -22,7 +22,7 @@ const Spending = () => {
             </div>
 
             <div className="house1">
-            <h2 className="houseTitle1">Reduce Luxery Spending</h2>
+            <h2 className="houseTitle1">Reduce Luxury Spending</h2>
             <div className="description">
                 <p>One of the most significant contributors to our carbon footprint is the production and transportation of luxury goods. From fashion items to high-end electronics, the manufacturing process and global supply chains involved in producing luxuries often result in higher greenhouse gas emissions. By reducing luxury spending, you can actively lower your carbon footprint and contribute to a more sustainable future. Instead of investing in excessive material possessions, consider prioritizing experiences and activities that have a lower environmental impact. Engaging in nature-based activities, exploring local cultural events, or spending time with loved ones can provide meaningful and fulfilling experiences without the environmental burden. Furthermore, allocating a specific budget for luxuries allows you to make conscious and well-informed choices. Consider investing in eco-friendly or ethically sourced luxury items and experiences, supporting brands and businesses that prioritize sustainability. Choosing products made from renewable or recycled materials, or opting for ethically manufactured goods, aligns your indulgences with responsible consumerism. By making mindful decisions about luxury spending and considering the environmental implications of our choices, we can collectively make a difference in combating climate change.
 </p>

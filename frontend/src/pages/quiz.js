@@ -62,7 +62,7 @@ function Quiz() {
     }
     setCurrq(currq + 1)
     if (currq > 11){
-      window.location.replace("http://localhost:3000/results")
+      window.location.replace("https://main.d38ai00lc1thuw.amplifyapp.com/results")
     }
     //console.log(question,ans)
   }
@@ -125,7 +125,7 @@ function Quiz() {
   else{
     setCurrq(0)
     return (
-      window.location.replace("http://localhost:3000/login")
+      window.location.replace("https://main.d38ai00lc1thuw.amplifyapp.com/login")
     );
   }
 }

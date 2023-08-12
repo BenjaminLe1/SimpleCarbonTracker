@@ -17,7 +17,7 @@ const Home = () => {
                 Take a step towards environmental awareness and find out how much impact your daily choices have on the planet. Our interactive quiz will assess your carbon footprint by evaluating various aspects of your lifestyle, such as transportation, dietary and spending habits, and home energy consumption. Uncover your carbon footprint score and receive personalized tips on how to reduce your environmental impact. Start the quiz now and be part of the solution!
             </h3>
             <div className="buttons-container">
-                <a href="http://localhost:3000/quiz" className="button button--pen">
+                <a href="https://main.d38ai00lc1thuw.amplifyapp.com/quiz" className="button button--pen">
                     <div className="button__wrapper">
                         <span className="button__text">Click Here</span>
                     </div>

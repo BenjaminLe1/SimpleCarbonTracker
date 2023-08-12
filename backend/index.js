@@ -16,7 +16,7 @@ const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://main.d38ai00lc1thuw.amplifyapp.com"],
     methods: ["GET","POST"],
     credentials: true
 }));
@@ -37,8 +37,8 @@ app.use(session({
 const db = mysql.createConnection({
     host:"localhost",
     user:"root",
-    //password:"N@vi03kid", //vijay
-    password:"Canbe56&8", //bens
+    password:"N@vi03kid", //vijay
+    //password:"Canbe56&8", //bens
     //password:"dataBaseNow12", //pravin
     database:"simplecarbontracker"
 })

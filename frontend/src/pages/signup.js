@@ -24,7 +24,7 @@ function Signup(){
             setError(response.data);
             if (response.data === "Account Created Successfully!"){
                 postSignup()
-                window.location.replace("http://localhost:3000/login")
+                window.location.replace("https://main.d38ai00lc1thuw.amplifyapp.com/login")
             }
         })
     }
